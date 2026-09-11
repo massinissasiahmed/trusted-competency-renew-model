@@ -1,0 +1,745 @@
+{
+  "SystemNet": {
+    "places": [
+      "p_StudentPool",
+      "p_ProfessorPool",
+      "p_UniversityPool",
+      "p_EvidencePool",
+      "p_CompetencyPool",
+      "p_WalletPool",
+      "p_LedgerPool",
+      "p_HRPool"
+    ],
+    "transitions": [
+      "t_CreateStudent",
+      "t_CreateProfessor",
+      "t_CreateUniversity",
+      "t_CreateEvidence",
+      "t_CreateCompetency",
+      "t_CreateWallet",
+      "t_CreateLedger",
+      "t_CreateHR"
+    ],
+    "triples": [
+      [
+        "p_StudentPool",
+        "t_CreateStudent",
+        "p_StudentPool"
+      ],
+      [
+        "p_ProfessorPool",
+        "t_CreateProfessor",
+        "p_ProfessorPool"
+      ],
+      [
+        "p_UniversityPool",
+        "t_CreateUniversity",
+        "p_UniversityPool"
+      ],
+      [
+        "p_EvidencePool",
+        "t_CreateEvidence",
+        "p_EvidencePool"
+      ],
+      [
+        "p_CompetencyPool",
+        "t_CreateCompetency",
+        "p_CompetencyPool"
+      ],
+      [
+        "p_WalletPool",
+        "t_CreateWallet",
+        "p_WalletPool"
+      ],
+      [
+        "p_LedgerPool",
+        "t_CreateLedger",
+        "p_LedgerPool"
+      ],
+      [
+        "p_HRPool",
+        "t_CreateHR",
+        "p_HRPool"
+      ]
+    ],
+    "ins": {
+      "t_CreateStudent": "s :new StudentAgent; this:createp(p); this:createu(u); this:createe(e); this:createc(c); this:createw(w); this:createl(l); this:createh(h); s:setup(p,u,e,c,w,l,h)",
+      "t_CreateProfessor": "p :new ProfessorAgent; :createp(p)",
+      "t_CreateUniversity": "u :new UniversityAgent; :createu(u)",
+      "t_CreateEvidence": "e :new EvidenceNet; :createe(e)",
+      "t_CreateCompetency": "c :new CompetencyNet; :createc(c)",
+      "t_CreateWallet": "w :new WalletNet; :createw(w)",
+      "t_CreateLedger": "l :new HEDULedgerNet; :createl(l)",
+      "t_CreateHR": "h :new HRAgent; :createh(h)"
+    },
+    "marks": {
+      "p_StudentPool": "[]",
+      "p_ProfessorPool": "[]",
+      "p_UniversityPool": "[]",
+      "p_EvidencePool": "[]",
+      "p_CompetencyPool": "[]",
+      "p_WalletPool": "[]",
+      "p_LedgerPool": "[]",
+      "p_HRPool": "[]"
+    },
+    "input": {},
+    "output": {
+      "t_CreateStudent": "s",
+      "t_CreateProfessor": "p",
+      "t_CreateUniversity": "u",
+      "t_CreateEvidence": "e",
+      "t_CreateCompetency": "c",
+      "t_CreateWallet": "w",
+      "t_CreateLedger": "l",
+      "t_CreateHR": "h"
+    },
+    "token": "[]"
+  },
+  "StudentAgent": {
+    "places": [
+      "p_Idle",
+      "p_EvidenceReady",
+      "p_Submitted",
+      "p_WaitingCredential",
+      "p_CredentialReceived",
+      "p_Accepted",
+      "p_Rejected",
+      "p_PresentationReady",
+      "p_VPShared"
+    ],
+    "transitions": [
+      "t_PrepareEvidence",
+      "t_SubmitEvidence",
+      "t_WaitCredential",
+      "t_ReceiveCredential",
+      "t_AcceptCredential",
+      "t_RejectCredential",
+      "t_GenerateVP",
+      "t_ShareVP"
+    ],
+    "triples": [
+      [
+        "p_Idle",
+        "t_PrepareEvidence",
+        "p_EvidenceReady"
+      ],
+      [
+        "p_EvidenceReady",
+        "t_SubmitEvidence",
+        "p_Submitted"
+      ],
+      [
+        "p_Submitted",
+        "t_WaitCredential",
+        "p_WaitingCredential"
+      ],
+      [
+        "p_WaitingCredential",
+        "t_ReceiveCredential",
+        "p_CredentialReceived"
+      ],
+      [
+        "p_CredentialReceived",
+        "t_AcceptCredential",
+        "p_Accepted"
+      ],
+      [
+        "p_CredentialReceived",
+        "t_RejectCredential",
+        "p_Rejected"
+      ],
+      [
+        "p_Accepted",
+        "t_GenerateVP",
+        "p_PresentationReady"
+      ],
+      [
+        "p_PresentationReady",
+        "t_ShareVP",
+        "p_VPShared"
+      ]
+    ],
+    "ins": {
+      "t_PrepareEvidence": ":setup(p,u,e,c,w,l,h)",
+      "t_SubmitEvidence": "p:submit(u,c,w,l,h,e,grade,passing_threshold,currentTime,expiryDate); e:submit(grade,passing_threshold)",
+      "t_ReceiveCredential": "w:consent()",
+      "t_AcceptCredential": "w:sbt_accept()",
+      "t_RejectCredential": "w:sbt_reject()",
+      "t_ShareVP": "h:submit()"
+    },
+    "marks": {
+      "p_Idle": "[80,50,0,100]"
+    },
+    "input": {
+      "t_PrepareEvidence": "[grade,passing_threshold,currentTime,expiryDate]"
+    },
+    "output": {},
+    "token": "[p,u,e,c,w,l,h,grade,passing_threshold,currentTime,expiryDate]"
+  },
+  "ProfessorAgent": {
+    "places": [
+      "p_Idle",
+      "p_EvidenceReceived",
+      "p_UnderReview",
+      "p_Evaluated",
+      "p_Approved",
+      "p_Rejected"
+    ],
+    "transitions": [
+      "t_ReceiveEvidence",
+      "t_StartReview",
+      "t_AssessEvidence",
+      "t_ApproveEvidence",
+      "t_RejectEvidence"
+    ],
+    "triples": [
+      [
+        "p_Idle",
+        "t_ReceiveEvidence",
+        "p_EvidenceReceived"
+      ],
+      [
+        "p_EvidenceReceived",
+        "t_StartReview",
+        "p_UnderReview"
+      ],
+      [
+        "p_UnderReview",
+        "t_AssessEvidence",
+        "p_Evaluated"
+      ],
+      [
+        "p_Evaluated",
+        "t_ApproveEvidence",
+        "p_Approved"
+      ],
+      [
+        "p_Evaluated",
+        "t_RejectEvidence",
+        "p_Rejected"
+      ]
+    ],
+    "ins": {
+      "t_ReceiveEvidence": ":submit(u,c,w,l,h,e,grade,passing_threshold,currentTime,expiryDate)",
+      "t_AssessEvidence": "e:evaluate()",
+      "t_ApproveEvidence": "guard grade >= passing_threshold; u:submit(c,w,l,h,grade,passing_threshold,currentTime,expiryDate)",
+      "t_RejectEvidence": "guard grade < passing_threshold"
+    },
+    "marks": {
+      "p_Idle": "[]"
+    },
+    "input": {
+      "t_ReceiveEvidence": "[]"
+    },
+    "output": {},
+    "token": "[u,c,w,l,h,e,grade,passing_threshold,currentTime,expiryDate]"
+  },
+  "UniversityAgent": {
+    "places": [
+      "p_Idle",
+      "p_EvidenceReceived",
+      "p_Verifying",
+      "p_CredentialRequested",
+      "p_CredentialIssued",
+      "p_Rejected"
+    ],
+    "transitions": [
+      "t_ReceiveEvidence",
+      "t_VerifyEvidence",
+      "t_RequestCredential",
+      "t_IssueCredential",
+      "t_RejectEvidence"
+    ],
+    "triples": [
+      [
+        "p_Idle",
+        "t_ReceiveEvidence",
+        "p_EvidenceReceived"
+      ],
+      [
+        "p_EvidenceReceived",
+        "t_VerifyEvidence",
+        "p_Verifying"
+      ],
+      [
+        "p_Verifying",
+        "t_RequestCredential",
+        "p_CredentialRequested"
+      ],
+      [
+        "p_Verifying",
+        "t_RejectEvidence",
+        "p_Rejected"
+      ],
+      [
+        "p_CredentialRequested",
+        "t_IssueCredential",
+        "p_CredentialIssued"
+      ]
+    ],
+    "ins": {
+      "t_ReceiveEvidence": ":submit(c,w,l,h,grade,passing_threshold,currentTime,expiryDate)",
+      "t_RequestCredential": "guard grade >= passing_threshold; c:submit(w,l,h,grade,passing_threshold,currentTime,expiryDate)",
+      "t_IssueCredential": "c:sbt_mint()",
+      "t_RejectEvidence": "guard grade < passing_threshold"
+    },
+    "marks": {
+      "p_Idle": "[]"
+    },
+    "input": {
+      "t_ReceiveEvidence": "[]"
+    },
+    "output": {},
+    "token": "[c,w,l,h,grade,passing_threshold,currentTime,expiryDate]"
+  },
+  "EvidenceNet": {
+    "places": [
+      "p_Created",
+      "p_UploadedIPFS",
+      "p_SubmittedLMS",
+      "p_UnderReview",
+      "p_Graded",
+      "p_Rejected"
+    ],
+    "transitions": [
+      "t_IPFS_Upload",
+      "t_LMS_Submit",
+      "t_Review_Request",
+      "t_Grade_Assign",
+      "t_Reject"
+    ],
+    "triples": [
+      [
+        "p_Created",
+        "t_IPFS_Upload",
+        "p_UploadedIPFS"
+      ],
+      [
+        "p_UploadedIPFS",
+        "t_LMS_Submit",
+        "p_SubmittedLMS"
+      ],
+      [
+        "p_SubmittedLMS",
+        "t_Review_Request",
+        "p_UnderReview"
+      ],
+      [
+        "p_UnderReview",
+        "t_Grade_Assign",
+        "p_Graded"
+      ],
+      [
+        "p_UnderReview",
+        "t_Reject",
+        "p_Rejected"
+      ]
+    ],
+    "ins": {
+      "t_IPFS_Upload": ":submit(grade,passing_threshold); eo :new EvidenceObject; eo:submit()",
+      "t_LMS_Submit": "eo:lms()",
+      "t_Grade_Assign": ":evaluate(); guard grade >= passing_threshold; eo:evaluate()",
+      "t_Reject": ":evaluate(); guard grade < passing_threshold"
+    },
+    "marks": {
+      "p_Created": "[]"
+    },
+    "input": {
+      "t_IPFS_Upload": "[]"
+    },
+    "output": {},
+    "token": "[eo,grade,passing_threshold]"
+  },
+  "CompetencyNet": {
+    "places": [
+      "p_Submitted",
+      "p_UnderReview",
+      "p_Validated",
+      "p_PendingAccept",
+      "p_BlockchainAnchored",
+      "p_ProfileAggregated",
+      "p_Terminated"
+    ],
+    "transitions": [
+      "t_Review_Init",
+      "t_Verification_Pass",
+      "t_SBT_Mint",
+      "t_SBT_Accept",
+      "t_SBT_Reject",
+      "t_SBT_Cancel",
+      "t_SBT_Expire",
+      "t_Agg_Ingest"
+    ],
+    "triples": [
+      [
+        "p_Submitted",
+        "t_Review_Init",
+        "p_UnderReview"
+      ],
+      [
+        "p_UnderReview",
+        "t_Verification_Pass",
+        "p_Validated"
+      ],
+      [
+        "p_Validated",
+        "t_SBT_Mint",
+        "p_PendingAccept"
+      ],
+      [
+        "p_PendingAccept",
+        "t_SBT_Accept",
+        "p_BlockchainAnchored"
+      ],
+      [
+        "p_PendingAccept",
+        "t_SBT_Reject",
+        "p_Terminated"
+      ],
+      [
+        "p_PendingAccept",
+        "t_SBT_Cancel",
+        "p_Terminated"
+      ],
+      [
+        "p_PendingAccept",
+        "t_SBT_Expire",
+        "p_Terminated"
+      ],
+      [
+        "p_BlockchainAnchored",
+        "t_Agg_Ingest",
+        "p_ProfileAggregated"
+      ]
+    ],
+    "ins": {
+      "t_Review_Init": ":submit(w,l,h,grade,passing_threshold,currentTime,expiryDate); co :new CredentialObject; co:evaluate(grade,passing_threshold,currentTime,expiryDate)",
+      "t_Verification_Pass": "guard grade >= passing_threshold; co:validate()",
+      "t_SBT_Mint": ":sbt_mint(); co:sbt_mint(); w:sbt_mint(this)",
+      "t_SBT_Accept": ":sbt_accept(); guard currentTime < expiryDate; co:sbt_accept(); l:anchor_request()",
+      "t_SBT_Reject": ":sbt_reject(); co:sbt_reject()",
+      "t_SBT_Cancel": "co:sbt_cancel()",
+      "t_SBT_Expire": "guard currentTime >= expiryDate; co:expire()",
+      "t_Agg_Ingest": "co:update_profile(); l:update_profile(); h:update_profile()"
+    },
+    "marks": {
+      "p_Submitted": "[]"
+    },
+    "input": {
+      "t_Review_Init": "[]"
+    },
+    "output": {},
+    "token": "[co,w,l,h,grade,passing_threshold,currentTime,expiryDate]"
+  },
+  "WalletNet": {
+    "places": [
+      "p_Empty",
+      "p_CredentialReceived",
+      "p_PendingConsent",
+      "p_Accepted",
+      "p_Rejected",
+      "p_VPReady",
+      "p_VPShared"
+    ],
+    "transitions": [
+      "t_ReceiveCredential",
+      "t_RequestConsent",
+      "t_AcceptCredential",
+      "t_RejectCredential",
+      "t_GenerateVP",
+      "t_ShareVP"
+    ],
+    "triples": [
+      [
+        "p_Empty",
+        "t_ReceiveCredential",
+        "p_CredentialReceived"
+      ],
+      [
+        "p_CredentialReceived",
+        "t_RequestConsent",
+        "p_PendingConsent"
+      ],
+      [
+        "p_PendingConsent",
+        "t_AcceptCredential",
+        "p_Accepted"
+      ],
+      [
+        "p_PendingConsent",
+        "t_RejectCredential",
+        "p_Rejected"
+      ],
+      [
+        "p_Accepted",
+        "t_GenerateVP",
+        "p_VPReady"
+      ],
+      [
+        "p_VPReady",
+        "t_ShareVP",
+        "p_VPShared"
+      ]
+    ],
+    "ins": {
+      "t_ReceiveCredential": ":sbt_mint(c)",
+      "t_RequestConsent": ":consent()",
+      "t_AcceptCredential": ":sbt_accept(); c:sbt_accept()",
+      "t_RejectCredential": ":sbt_reject(); c:sbt_reject()"
+    },
+    "marks": {
+      "p_Empty": "[]"
+    },
+    "input": {
+      "t_ReceiveCredential": "[]"
+    },
+    "output": {},
+    "token": "c"
+  },
+  "HEDULedgerNet": {
+    "places": [
+      "p_Received",
+      "p_Executed",
+      "p_Ordered",
+      "p_Validated",
+      "p_Committed",
+      "p_Anchored",
+      "p_Rejected"
+    ],
+    "transitions": [
+      "t_Execute",
+      "t_Order",
+      "t_Validate",
+      "t_Commit",
+      "t_Anchor",
+      "t_Reject"
+    ],
+    "triples": [
+      [
+        "p_Received",
+        "t_Execute",
+        "p_Executed"
+      ],
+      [
+        "p_Executed",
+        "t_Order",
+        "p_Ordered"
+      ],
+      [
+        "p_Ordered",
+        "t_Validate",
+        "p_Validated"
+      ],
+      [
+        "p_Ordered",
+        "t_Reject",
+        "p_Rejected"
+      ],
+      [
+        "p_Validated",
+        "t_Commit",
+        "p_Committed"
+      ],
+      [
+        "p_Committed",
+        "t_Anchor",
+        "p_Anchored"
+      ]
+    ],
+    "ins": {
+      "t_Execute": ":anchor_request()",
+      "t_Anchor": ":update_profile()"
+    },
+    "marks": {
+      "p_Received": "[]"
+    },
+    "input": {},
+    "output": {},
+    "token": "[]"
+  },
+  "HRAgent": {
+    "places": [
+      "p_Idle",
+      "p_VPReceived",
+      "p_Parsed",
+      "p_CompetencyProfile",
+      "p_Matching",
+      "p_GapAnalysis",
+      "p_ResultReady"
+    ],
+    "transitions": [
+      "t_ReceiveVP",
+      "t_ParseVP",
+      "t_BuildProfile",
+      "t_SemanticMatch",
+      "t_GapAnalysis",
+      "t_GenerateResult"
+    ],
+    "triples": [
+      [
+        "p_Idle",
+        "t_ReceiveVP",
+        "p_VPReceived"
+      ],
+      [
+        "p_VPReceived",
+        "t_ParseVP",
+        "p_Parsed"
+      ],
+      [
+        "p_Parsed",
+        "t_BuildProfile",
+        "p_CompetencyProfile"
+      ],
+      [
+        "p_CompetencyProfile",
+        "t_SemanticMatch",
+        "p_Matching"
+      ],
+      [
+        "p_Matching",
+        "t_GapAnalysis",
+        "p_GapAnalysis"
+      ],
+      [
+        "p_GapAnalysis",
+        "t_GenerateResult",
+        "p_ResultReady"
+      ]
+    ],
+    "ins": {
+      "t_ReceiveVP": ":submit()",
+      "t_BuildProfile": ":update_profile()"
+    },
+    "marks": {
+      "p_Idle": "[]"
+    },
+    "input": {},
+    "output": {},
+    "token": "[]"
+  },
+  "EvidenceObject": {
+    "places": [
+      "p_Created",
+      "p_UploadedIPFS",
+      "p_SubmittedLMS",
+      "p_Graded"
+    ],
+    "transitions": [
+      "t_IPFS_Upload",
+      "t_LMS_Submit",
+      "t_Grade_Assign"
+    ],
+    "triples": [
+      [
+        "p_Created",
+        "t_IPFS_Upload",
+        "p_UploadedIPFS"
+      ],
+      [
+        "p_UploadedIPFS",
+        "t_LMS_Submit",
+        "p_SubmittedLMS"
+      ],
+      [
+        "p_SubmittedLMS",
+        "t_Grade_Assign",
+        "p_Graded"
+      ]
+    ],
+    "ins": {
+      "t_IPFS_Upload": ":submit()",
+      "t_LMS_Submit": ":lms()",
+      "t_Grade_Assign": ":evaluate()"
+    },
+    "marks": {
+      "p_Created": "[]"
+    },
+    "input": {},
+    "output": {},
+    "token": "[]"
+  },
+  "CredentialObject": {
+    "places": [
+      "p_Submitted",
+      "p_UnderReview",
+      "p_Validated",
+      "p_PendingAccept",
+      "p_Anchored",
+      "p_Rejected",
+      "p_Cancelled",
+      "p_Expired",
+      "p_Aggregated"
+    ],
+    "transitions": [
+      "t_StartReview",
+      "t_Validate",
+      "t_Mint",
+      "t_Accept",
+      "t_Reject",
+      "t_Cancel",
+      "t_Expire",
+      "t_Aggregate"
+    ],
+    "triples": [
+      [
+        "p_Submitted",
+        "t_StartReview",
+        "p_UnderReview"
+      ],
+      [
+        "p_UnderReview",
+        "t_Validate",
+        "p_Validated"
+      ],
+      [
+        "p_Validated",
+        "t_Mint",
+        "p_PendingAccept"
+      ],
+      [
+        "p_PendingAccept",
+        "t_Accept",
+        "p_Anchored"
+      ],
+      [
+        "p_PendingAccept",
+        "t_Reject",
+        "p_Rejected"
+      ],
+      [
+        "p_PendingAccept",
+        "t_Cancel",
+        "p_Cancelled"
+      ],
+      [
+        "p_PendingAccept",
+        "t_Expire",
+        "p_Expired"
+      ],
+      [
+        "p_Anchored",
+        "t_Aggregate",
+        "p_Aggregated"
+      ]
+    ],
+    "ins": {
+      "t_StartReview": ":evaluate(grade,passing_threshold,currentTime,expiryDate)",
+      "t_Validate": ":validate(); guard grade >= passing_threshold",
+      "t_Mint": ":sbt_mint()",
+      "t_Accept": ":sbt_accept(); guard currentTime < expiryDate",
+      "t_Reject": ":sbt_reject()",
+      "t_Cancel": ":sbt_cancel()",
+      "t_Expire": ":expire(); guard currentTime >= expiryDate",
+      "t_Aggregate": ":update_profile()"
+    },
+    "marks": {
+      "p_Submitted": "[]"
+    },
+    "input": {
+      "t_StartReview": "[]"
+    },
+    "output": {},
+    "token": "[grade,passing_threshold,currentTime,expiryDate]"
+  }
+}
