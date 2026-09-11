@@ -4,7 +4,7 @@
         de.renew.gui.CPNTextFigure "attributes" "attributes" 4 "TextAlignment" "Int" 1 "FigureWithID" "Int" 2 "FrameColor" "Color" 255 199 158 255 "FillColor" "Color" 255 199 158 255 115 70 "p_Created" "SansSerif" 1 12 0 REF 1 
             CH.ifa.draw.standard.OffsetLocator 52 -4 
                 CH.ifa.draw.standard.RelativeLocator 0.5 0.5   2  
-        de.renew.gui.CPNTextFigure "attributes" "attributes" 4 "TextAlignment" "Int" 1 "FigureWithID" "Int" 3 "FrameColor" "Color" 255 199 158 255 "FillColor" "Color" 255 199 158 255 115 92 "[]" "SansSerif" 0 12 0 REF 1 
+        de.renew.gui.CPNTextFigure "attributes" "attributes" 4 "TextAlignment" "Int" 1 "FigureWithID" "Int" 3 "FrameColor" "Color" 255 199 158 255 "FillColor" "Color" 255 199 158 255 115 92 "50" "SansSerif" 0 12 0 REF 1 
             CH.ifa.draw.standard.OffsetLocator 26 18 
                 CH.ifa.draw.standard.RelativeLocator 0.5 0.5   1  
         de.renew.gui.PlaceFigure "attributes" "attributes" 1 "FigureWithID" "Int" 4 80 420 24 24 NULL  
@@ -31,7 +31,7 @@
         de.renew.gui.CPNTextFigure "attributes" "attributes" 4 "TextAlignment" "Int" 1 "FigureWithID" "Int" 15 "FrameColor" "Color" 255 199 158 255 "FillColor" "Color" 255 199 158 255 115 245 "t_IPFS_Upload" "SansSerif" 1 12 0 REF 28 
             CH.ifa.draw.standard.OffsetLocator 64 -4 
                 CH.ifa.draw.standard.RelativeLocator 0.5 0.5   2  
-        de.renew.gui.CPNTextFigure "attributes" "attributes" 4 "TextAlignment" "Int" 1 "FigureWithID" "Int" 16 "FrameColor" "Color" 255 199 158 255 "FillColor" "Color" 255 199 158 255 115 267 ":submit(grade,passing_threshold);\neo :new EvidenceObject;\neo:submit()" "SansSerif" 0 12 0 REF 28 
+        de.renew.gui.CPNTextFigure "attributes" "attributes" 4 "TextAlignment" "Int" 1 "FigureWithID" "Int" 16 "FrameColor" "Color" 255 199 158 255 "FillColor" "Color" 255 199 158 255 115 267 ":submit(studentDID,evidenceCID);\neo :new EvidenceObject;\neo:submit(studentDID,evidenceCID)" "SansSerif" 0 12 0 REF 28 
             CH.ifa.draw.standard.OffsetLocator 118 34 
                 CH.ifa.draw.standard.RelativeLocator 0.5 0.5   1  
         de.renew.gui.TransitionFigure "attributes" "attributes" 1 "FigureWithID" "Int" 17 80 595 24 24 NULL  
@@ -49,83 +49,83 @@
         de.renew.gui.CPNTextFigure "attributes" "attributes" 4 "TextAlignment" "Int" 1 "FigureWithID" "Int" 23 "FrameColor" "Color" 255 199 158 255 "FillColor" "Color" 255 199 158 255 115 1295 "t_Grade_Assign" "SansSerif" 1 12 0 REF 46 
             CH.ifa.draw.standard.OffsetLocator 68 -4 
                 CH.ifa.draw.standard.RelativeLocator 0.5 0.5   2  
-        de.renew.gui.CPNTextFigure "attributes" "attributes" 4 "TextAlignment" "Int" 1 "FigureWithID" "Int" 24 "FrameColor" "Color" 255 199 158 255 "FillColor" "Color" 255 199 158 255 115 1317 ":evaluate();\nguard grade >= passing_threshold;\neo:evaluate()" "SansSerif" 0 12 0 REF 46 
+        de.renew.gui.CPNTextFigure "attributes" "attributes" 4 "TextAlignment" "Int" 1 "FigureWithID" "Int" 24 "FrameColor" "Color" 255 199 158 255 "FillColor" "Color" 255 199 158 255 115 1317 ":evaluate(assessorDID,grade,criteriaURL);\nguard grade >= passing_threshold;\neo:evaluate(assessorDID,grade,criteriaURL)" "SansSerif" 0 12 0 REF 46 
             CH.ifa.draw.standard.OffsetLocator 120 34 
                 CH.ifa.draw.standard.RelativeLocator 0.5 0.5   1  
         de.renew.gui.TransitionFigure "attributes" "attributes" 1 "FigureWithID" "Int" 25 1080 1295 24 24 NULL  
         de.renew.gui.CPNTextFigure "attributes" "attributes" 4 "TextAlignment" "Int" 1 "FigureWithID" "Int" 26 "FrameColor" "Color" 255 199 158 255 "FillColor" "Color" 255 199 158 255 1115 1295 "t_Reject" "SansSerif" 1 12 0 REF 53 
             CH.ifa.draw.standard.OffsetLocator 46 -4 
                 CH.ifa.draw.standard.RelativeLocator 0.5 0.5   2  
-        de.renew.gui.CPNTextFigure "attributes" "attributes" 4 "TextAlignment" "Int" 1 "FigureWithID" "Int" 27 "FrameColor" "Color" 255 199 158 255 "FillColor" "Color" 255 199 158 255 1115 1317 ":evaluate();\nguard grade < passing_threshold" "SansSerif" 0 12 0 REF 53 
+        de.renew.gui.CPNTextFigure "attributes" "attributes" 4 "TextAlignment" "Int" 1 "FigureWithID" "Int" 27 "FrameColor" "Color" 255 199 158 255 "FillColor" "Color" 255 199 158 255 1115 1317 ":evaluate(assessorDID,grade,criteriaURL);\nguard grade < passing_threshold" "SansSerif" 0 12 0 REF 53 
             CH.ifa.draw.standard.OffsetLocator 115 26 
                 CH.ifa.draw.standard.RelativeLocator 0.5 0.5   1  
         de.renew.gui.ArcConnection "attributes" "attributes" 1 "FigureWithID" "Int" 28 2 92 94 92 245 NULL 
             CH.ifa.draw.figures.ArrowTip 0.4 8.0 8.0 1  "CH.ifa.draw.figures.ArrowTip" 
             CH.ifa.draw.figures.ChopEllipseConnector REF 1  
             CH.ifa.draw.standard.ChopBoxConnector REF 28   
-        de.renew.gui.CPNTextFigure "attributes" "attributes" 4 "TextAlignment" "Int" 1 "FigureWithID" "Int" 29 "FrameColor" "Color" 255 199 158 255 "FillColor" "Color" 255 199 158 255 104 153 "[]" "SansSerif" 0 12 0 REF 60 
+        de.renew.gui.CPNTextFigure "attributes" "attributes" 4 "TextAlignment" "Int" 1 "FigureWithID" "Int" 29 "FrameColor" "Color" 255 199 158 255 "FillColor" "Color" 255 199 158 255 104 153 "passing_threshold" "SansSerif" 0 12 0 REF 60 
             CH.ifa.draw.standard.OffsetLocator 15 -8 
                 CH.ifa.draw.standard.RelativeLocator 0.5 0.5   1  
         de.renew.gui.ArcConnection "attributes" "attributes" 1 "FigureWithID" "Int" 30 2 92 269 92 421 NULL 
             CH.ifa.draw.figures.ArrowTip 0.4 8.0 8.0 1  "CH.ifa.draw.figures.ArrowTip" 
             CH.ifa.draw.standard.ChopBoxConnector REF 28  
             CH.ifa.draw.figures.ChopEllipseConnector REF 8   
-        de.renew.gui.CPNTextFigure "attributes" "attributes" 4 "TextAlignment" "Int" 1 "FigureWithID" "Int" 31 "FrameColor" "Color" 255 199 158 255 "FillColor" "Color" 255 199 158 255 104 329 "[eo,grade,passing_threshold]" "SansSerif" 0 12 0 REF 67 
+        de.renew.gui.CPNTextFigure "attributes" "attributes" 4 "TextAlignment" "Int" 1 "FigureWithID" "Int" 31 "FrameColor" "Color" 255 199 158 255 "FillColor" "Color" 255 199 158 255 104 329 "[eo,studentDID,evidenceCID,passing_threshold]" "SansSerif" 0 12 0 REF 67 
             CH.ifa.draw.standard.OffsetLocator 93 -8 
                 CH.ifa.draw.standard.RelativeLocator 0.5 0.5   1  
         de.renew.gui.ArcConnection "attributes" "attributes" 1 "FigureWithID" "Int" 32 2 92 444 92 595 NULL 
             CH.ifa.draw.figures.ArrowTip 0.4 8.0 8.0 1  "CH.ifa.draw.figures.ArrowTip" 
             CH.ifa.draw.figures.ChopEllipseConnector REF 8  
             CH.ifa.draw.standard.ChopBoxConnector REF 35   
-        de.renew.gui.CPNTextFigure "attributes" "attributes" 4 "TextAlignment" "Int" 1 "FigureWithID" "Int" 33 "FrameColor" "Color" 255 199 158 255 "FillColor" "Color" 255 199 158 255 104 503 "[eo,grade,passing_threshold]" "SansSerif" 0 12 0 REF 74 
+        de.renew.gui.CPNTextFigure "attributes" "attributes" 4 "TextAlignment" "Int" 1 "FigureWithID" "Int" 33 "FrameColor" "Color" 255 199 158 255 "FillColor" "Color" 255 199 158 255 104 503 "[eo,studentDID,evidenceCID,passing_threshold]" "SansSerif" 0 12 0 REF 74 
             CH.ifa.draw.standard.OffsetLocator 93 -8 
                 CH.ifa.draw.standard.RelativeLocator 0.5 0.5   1  
         de.renew.gui.ArcConnection "attributes" "attributes" 1 "FigureWithID" "Int" 34 2 92 619 92 771 NULL 
             CH.ifa.draw.figures.ArrowTip 0.4 8.0 8.0 1  "CH.ifa.draw.figures.ArrowTip" 
             CH.ifa.draw.standard.ChopBoxConnector REF 35  
             CH.ifa.draw.figures.ChopEllipseConnector REF 12   
-        de.renew.gui.CPNTextFigure "attributes" "attributes" 4 "TextAlignment" "Int" 1 "FigureWithID" "Int" 35 "FrameColor" "Color" 255 199 158 255 "FillColor" "Color" 255 199 158 255 104 679 "[eo,grade,passing_threshold]" "SansSerif" 0 12 0 REF 81 
+        de.renew.gui.CPNTextFigure "attributes" "attributes" 4 "TextAlignment" "Int" 1 "FigureWithID" "Int" 35 "FrameColor" "Color" 255 199 158 255 "FillColor" "Color" 255 199 158 255 104 679 "[eo,studentDID,evidenceCID,passing_threshold]" "SansSerif" 0 12 0 REF 81 
             CH.ifa.draw.standard.OffsetLocator 93 -8 
                 CH.ifa.draw.standard.RelativeLocator 0.5 0.5   1  
         de.renew.gui.ArcConnection "attributes" "attributes" 1 "FigureWithID" "Int" 36 2 92 794 92 945 NULL 
             CH.ifa.draw.figures.ArrowTip 0.4 8.0 8.0 1  "CH.ifa.draw.figures.ArrowTip" 
             CH.ifa.draw.figures.ChopEllipseConnector REF 12  
             CH.ifa.draw.standard.ChopBoxConnector REF 42   
-        de.renew.gui.CPNTextFigure "attributes" "attributes" 4 "TextAlignment" "Int" 1 "FigureWithID" "Int" 37 "FrameColor" "Color" 255 199 158 255 "FillColor" "Color" 255 199 158 255 104 853 "[eo,grade,passing_threshold]" "SansSerif" 0 12 0 REF 88 
+        de.renew.gui.CPNTextFigure "attributes" "attributes" 4 "TextAlignment" "Int" 1 "FigureWithID" "Int" 37 "FrameColor" "Color" 255 199 158 255 "FillColor" "Color" 255 199 158 255 104 853 "[eo,studentDID,evidenceCID,passing_threshold]" "SansSerif" 0 12 0 REF 88 
             CH.ifa.draw.standard.OffsetLocator 93 -8 
                 CH.ifa.draw.standard.RelativeLocator 0.5 0.5   1  
         de.renew.gui.ArcConnection "attributes" "attributes" 1 "FigureWithID" "Int" 38 2 92 969 92 1121 NULL 
             CH.ifa.draw.figures.ArrowTip 0.4 8.0 8.0 1  "CH.ifa.draw.figures.ArrowTip" 
             CH.ifa.draw.standard.ChopBoxConnector REF 42  
             CH.ifa.draw.figures.ChopEllipseConnector REF 16   
-        de.renew.gui.CPNTextFigure "attributes" "attributes" 4 "TextAlignment" "Int" 1 "FigureWithID" "Int" 39 "FrameColor" "Color" 255 199 158 255 "FillColor" "Color" 255 199 158 255 104 1029 "[eo,grade,passing_threshold]" "SansSerif" 0 12 0 REF 95 
+        de.renew.gui.CPNTextFigure "attributes" "attributes" 4 "TextAlignment" "Int" 1 "FigureWithID" "Int" 39 "FrameColor" "Color" 255 199 158 255 "FillColor" "Color" 255 199 158 255 104 1029 "[eo,studentDID,evidenceCID,passing_threshold]" "SansSerif" 0 12 0 REF 95 
             CH.ifa.draw.standard.OffsetLocator 93 -8 
                 CH.ifa.draw.standard.RelativeLocator 0.5 0.5   1  
         de.renew.gui.ArcConnection "attributes" "attributes" 1 "FigureWithID" "Int" 40 2 92 1144 92 1295 NULL 
             CH.ifa.draw.figures.ArrowTip 0.4 8.0 8.0 1  "CH.ifa.draw.figures.ArrowTip" 
             CH.ifa.draw.figures.ChopEllipseConnector REF 16  
             CH.ifa.draw.standard.ChopBoxConnector REF 46   
-        de.renew.gui.CPNTextFigure "attributes" "attributes" 4 "TextAlignment" "Int" 1 "FigureWithID" "Int" 41 "FrameColor" "Color" 255 199 158 255 "FillColor" "Color" 255 199 158 255 104 1203 "[eo,grade,passing_threshold]" "SansSerif" 0 12 0 REF 102 
+        de.renew.gui.CPNTextFigure "attributes" "attributes" 4 "TextAlignment" "Int" 1 "FigureWithID" "Int" 41 "FrameColor" "Color" 255 199 158 255 "FillColor" "Color" 255 199 158 255 104 1203 "[eo,studentDID,evidenceCID,passing_threshold]" "SansSerif" 0 12 0 REF 102 
             CH.ifa.draw.standard.OffsetLocator 93 -8 
                 CH.ifa.draw.standard.RelativeLocator 0.5 0.5   1  
         de.renew.gui.ArcConnection "attributes" "attributes" 1 "FigureWithID" "Int" 42 2 92 1319 92 1471 NULL 
             CH.ifa.draw.figures.ArrowTip 0.4 8.0 8.0 1  "CH.ifa.draw.figures.ArrowTip" 
             CH.ifa.draw.standard.ChopBoxConnector REF 46  
             CH.ifa.draw.figures.ChopEllipseConnector REF 20   
-        de.renew.gui.CPNTextFigure "attributes" "attributes" 4 "TextAlignment" "Int" 1 "FigureWithID" "Int" 43 "FrameColor" "Color" 255 199 158 255 "FillColor" "Color" 255 199 158 255 104 1379 "[eo,grade,passing_threshold]" "SansSerif" 0 12 0 REF 109 
+        de.renew.gui.CPNTextFigure "attributes" "attributes" 4 "TextAlignment" "Int" 1 "FigureWithID" "Int" 43 "FrameColor" "Color" 255 199 158 255 "FillColor" "Color" 255 199 158 255 104 1379 "[eo,studentDID,evidenceCID,passing_threshold,assessorDID,grade,criteriaURL]" "SansSerif" 0 12 0 REF 109 
             CH.ifa.draw.standard.OffsetLocator 93 -8 
                 CH.ifa.draw.standard.RelativeLocator 0.5 0.5   1  
         de.renew.gui.ArcConnection "attributes" "attributes" 1 "FigureWithID" "Int" 44 2 104 1134 1080 1304 NULL 
             CH.ifa.draw.figures.ArrowTip 0.4 8.0 8.0 1  "CH.ifa.draw.figures.ArrowTip" 
             CH.ifa.draw.figures.ChopEllipseConnector REF 16  
             CH.ifa.draw.standard.ChopBoxConnector REF 53   
-        de.renew.gui.CPNTextFigure "attributes" "attributes" 4 "TextAlignment" "Int" 1 "FigureWithID" "Int" 45 "FrameColor" "Color" 255 199 158 255 "FillColor" "Color" 255 199 158 255 604 1203 "[eo,grade,passing_threshold]" "SansSerif" 0 12 0 REF 116 
+        de.renew.gui.CPNTextFigure "attributes" "attributes" 4 "TextAlignment" "Int" 1 "FigureWithID" "Int" 45 "FrameColor" "Color" 255 199 158 255 "FillColor" "Color" 255 199 158 255 604 1203 "[eo,studentDID,evidenceCID,passing_threshold]" "SansSerif" 0 12 0 REF 116 
             CH.ifa.draw.standard.OffsetLocator 93 -8 
                 CH.ifa.draw.standard.RelativeLocator 0.5 0.5   1  
         de.renew.gui.ArcConnection "attributes" "attributes" 1 "FigureWithID" "Int" 46 2 1092 1319 1092 1471 NULL 
             CH.ifa.draw.figures.ArrowTip 0.4 8.0 8.0 1  "CH.ifa.draw.figures.ArrowTip" 
             CH.ifa.draw.standard.ChopBoxConnector REF 53  
             CH.ifa.draw.figures.ChopEllipseConnector REF 24   
-        de.renew.gui.CPNTextFigure "attributes" "attributes" 4 "TextAlignment" "Int" 1 "FigureWithID" "Int" 47 "FrameColor" "Color" 255 199 158 255 "FillColor" "Color" 255 199 158 255 1104 1379 "[eo,grade,passing_threshold]" "SansSerif" 0 12 0 REF 123 
+        de.renew.gui.CPNTextFigure "attributes" "attributes" 4 "TextAlignment" "Int" 1 "FigureWithID" "Int" 47 "FrameColor" "Color" 255 199 158 255 "FillColor" "Color" 255 199 158 255 1104 1379 "[eo,studentDID,evidenceCID,passing_threshold,assessorDID,grade,criteriaURL]" "SansSerif" 0 12 0 REF 123 
             CH.ifa.draw.standard.OffsetLocator 93 -8 
                 CH.ifa.draw.standard.RelativeLocator 0.5 0.5   1  NULL  

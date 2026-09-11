@@ -161,20 +161,20 @@
     ],
     "ins": {
       "t_PrepareEvidence": ":setup(p,u,e,c,w,l,h)",
-      "t_SubmitEvidence": "p:submit(u,c,w,l,h,e,grade,passing_threshold,currentTime,expiryDate); e:submit(grade,passing_threshold)",
+      "t_SubmitEvidence": "p:submit(u,c,w,l,h,e,grade,passing_threshold,currentTime,expiryDate); e:submit(studentDID,evidenceCID)",
       "t_ReceiveCredential": "w:consent()",
-      "t_AcceptCredential": "w:sbt_accept()",
-      "t_RejectCredential": "w:sbt_reject()",
+      "t_AcceptCredential": "w:sbt_accept(studentSignature)",
+      "t_RejectCredential": "w:sbt_reject(studentSignature)",
       "t_ShareVP": "h:submit()"
     },
     "marks": {
-      "p_Idle": "[80,50,0,100]"
+      "p_Idle": "[80,50,0,100,\"did:example:student1\",\"bafyEvidence001\",\"student-signature\"]"
     },
     "input": {
-      "t_PrepareEvidence": "[grade,passing_threshold,currentTime,expiryDate]"
+      "t_PrepareEvidence": "[grade,passing_threshold,currentTime,expiryDate,studentDID,evidenceCID,studentSignature]"
     },
     "output": {},
-    "token": "[p,u,e,c,w,l,h,grade,passing_threshold,currentTime,expiryDate]"
+    "token": "[p,u,e,c,w,l,h,grade,passing_threshold,currentTime,expiryDate,studentDID,evidenceCID,studentSignature]"
   },
   "ProfessorAgent": {
     "places": [
@@ -221,18 +221,18 @@
     ],
     "ins": {
       "t_ReceiveEvidence": ":submit(u,c,w,l,h,e,grade,passing_threshold,currentTime,expiryDate)",
-      "t_AssessEvidence": "e:evaluate()",
+      "t_AssessEvidence": "e:evaluate(assessorDID,grade,criteriaURL)",
       "t_ApproveEvidence": "guard grade >= passing_threshold; u:submit(c,w,l,h,grade,passing_threshold,currentTime,expiryDate)",
       "t_RejectEvidence": "guard grade < passing_threshold"
     },
     "marks": {
-      "p_Idle": "[]"
+      "p_Idle": "[\"did:example:assessor1\",\"https://example.org/criteria\"]"
     },
     "input": {
-      "t_ReceiveEvidence": "[]"
+      "t_ReceiveEvidence": "[assessorDID,criteriaURL]"
     },
     "output": {},
-    "token": "[u,c,w,l,h,e,grade,passing_threshold,currentTime,expiryDate]"
+    "token": "[u,c,w,l,h,e,grade,passing_threshold,currentTime,expiryDate,assessorDID,criteriaURL]"
   },
   "UniversityAgent": {
     "places": [
@@ -280,17 +280,17 @@
     "ins": {
       "t_ReceiveEvidence": ":submit(c,w,l,h,grade,passing_threshold,currentTime,expiryDate)",
       "t_RequestCredential": "guard grade >= passing_threshold; c:submit(w,l,h,grade,passing_threshold,currentTime,expiryDate)",
-      "t_IssueCredential": "c:sbt_mint()",
+      "t_IssueCredential": "c:sbt_mint(issuerDID,studentDID,credentialData)",
       "t_RejectEvidence": "guard grade < passing_threshold"
     },
     "marks": {
-      "p_Idle": "[]"
+      "p_Idle": "[\"did:example:issuer1\",\"did:example:student1\",\"credential-001\"]"
     },
     "input": {
-      "t_ReceiveEvidence": "[]"
+      "t_ReceiveEvidence": "[issuerDID,studentDID,credentialData]"
     },
     "output": {},
-    "token": "[c,w,l,h,grade,passing_threshold,currentTime,expiryDate]"
+    "token": "[c,w,l,h,grade,passing_threshold,currentTime,expiryDate,issuerDID,studentDID,credentialData]"
   },
   "EvidenceNet": {
     "places": [
@@ -336,19 +336,22 @@
       ]
     ],
     "ins": {
-      "t_IPFS_Upload": ":submit(grade,passing_threshold); eo :new EvidenceObject; eo:submit()",
+      "t_IPFS_Upload": ":submit(studentDID,evidenceCID); eo :new EvidenceObject; eo:submit(studentDID,evidenceCID)",
       "t_LMS_Submit": "eo:lms()",
-      "t_Grade_Assign": ":evaluate(); guard grade >= passing_threshold; eo:evaluate()",
-      "t_Reject": ":evaluate(); guard grade < passing_threshold"
+      "t_Grade_Assign": ":evaluate(assessorDID,grade,criteriaURL); guard grade >= passing_threshold; eo:evaluate(assessorDID,grade,criteriaURL)",
+      "t_Reject": ":evaluate(assessorDID,grade,criteriaURL); guard grade < passing_threshold"
     },
     "marks": {
-      "p_Created": "[]"
+      "p_Created": "50"
     },
     "input": {
-      "t_IPFS_Upload": "[]"
+      "t_IPFS_Upload": "passing_threshold"
     },
-    "output": {},
-    "token": "[eo,grade,passing_threshold]"
+    "output": {
+      "t_Grade_Assign": "[eo,studentDID,evidenceCID,passing_threshold,assessorDID,grade,criteriaURL]",
+      "t_Reject": "[eo,studentDID,evidenceCID,passing_threshold,assessorDID,grade,criteriaURL]"
+    },
+    "token": "[eo,studentDID,evidenceCID,passing_threshold]"
   },
   "CompetencyNet": {
     "places": [
@@ -415,21 +418,21 @@
     "ins": {
       "t_Review_Init": ":submit(w,l,h,grade,passing_threshold,currentTime,expiryDate); co :new CredentialObject; co:evaluate(grade,passing_threshold,currentTime,expiryDate)",
       "t_Verification_Pass": "guard grade >= passing_threshold; co:validate()",
-      "t_SBT_Mint": ":sbt_mint(); co:sbt_mint(); w:sbt_mint(this)",
-      "t_SBT_Accept": ":sbt_accept(); guard currentTime < expiryDate; co:sbt_accept(); l:anchor_request()",
-      "t_SBT_Reject": ":sbt_reject(); co:sbt_reject()",
-      "t_SBT_Cancel": "co:sbt_cancel()",
+      "t_SBT_Mint": ":sbt_mint(issuerDID,studentDID,credentialData); co:sbt_mint(issuerDID,studentDID,credentialData); w:sbt_mint(this,issuerDID,studentDID,credentialData)",
+      "t_SBT_Accept": ":sbt_accept(studentSignature); guard currentTime < expiryDate; co:sbt_accept(studentSignature); l:anchor_request()",
+      "t_SBT_Reject": ":sbt_reject(studentSignature); co:sbt_reject(studentSignature)",
+      "t_SBT_Cancel": "co:sbt_cancel(issuerSignature)",
       "t_SBT_Expire": "guard currentTime >= expiryDate; co:expire()",
-      "t_Agg_Ingest": "co:update_profile(); l:update_profile(); h:update_profile()"
+      "t_Agg_Ingest": "co:update_profile(holderDID,vpData); l:update_profile(holderDID,vpData); h:update_profile(holderDID,vpData)"
     },
     "marks": {
-      "p_Submitted": "[]"
+      "p_Submitted": "[\"did:example:issuer1\",\"did:example:student1\",\"credential-001\",\"issuer-signature\",\"did:example:student1\",\"vp-001\"]"
     },
     "input": {
-      "t_Review_Init": "[]"
+      "t_Review_Init": "[issuerDID,studentDID,credentialData,issuerSignature,holderDID,vpData]"
     },
     "output": {},
-    "token": "[co,w,l,h,grade,passing_threshold,currentTime,expiryDate]"
+    "token": "[co,w,l,h,grade,passing_threshold,currentTime,expiryDate,issuerDID,studentDID,credentialData,issuerSignature,holderDID,vpData]"
   },
   "WalletNet": {
     "places": [
@@ -482,10 +485,10 @@
       ]
     ],
     "ins": {
-      "t_ReceiveCredential": ":sbt_mint(c)",
+      "t_ReceiveCredential": ":sbt_mint(c,issuerDID,studentDID,credentialData)",
       "t_RequestConsent": ":consent()",
-      "t_AcceptCredential": ":sbt_accept(); c:sbt_accept()",
-      "t_RejectCredential": ":sbt_reject(); c:sbt_reject()"
+      "t_AcceptCredential": ":sbt_accept(studentSignature); c:sbt_accept(studentSignature)",
+      "t_RejectCredential": ":sbt_reject(studentSignature); c:sbt_reject(studentSignature)"
     },
     "marks": {
       "p_Empty": "[]"
@@ -494,7 +497,7 @@
       "t_ReceiveCredential": "[]"
     },
     "output": {},
-    "token": "c"
+    "token": "[c,issuerDID,studentDID,credentialData]"
   },
   "HEDULedgerNet": {
     "places": [
@@ -548,13 +551,15 @@
     ],
     "ins": {
       "t_Execute": ":anchor_request()",
-      "t_Anchor": ":update_profile()"
+      "t_Anchor": ":update_profile(holderDID,vpData)"
     },
     "marks": {
       "p_Received": "[]"
     },
     "input": {},
-    "output": {},
+    "output": {
+      "t_Anchor": "[holderDID,vpData]"
+    },
     "token": "[]"
   },
   "HRAgent": {
@@ -609,13 +614,22 @@
     ],
     "ins": {
       "t_ReceiveVP": ":submit()",
-      "t_BuildProfile": ":update_profile()"
+      "t_BuildProfile": ":update_profile(holderDID,vpData)"
     },
     "marks": {
       "p_Idle": "[]"
     },
-    "input": {},
-    "output": {},
+    "input": {
+      "t_SemanticMatch": "[holderDID,vpData]",
+      "t_GapAnalysis": "[holderDID,vpData]",
+      "t_GenerateResult": "[holderDID,vpData]"
+    },
+    "output": {
+      "t_BuildProfile": "[holderDID,vpData]",
+      "t_SemanticMatch": "[holderDID,vpData]",
+      "t_GapAnalysis": "[holderDID,vpData]",
+      "t_GenerateResult": "[holderDID,vpData]"
+    },
     "token": "[]"
   },
   "EvidenceObject": {
@@ -648,16 +662,20 @@
       ]
     ],
     "ins": {
-      "t_IPFS_Upload": ":submit()",
+      "t_IPFS_Upload": ":submit(studentDID,evidenceCID)",
       "t_LMS_Submit": ":lms()",
-      "t_Grade_Assign": ":evaluate()"
+      "t_Grade_Assign": ":evaluate(assessorDID,grade,criteriaURL)"
     },
     "marks": {
       "p_Created": "[]"
     },
-    "input": {},
-    "output": {},
-    "token": "[]"
+    "input": {
+      "t_IPFS_Upload": "[]"
+    },
+    "output": {
+      "t_Grade_Assign": "[studentDID,evidenceCID,assessorDID,grade,criteriaURL]"
+    },
+    "token": "[studentDID,evidenceCID]"
   },
   "CredentialObject": {
     "places": [
@@ -726,20 +744,20 @@
     "ins": {
       "t_StartReview": ":evaluate(grade,passing_threshold,currentTime,expiryDate)",
       "t_Validate": ":validate(); guard grade >= passing_threshold",
-      "t_Mint": ":sbt_mint()",
-      "t_Accept": ":sbt_accept(); guard currentTime < expiryDate",
-      "t_Reject": ":sbt_reject()",
-      "t_Cancel": ":sbt_cancel()",
+      "t_Mint": ":sbt_mint(issuerDID,studentDID,credentialData)",
+      "t_Accept": ":sbt_accept(studentSignature); guard currentTime < expiryDate",
+      "t_Reject": ":sbt_reject(studentSignature)",
+      "t_Cancel": ":sbt_cancel(issuerSignature)",
       "t_Expire": ":expire(); guard currentTime >= expiryDate",
-      "t_Aggregate": ":update_profile()"
+      "t_Aggregate": ":update_profile(holderDID,vpData)"
     },
     "marks": {
-      "p_Submitted": "[]"
+      "p_Submitted": "[\"did:example:issuer1\",\"did:example:student1\",\"credential-001\",\"student-signature\",\"issuer-signature\",\"did:example:student1\",\"vp-001\"]"
     },
     "input": {
-      "t_StartReview": "[]"
+      "t_StartReview": "[issuerDID,studentDID,credentialData,studentSignature,issuerSignature,holderDID,vpData]"
     },
     "output": {},
-    "token": "[grade,passing_threshold,currentTime,expiryDate]"
+    "token": "[grade,passing_threshold,currentTime,expiryDate,issuerDID,studentDID,credentialData,studentSignature,issuerSignature,holderDID,vpData]"
   }
 }

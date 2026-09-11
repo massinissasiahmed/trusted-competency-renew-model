@@ -17,9 +17,11 @@ Validated with **Renew 4.1 and Java 17**. Use **Timed Java Compiler** and **Sequ
 
 ## Inputs and scope
 
-StudentAgent's `p_Idle` holds one token `[80,50,0,100]`, interpreted as `[grade,passing_threshold,currentTime,expiryDate]`. These are illustrative input values, **not measured results**. Other initial places hold one unit tuple `[]`; all remaining places start empty. The validation report lists every marking.
+StudentAgent's `p_Idle` holds one token `[80,50,0,100,"did:example:student1","bafyEvidence001","student-signature"]`, interpreted as `[grade,passing_threshold,currentTime,expiryDate,studentDID,evidenceCID,studentSignature]`. These are illustrative input values, **not measured results**. Other role/object initial places bind the issuer, assessor, expected signatures, credential, and profile fixture values. The validation report lists every marking; token counts are unchanged.
 
-Edit this one StudentAgent marking before restarting to configure a scenario. For example, a grade below the threshold permits evidence/professor rejection; a currentTime at or after expiryDate enables expiration after minting. Logical time remains fixed throughout a run. Acceptance requires `currentTime < expiryDate`; expiry requires `currentTime >= expiryDate`.
+Edit initial values before restarting to configure a scenario. A grade below the threshold permits evidence/professor rejection; a currentTime at or after expiryDate enables expiration after minting. EvidenceNet has its own threshold marking, initially 50; update both thresholds consistently when changing grading policy. Matching DID/credential/signature/profile fixtures must also remain consistent across their listed initial places. Logical time remains fixed throughout a run. Acceptance requires `currentTime < expiryDate`; expiry requires `currentTime >= expiryDate`.
+
+The seven requested business signatures are implemented with primitive payloads and real net-reference targets. [CHANNEL_MATRIX.md](CHANNEL_MATRIX.md) lists every caller, receiver, argument binding and executed witness. Existing internal channel overloads remain for reference transport. Signature placeholders are compared as strings; they are not cryptographic signatures. Profile data is a fixture supplied to the model, not a computed VP.
 
 The supplied graphs are a formal workflow abstraction. Upload, mint, anchoring, presentation, and matching transitions do not contact IPFS, an LMS, a blockchain, or an HR system. The model contains no matching algorithm, cryptography, or computed competency data. Several rejection/cancellation branches have no recovery or notification path in the prescribed graphs and can leave other agents waiting.
 
@@ -45,8 +47,17 @@ This sequence was actually executed by the validation harness with the default i
 
 ## Validate again
 
-Run `./Validate.ps1` (or pass `-RenewHome` as above). A JDK is required for this optional check. It compiles the build-time validation tool, reopens the existing RNW files using Renew's native reader, checks nodes and directed arcs against `model.tsv`, and compiles the entire net system. It does not regenerate or modify the drawings.
+Run `./Validate.ps1` (or pass `-RenewHome` as above). Add `-Smoke` to execute happy, reject, cancel, expire, grade_reject, ledger_reject, and bad_signature checks in separate JVMs. A JDK is required. Validation checks the version header, nodes, arcs, every stored text inscription, and native compilation. Neither validation nor smoke mode regenerates or modifies drawings; scenario overrides affect only in-memory markings. Native output is saved to `validation.log`, and failures stop the script.
 
-`MODEL_VALIDATION.md` provides the full inventory, channels, guards, limitations, and evidence. `validation.log` records the native compilation and directed smoke test. `model.tsv` and `model_manifest.json` preserve the expected structure and annotations. `tools/BuildProject.java` is optional build/validation tooling, **not a Java helper used by any transition**. The original workspace Java classes are not used.
+If Windows blocks scripts, use a process-only override:
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\Validate.ps1 -Smoke
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\Launch.ps1
+```
+
+`FUNCTIONAL_INTEGRATION_AUDIT.md` records the pre-change audit. `MODEL_VALIDATION.md` documents the current inventory, markings, guards, and limitations. `REGRESSION_REPORT.md` compares against the baseline; `VALIDATION_EVIDENCE.txt` preserves the actual native output for the seven executed checks. `model.tsv` and `model_manifest.json` describe the saved annotations. `tools/BuildProject.java` is read-only validation/scenario tooling, **not a Java helper used by any transition**. The original workspace Java classes are not used.
+
+Topology remains unchanged. Failure notification/recovery across every agent is not implemented; some rejection/cancellation/expiry paths leave peers waiting. State-space size, reachable states, deadlock counts, boundedness proof, throughput, latency, TPS, 500-agent, race-condition, Poisson and MMPP results: **NOT MEASURED YET**.
 
 Syntax and operation references: [official Renew 4.1 manual](https://www.informatik.uni-hamburg.de/TGI/renew/4.1/renew4.1.pdf) and [official installation instructions](https://www.informatik.uni-hamburg.de/TGI/renew/4.1/install.html).

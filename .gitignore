@@ -1,1 +1,58 @@
-validation.log
+# ==============================
+# Renew / Java
+# ==============================
+
+*.class
+*.jar
+*.log
+
+# Renew temporary / generated files
+*.bak
+*.tmp
+*.autosave
+*~
+.~lock.*
+
+# ==============================
+# IDE
+# ==============================
+
+.idea/
+*.iml
+
+.vscode/
+.settings/
+.project
+.classpath
+
+# ==============================
+# Operating System
+# ==============================
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==============================
+# Build / Output
+# ==============================
+
+build/
+out/
+target/
+bin/
+
+# ==============================
+# Simulation generated results
+# ==============================
+
+results/
+simulation-output/
+*.trace
+
+# Keep the actual Renew models
+!*.rnw
+
+# Keep documentation
+!README.md
+!MODEL_VALIDATION.md
