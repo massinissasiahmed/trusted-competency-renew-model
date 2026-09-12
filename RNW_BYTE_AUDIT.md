@@ -1,0 +1,160 @@
+# RNW byte audit
+
+Audited main d3064fd7ed5cf1cc6780c0563138935ba3ad6342 against the frozen validated source-check copy before restoration. SHA-256 hashes and EOL counts follow. CRLF normalization is the only comparison transformation.
+
+| File | Class | Normalized equal | Byte equal |
+|---|---|---|---|
+| SystemNet.rnw | EOL_ONLY | True | False |
+| StudentAgent.rnw | IDENTICAL | True | True |
+| ProfessorAgent.rnw | IDENTICAL | True | True |
+| UniversityAgent.rnw | IDENTICAL | True | True |
+| EvidenceNet.rnw | IDENTICAL | True | True |
+| CompetencyNet.rnw | IDENTICAL | True | True |
+| WalletNet.rnw | IDENTICAL | True | True |
+| HEDULedgerNet.rnw | IDENTICAL | True | True |
+| HRAgent.rnw | IDENTICAL | True | True |
+| EvidenceObject.rnw | IDENTICAL | True | True |
+| CredentialObject.rnw | IDENTICAL | True | True |
+
+## SystemNet.rnw
+
+- git_blob_byte_hash: `00e3eb0df7384882f0cf11de7641a8bb81c506dd7c9bf19f074bb51890d9c5e6`
+- working_file_byte_hash: `04bc84a59bff43a5ec27947f14635163f472e1e28d433d0a3ce4c9382a7553c3`
+- frozen_validated_byte_hash: `04bc84a59bff43a5ec27947f14635163f472e1e28d433d0a3ce4c9382a7553c3`
+- normalized_text_hash: `00e3eb0df7384882f0cf11de7641a8bb81c506dd7c9bf19f074bb51890d9c5e6`
+- git_line_endings: `{"CRLF": 0, "LF_only": 225, "CR_only": 0}`
+- working_line_endings: `{"CRLF": 225, "LF_only": 0, "CR_only": 0}`
+- frozen_line_endings: `{"CRLF": 225, "LF_only": 0, "CR_only": 0}`
+- normalized_text_equal: `True`
+- byte_equal: `False`
+- difference_class: `EOL_ONLY`
+
+## StudentAgent.rnw
+
+- git_blob_byte_hash: `8b07a2406267b8bd964b75d8565ac7a49262f5b40e4e83c90bf5f244c2ea2ab8`
+- working_file_byte_hash: `8b07a2406267b8bd964b75d8565ac7a49262f5b40e4e83c90bf5f244c2ea2ab8`
+- frozen_validated_byte_hash: `8b07a2406267b8bd964b75d8565ac7a49262f5b40e4e83c90bf5f244c2ea2ab8`
+- normalized_text_hash: `dc4d4efb362d9b960cc84ab8a57994adeb5f48dff060513df3d41deefe64daf1`
+- git_line_endings: `{"CRLF": 332, "LF_only": 0, "CR_only": 0}`
+- working_line_endings: `{"CRLF": 332, "LF_only": 0, "CR_only": 0}`
+- frozen_line_endings: `{"CRLF": 332, "LF_only": 0, "CR_only": 0}`
+- normalized_text_equal: `True`
+- byte_equal: `True`
+- difference_class: `IDENTICAL`
+
+## ProfessorAgent.rnw
+
+- git_blob_byte_hash: `a169f319dc89df8896459ee8d231bbfce6a00bf62178ff5f2814ca4a1be4ef35`
+- working_file_byte_hash: `a169f319dc89df8896459ee8d231bbfce6a00bf62178ff5f2814ca4a1be4ef35`
+- frozen_validated_byte_hash: `a169f319dc89df8896459ee8d231bbfce6a00bf62178ff5f2814ca4a1be4ef35`
+- normalized_text_hash: `7c0461311a7397eef44037df81253ab05d2f8a837b3f601edbaffdcbaf942077`
+- git_line_endings: `{"CRLF": 130, "LF_only": 0, "CR_only": 0}`
+- working_line_endings: `{"CRLF": 130, "LF_only": 0, "CR_only": 0}`
+- frozen_line_endings: `{"CRLF": 130, "LF_only": 0, "CR_only": 0}`
+- normalized_text_equal: `True`
+- byte_equal: `True`
+- difference_class: `IDENTICAL`
+
+## UniversityAgent.rnw
+
+- git_blob_byte_hash: `95725af7b9bd57e7f7665e2ca74a5594b833ace785882cc880633e989c715967`
+- working_file_byte_hash: `95725af7b9bd57e7f7665e2ca74a5594b833ace785882cc880633e989c715967`
+- frozen_validated_byte_hash: `95725af7b9bd57e7f7665e2ca74a5594b833ace785882cc880633e989c715967`
+- normalized_text_hash: `3ba7a888a1c3794938960565265c29066171a3713146a51a06feb63a736f3050`
+- git_line_endings: `{"CRLF": 130, "LF_only": 0, "CR_only": 0}`
+- working_line_endings: `{"CRLF": 130, "LF_only": 0, "CR_only": 0}`
+- frozen_line_endings: `{"CRLF": 130, "LF_only": 0, "CR_only": 0}`
+- normalized_text_equal: `True`
+- byte_equal: `True`
+- difference_class: `IDENTICAL`
+
+## EvidenceNet.rnw
+
+- git_blob_byte_hash: `76e6d3c9489e2ec0ffbfb84ad23414975a3b502ecc0ec8163e5b5a35397d56a0`
+- working_file_byte_hash: `76e6d3c9489e2ec0ffbfb84ad23414975a3b502ecc0ec8163e5b5a35397d56a0`
+- frozen_validated_byte_hash: `76e6d3c9489e2ec0ffbfb84ad23414975a3b502ecc0ec8163e5b5a35397d56a0`
+- normalized_text_hash: `017aabe17ca950ca0b7070cf38e7353b7b2451b199086e9b9d87c7b242b9a188`
+- git_line_endings: `{"CRLF": 130, "LF_only": 0, "CR_only": 0}`
+- working_line_endings: `{"CRLF": 130, "LF_only": 0, "CR_only": 0}`
+- frozen_line_endings: `{"CRLF": 130, "LF_only": 0, "CR_only": 0}`
+- normalized_text_equal: `True`
+- byte_equal: `True`
+- difference_class: `IDENTICAL`
+
+## CompetencyNet.rnw
+
+- git_blob_byte_hash: `867526d9967446b6aefac4f1fc4e33b656682565b9f92238bafda9dc44ef201b`
+- working_file_byte_hash: `867526d9967446b6aefac4f1fc4e33b656682565b9f92238bafda9dc44ef201b`
+- frozen_validated_byte_hash: `867526d9967446b6aefac4f1fc4e33b656682565b9f92238bafda9dc44ef201b`
+- normalized_text_hash: `7f6c6f59745e748e5966ffdb63f4a300a955af09e44a4cb0aaf8efd53e555311`
+- git_line_endings: `{"CRLF": 288, "LF_only": 0, "CR_only": 0}`
+- working_line_endings: `{"CRLF": 288, "LF_only": 0, "CR_only": 0}`
+- frozen_line_endings: `{"CRLF": 288, "LF_only": 0, "CR_only": 0}`
+- normalized_text_equal: `True`
+- byte_equal: `True`
+- difference_class: `IDENTICAL`
+
+## WalletNet.rnw
+
+- git_blob_byte_hash: `ecbc5bb8e4bb302ec121380ea058f265f164c3c90849e2a4edd7befa166ada8a`
+- working_file_byte_hash: `ecbc5bb8e4bb302ec121380ea058f265f164c3c90849e2a4edd7befa166ada8a`
+- frozen_validated_byte_hash: `ecbc5bb8e4bb302ec121380ea058f265f164c3c90849e2a4edd7befa166ada8a`
+- normalized_text_hash: `ab4ad31062ec2935e24d7136f999473ca0f463d5a245769579160d0ea5873556`
+- git_line_endings: `{"CRLF": 261, "LF_only": 0, "CR_only": 0}`
+- working_line_endings: `{"CRLF": 261, "LF_only": 0, "CR_only": 0}`
+- frozen_line_endings: `{"CRLF": 261, "LF_only": 0, "CR_only": 0}`
+- normalized_text_equal: `True`
+- byte_equal: `True`
+- difference_class: `IDENTICAL`
+
+## HEDULedgerNet.rnw
+
+- git_blob_byte_hash: `0ff9aae085212dd0233559149801ea37033b255eb0139fc6a77fd924451544c4`
+- working_file_byte_hash: `0ff9aae085212dd0233559149801ea37033b255eb0139fc6a77fd924451544c4`
+- frozen_validated_byte_hash: `0ff9aae085212dd0233559149801ea37033b255eb0139fc6a77fd924451544c4`
+- normalized_text_hash: `ae8c3ddce598b60794e37464149524abca31df8aa218cea39b2954ac707fa716`
+- git_line_endings: `{"CRLF": 149, "LF_only": 0, "CR_only": 0}`
+- working_line_endings: `{"CRLF": 149, "LF_only": 0, "CR_only": 0}`
+- frozen_line_endings: `{"CRLF": 149, "LF_only": 0, "CR_only": 0}`
+- normalized_text_equal: `True`
+- byte_equal: `True`
+- difference_class: `IDENTICAL`
+
+## HRAgent.rnw
+
+- git_blob_byte_hash: `1e68fa0ad1ac2851276cdd79ff8038bc31f01f8b15a5c872eeec26b7f9a72fab`
+- working_file_byte_hash: `1e68fa0ad1ac2851276cdd79ff8038bc31f01f8b15a5c872eeec26b7f9a72fab`
+- frozen_validated_byte_hash: `1e68fa0ad1ac2851276cdd79ff8038bc31f01f8b15a5c872eeec26b7f9a72fab`
+- normalized_text_hash: `cad01eb2d1b19e99d81408274b6a17cdb6a75752e513dfce1b228ac48fc20e2d`
+- git_line_endings: `{"CRLF": 146, "LF_only": 0, "CR_only": 0}`
+- working_line_endings: `{"CRLF": 146, "LF_only": 0, "CR_only": 0}`
+- frozen_line_endings: `{"CRLF": 146, "LF_only": 0, "CR_only": 0}`
+- normalized_text_equal: `True`
+- byte_equal: `True`
+- difference_class: `IDENTICAL`
+
+## EvidenceObject.rnw
+
+- git_blob_byte_hash: `80d7e066372fbc8ebec486a486082362f7e13abe99c5c9dc47f4c5997bbba08a`
+- working_file_byte_hash: `80d7e066372fbc8ebec486a486082362f7e13abe99c5c9dc47f4c5997bbba08a`
+- frozen_validated_byte_hash: `80d7e066372fbc8ebec486a486082362f7e13abe99c5c9dc47f4c5997bbba08a`
+- normalized_text_hash: `18a9fd255450c52c19bf58360f6889208ed2243db009a86ed7b28317048ff40b`
+- git_line_endings: `{"CRLF": 83, "LF_only": 0, "CR_only": 0}`
+- working_line_endings: `{"CRLF": 83, "LF_only": 0, "CR_only": 0}`
+- frozen_line_endings: `{"CRLF": 83, "LF_only": 0, "CR_only": 0}`
+- normalized_text_equal: `True`
+- byte_equal: `True`
+- difference_class: `IDENTICAL`
+
+## CredentialObject.rnw
+
+- git_blob_byte_hash: `58d99a81c37fe1aa17f27ad582a994a817448c0676c1104162bb32e698329298`
+- working_file_byte_hash: `58d99a81c37fe1aa17f27ad582a994a817448c0676c1104162bb32e698329298`
+- frozen_validated_byte_hash: `58d99a81c37fe1aa17f27ad582a994a817448c0676c1104162bb32e698329298`
+- normalized_text_hash: `38183117180d0a89d7cb91daf61d06cfa3219b39b80a1e4befb7b1112ac7fc0f`
+- git_line_endings: `{"CRLF": 296, "LF_only": 0, "CR_only": 0}`
+- working_line_endings: `{"CRLF": 296, "LF_only": 0, "CR_only": 0}`
+- frozen_line_endings: `{"CRLF": 296, "LF_only": 0, "CR_only": 0}`
+- normalized_text_equal: `True`
+- byte_equal: `True`
+- difference_class: `IDENTICAL`
