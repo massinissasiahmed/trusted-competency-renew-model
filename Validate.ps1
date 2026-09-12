@@ -1,7 +1,7 @@
 param(
     [string]$RenewHome = (Join-Path $PSScriptRoot '..\.validation'),
     [switch]$Smoke,
-    [string[]]$Scenarios = @('happy','reject','cancel','expire','grade_reject','ledger_reject','bad_signature')
+    [string[]]$Scenarios = @('happy','reject','cancel','expire','grade_reject','ledger_reject','bad_signature','bad_issuer_signature','grade_reject_waiting','cancel_submitted','cancel_waiting','expire_submitted','expire_waiting','bad_issuer_signature_submitted','bad_issuer_signature_waiting')
 )
 $ErrorActionPreference = 'Stop'
 $validationLog = Join-Path $PSScriptRoot 'validation.log'

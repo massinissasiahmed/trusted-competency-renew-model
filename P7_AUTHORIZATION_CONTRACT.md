@@ -1,0 +1,15 @@
+# P7 issuer authorization contract
+
+Defined before RNW edits. Equality of the provided issuer-signature string carried by CompetencyNet and the expected issuer-signature string carried by CredentialObject means valid issuer authorization; inequality means invalid authorization. These are simulation string fixtures, not cryptographic verification. P7 is not narrowed to cancellation.
+
+An invalid authorization must never complete holder acceptance, execute a successful ledger request, reach CompetencyNet.p_BlockchainAnchored or CredentialObject.p_Anchored, generate/share Student or Wallet VPs, or reach HRAgent success. It has a finite INVALID_ISSUER_SIGNATURE continuation. The tested authorization domain uses the existing passing grade, valid/invalid signature fixtures and nonexpired credential; unrelated earlier evidence rejection is outside the credential decision phase.
+
+## Data flow and enforcement choice
+
+CompetencyNet initially carries the provided issuerSignature. Its t_Review_Init creates CredentialObject, whose initial token carries the expected issuerSignature. Both are accessible across the actual co reference at review creation, and later at validation, mint and decision. They are not both local to CompetencyNet. No global lookup, helper call or duplicate authorization state is needed.
+
+The existing mint step stages a credential in CompetencyNet and CredentialObject p_PendingAccept and Wallet p_CredentialReceived; it does not mean authorized acceptance. The finite issuer-denial channel consumes those pending tokens and aborts Student and Wallet at the supported submitted, waiting or consent phases. A mint equality guard alone would deadlock invalid input before that continuation. Enforcing rejection at review/mint would require additional failure topology and University/Wallet abort phases. For this narrowly scoped minimal repair, retain untrusted staging and enforce equality at the first consuming credential decision, before any acceptance or ledger execution. This is a deliberate tradeoff against the preference for preventing invalid mint itself.
+
+Pass the already carried provided issuerSignature to CredentialObject's accept, reject, expire and invalid-student denial channels; bind that argument to its existing expected issuerSignature. Renew channel unification enforces equality before the entire transaction can fire. Cancellation already does this. Invalid issuer denial retains its inequality guard. Gating the alternative reject/expiry/student-denial decisions also prevents an invalid issuer fixture from escaping into a different post-mint failure outcome. No state duplication or topology change is required. Valid issuer behavior remains unchanged, including P6 student-signature rejection.
+
+Verification must enumerate complete bindings at each supported invalid-issuer pre-decision phase, replay the old success-order attempt to the blocked acceptance, and then execute finite denial. Directed tests do not establish exhaustive P7 verification.

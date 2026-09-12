@@ -1,0 +1,24 @@
+{
+  "status": "STOPPED_ON_CORRECTNESS_DEFECT",
+  "property_violation": "P7",
+  "structure": {
+    "nets": 11,
+    "places": 80,
+    "transitions": 87,
+    "arcs": 174
+  },
+  "baseline_regressions_passed": 15,
+  "new_interleaving_probes": 1,
+  "new_probe_enabled_bindings": 0,
+  "new_probe_active_unfinished": 0,
+  "new_probe_registered_instances": 11,
+  "new_probe_retained_instances": 11,
+  "observed_transitions": 86,
+  "total_transitions": 87,
+  "exhaustive_state_space": false,
+  "reachable_state_count": null,
+  "state_space_deadlock_count": null,
+  "runtime_benchmark": false,
+  "concurrency_experiment": false,
+  "model_modified": false
+}

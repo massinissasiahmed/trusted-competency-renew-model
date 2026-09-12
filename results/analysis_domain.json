@@ -1,0 +1,32 @@
+{
+  "grade": [
+    80,
+    40
+  ],
+  "passing_threshold": 50,
+  "currentTime": [
+    0,
+    100
+  ],
+  "expiryDate": 100,
+  "student_signature": [
+    "student-signature",
+    "wrong-signature"
+  ],
+  "expected_student_signature": "student-signature",
+  "issuer_signature": [
+    "issuer-signature",
+    "wrong-issuer-signature"
+  ],
+  "expected_issuer_signature": "issuer-signature",
+  "ledger_choice": [
+    "validate/commit/anchor",
+    "reject from ordered"
+  ],
+  "holder_choice": [
+    "accept",
+    "reject"
+  ],
+  "roots": 1,
+  "notes": "four binary input dimensions; holder/ledger values are transition choices, not extra tokens or guard overrides; not an assertion that every cross-product tuple is feasible"
+}

@@ -1,0 +1,88 @@
+net,transition,directed_coverage,witness
+SystemNet,t_CreateStudent,OBSERVED,baseline bootstrap transaction
+SystemNet,t_CreateProfessor,OBSERVED,baseline bootstrap transaction
+SystemNet,t_CreateUniversity,OBSERVED,baseline bootstrap transaction
+SystemNet,t_CreateEvidence,OBSERVED,baseline bootstrap transaction
+SystemNet,t_CreateCompetency,OBSERVED,baseline bootstrap transaction
+SystemNet,t_CreateWallet,OBSERVED,baseline bootstrap transaction
+SystemNet,t_CreateLedger,OBSERVED,baseline bootstrap transaction
+SystemNet,t_CreateHR,OBSERVED,baseline bootstrap transaction
+StudentAgent,t_PrepareEvidence,OBSERVED,baseline bootstrap setup
+StudentAgent,t_SubmitEvidence,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+StudentAgent,t_WaitCredential,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+StudentAgent,t_ReceiveCredential,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+StudentAgent,t_AcceptCredential,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+StudentAgent,t_RejectCredential,OBSERVED,baseline
+StudentAgent,t_GenerateVP,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+StudentAgent,t_ShareVP,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+StudentAgent,t_AbortSubmitted,OBSERVED,baseline
+StudentAgent,t_AbortWaiting,OBSERVED,baseline
+StudentAgent,t_AbortReceived,OBSERVED,baseline
+StudentAgent,t_AbortAwaitingAnchor,OBSERVED,baseline
+StudentAgent,t_DenyInvalidSignature,OBSERVED,baseline
+StudentAgent,t_AnchorConfirmed,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+ProfessorAgent,t_ReceiveEvidence,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+ProfessorAgent,t_StartReview,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+ProfessorAgent,t_AssessEvidence,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+ProfessorAgent,t_ApproveEvidence,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+ProfessorAgent,t_RejectEvidence,OBSERVED,baseline
+UniversityAgent,t_ReceiveEvidence,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+UniversityAgent,t_VerifyEvidence,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+UniversityAgent,t_RequestCredential,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+UniversityAgent,t_IssueCredential,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+UniversityAgent,t_RejectEvidence,NOT OBSERVED,
+EvidenceNet,t_IPFS_Upload,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+EvidenceNet,t_LMS_Submit,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+EvidenceNet,t_Review_Request,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+EvidenceNet,t_Grade_Assign,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+EvidenceNet,t_Reject,OBSERVED,baseline
+CompetencyNet,t_Review_Init,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+CompetencyNet,t_Verification_Pass,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+CompetencyNet,t_SBT_Mint,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+CompetencyNet,t_SBT_Accept,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+CompetencyNet,t_SBT_Reject,OBSERVED,baseline
+CompetencyNet,t_SBT_Cancel,OBSERVED,baseline
+CompetencyNet,t_SBT_Expire,OBSERVED,baseline
+CompetencyNet,t_Agg_Ingest,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+CompetencyNet,t_DenyInvalidSignature,OBSERVED,baseline
+CompetencyNet,t_DenyInvalidIssuerSignature,OBSERVED,baseline
+CompetencyNet,t_AnchorConfirmed,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+CompetencyNet,t_LedgerFailed,OBSERVED,baseline
+WalletNet,t_ReceiveCredential,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+WalletNet,t_RequestConsent,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+WalletNet,t_AcceptCredential,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+WalletNet,t_RejectCredential,OBSERVED,baseline
+WalletNet,t_GenerateVP,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+WalletNet,t_ShareVP,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+WalletNet,t_AbortReceived,OBSERVED,baseline
+WalletNet,t_AbortConsent,OBSERVED,baseline
+WalletNet,t_AbortAwaitingAnchor,OBSERVED,baseline
+WalletNet,t_DenyInvalidSignature,OBSERVED,baseline
+WalletNet,t_AnchorConfirmed,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+HEDULedgerNet,t_Execute,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+HEDULedgerNet,t_Order,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+HEDULedgerNet,t_Validate,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+HEDULedgerNet,t_Commit,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+HEDULedgerNet,t_Anchor,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+HEDULedgerNet,t_Reject,OBSERVED,baseline
+HRAgent,t_ReceiveVP,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+HRAgent,t_ParseVP,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+HRAgent,t_BuildProfile,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+HRAgent,t_SemanticMatch,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+HRAgent,t_GapAnalysis,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+HRAgent,t_GenerateResult,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+EvidenceObject,t_IPFS_Upload,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+EvidenceObject,t_LMS_Submit,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+EvidenceObject,t_Grade_Assign,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+CredentialObject,t_StartReview,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+CredentialObject,t_Validate,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+CredentialObject,t_Mint,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+CredentialObject,t_Accept,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+CredentialObject,t_Reject,OBSERVED,baseline
+CredentialObject,t_Cancel,OBSERVED,baseline
+CredentialObject,t_Expire,OBSERVED,baseline
+CredentialObject,t_Aggregate,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+CredentialObject,t_DenyInvalidSignature,OBSERVED,baseline
+CredentialObject,t_DenyInvalidIssuerSignature,OBSERVED,baseline
+CredentialObject,t_AnchorConfirmed,OBSERVED,P7_ACCEPT_OVER_DENIAL; baseline
+CredentialObject,t_LedgerFailed,OBSERVED,baseline

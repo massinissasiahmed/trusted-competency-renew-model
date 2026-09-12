@@ -1,101 +1,93 @@
-# Regression report
+# Regression report — failure protocol completion
 
-Compared with baseline `4c98b05507d7e92ea7223c9e4bf000371297c75e` on branch `feat/renew-functional-integration`.
+Validated 2026-09-11 on `fix/failure-protocol-completion`, branched from `feat/renew-functional-integration` at `b9f19c2618904646d2dc712a2620eebeb5a4e907`. Renew 4.1, Java 17, Timed Java Compiler with early tokens, sequential engine.
 
-- Topology changed? **NO**.
-- Places added: **0**; removed: **0**.
-- Transitions added: **0**; removed: **0**.
-- Arcs added: **0**; removed: **0**.
-- Graphical/text figures added or removed: **0**.
-- All non-text serialized content is unchanged (line-ending normalization only for comparison). Coordinates, layout, fonts, colors, IDs, connectors, and REF associations are preserved. Longer inscriptions can occupy more screen width; no layout movement was performed.
-- Initial token count added: **0**. Existing initial token values were replaced where needed to bind primitive fixture data.
-- Validation: **PASS**. Renew compilation: **PASS**. Seven directed scenario checks: **PASS**.
+**EXHAUSTIVE STATE-SPACE ANALYSIS NOT PERFORMED**
 
-## Files modified
+These are directed native-engine witnesses and endpoint binding checks. No deadlock-freedom, boundedness, general liveness, state-space coverage, formal verification, cryptographic security, or performance claim is made. Signatures and identifiers remain simulation strings; ledger anchoring is the modeled workflow event, not an external blockchain transaction. Logical `currentTime` is a fixed carried integer.
 
-Ten RNW drawings have inscription-only replacements; SystemNet.rnw is unchanged. model.tsv and model_manifest.json reflect those exact replacements. README.md and MODEL_VALIDATION.md describe the integrated state. Validate.ps1 now runs optional read-only scenarios and saves native output. tools/BuildProject.java no longer regenerates drawings and checks all inscriptions. Launch.ps1 opens SystemNet last and supplies template filenames relative to the project directory to avoid Renew’s Windows path-escape parsing.
+The checkpoint precedes all repairs and preserves the six original deadlock audit documents. The current branch has not been committed, pushed or merged. Main was not changed.
 
-New files: FUNCTIONAL_INTEGRATION_AUDIT.md, CHANNEL_MATRIX.md, REGRESSION_REPORT.md, VALIDATION_EVIDENCE.txt. The existing .gitignore was independently changed during this task; that change was preserved and is not attributed to this integration.
+## Structural delta
 
-## Inscription changes
+| Drawing | Added places | Added transitions | Added arcs | Reconnected existing arcs |
+| --- | --- | --- | --- | --- |
+| SystemNet | 0 | 0 | 0 | 0 |
+| StudentAgent | 1 | 6 | 12 | 1 |
+| ProfessorAgent | 0 | 0 | 0 | 0 |
+| UniversityAgent | 0 | 0 | 0 | 0 |
+| EvidenceNet | 0 | 0 | 0 | 0 |
+| CompetencyNet | 1 | 4 | 8 | 1 |
+| WalletNet | 1 | 5 | 10 | 1 |
+| HEDULedgerNet | 0 | 0 | 0 | 0 |
+| HRAgent | 0 | 0 | 0 | 0 |
+| EvidenceObject | 0 | 0 | 0 | 0 |
+| CredentialObject | 1 | 4 | 8 | 1 |
 
-| Drawing | Existing text values replaced |
-|---|---|
-| SystemNet.rnw | 0 |
-| StudentAgent.rnw | 20 |
-| ProfessorAgent.rnw | 12 |
-| UniversityAgent.rnw | 12 |
-| EvidenceNet.rnw | 14 |
-| CompetencyNet.rnw | 22 |
-| WalletNet.rnw | 14 |
-| HEDULedgerNet.rnw | 2 |
-| HRAgent.rnw | 8 |
-| EvidenceObject.rnw | 7 |
-| CredentialObject.rnw | 22 |
+Totals: +4 places, +19 transitions, +38 normal arcs; four existing output arcs reconnected. No old place, transition, arc or text figure removed. Eight RNW files changed. SystemNet, EvidenceObject and HRAgent remain byte-identical. All existing initial markings and their token counts are unchanged. No domain Java helper or external dependency was added to any inscription.
 
-No text figure was added or removed. Each replacement removes its old inscription value and inserts the new value in the same serialized slot. The exact transition replacements are listed below; model.tsv diff covers every arc/marking replacement.
+## Saved-file preservation check
 
-| Net.transition | Before | After |
-|---|---|---|
-| StudentAgent.t_SubmitEvidence | `p:submit(u,c,w,l,h,e,grade,passing_threshold,currentTime,expiryDate); e:submit(grade,passing_threshold)` | `p:submit(u,c,w,l,h,e,grade,passing_threshold,currentTime,expiryDate); e:submit(studentDID,evidenceCID)` |
-| StudentAgent.t_AcceptCredential | `w:sbt_accept()` | `w:sbt_accept(studentSignature)` |
-| StudentAgent.t_RejectCredential | `w:sbt_reject()` | `w:sbt_reject(studentSignature)` |
-| ProfessorAgent.t_AssessEvidence | `e:evaluate()` | `e:evaluate(assessorDID,grade,criteriaURL)` |
-| UniversityAgent.t_IssueCredential | `c:sbt_mint()` | `c:sbt_mint(issuerDID,studentDID,credentialData)` |
-| EvidenceNet.t_IPFS_Upload | `:submit(grade,passing_threshold); eo :new EvidenceObject; eo:submit()` | `:submit(studentDID,evidenceCID); eo :new EvidenceObject; eo:submit(studentDID,evidenceCID)` |
-| EvidenceNet.t_Grade_Assign | `:evaluate(); guard grade >= passing_threshold; eo:evaluate()` | `:evaluate(assessorDID,grade,criteriaURL); guard grade >= passing_threshold; eo:evaluate(assessorDID,grade,criteriaURL)` |
-| EvidenceNet.t_Reject | `:evaluate(); guard grade < passing_threshold` | `:evaluate(assessorDID,grade,criteriaURL); guard grade < passing_threshold` |
-| CompetencyNet.t_SBT_Mint | `:sbt_mint(); co:sbt_mint(); w:sbt_mint(this)` | `:sbt_mint(issuerDID,studentDID,credentialData); co:sbt_mint(issuerDID,studentDID,credentialData); w:sbt_mint(this,issuerDID,studentDID,credentialData)` |
-| CompetencyNet.t_SBT_Accept | `:sbt_accept(); guard currentTime < expiryDate; co:sbt_accept(); l:anchor_request()` | `:sbt_accept(studentSignature); guard currentTime < expiryDate; co:sbt_accept(studentSignature); l:anchor_request()` |
-| CompetencyNet.t_SBT_Reject | `:sbt_reject(); co:sbt_reject()` | `:sbt_reject(studentSignature); co:sbt_reject(studentSignature)` |
-| CompetencyNet.t_SBT_Cancel | `co:sbt_cancel()` | `co:sbt_cancel(issuerSignature)` |
-| CompetencyNet.t_Agg_Ingest | `co:update_profile(); l:update_profile(); h:update_profile()` | `co:update_profile(holderDID,vpData); l:update_profile(holderDID,vpData); h:update_profile(holderDID,vpData)` |
-| WalletNet.t_ReceiveCredential | `:sbt_mint(c)` | `:sbt_mint(c,issuerDID,studentDID,credentialData)` |
-| WalletNet.t_AcceptCredential | `:sbt_accept(); c:sbt_accept()` | `:sbt_accept(studentSignature); c:sbt_accept(studentSignature)` |
-| WalletNet.t_RejectCredential | `:sbt_reject(); c:sbt_reject()` | `:sbt_reject(studentSignature); c:sbt_reject(studentSignature)` |
-| HEDULedgerNet.t_Anchor | `:update_profile()` | `:update_profile(holderDID,vpData)` |
-| HRAgent.t_BuildProfile | `:update_profile()` | `:update_profile(holderDID,vpData)` |
-| EvidenceObject.t_IPFS_Upload | `:submit()` | `:submit(studentDID,evidenceCID)` |
-| EvidenceObject.t_Grade_Assign | `:evaluate()` | `:evaluate(assessorDID,grade,criteriaURL)` |
-| CredentialObject.t_Mint | `:sbt_mint()` | `:sbt_mint(issuerDID,studentDID,credentialData)` |
-| CredentialObject.t_Accept | `:sbt_accept(); guard currentTime < expiryDate` | `:sbt_accept(studentSignature); guard currentTime < expiryDate` |
-| CredentialObject.t_Reject | `:sbt_reject()` | `:sbt_reject(studentSignature)` |
-| CredentialObject.t_Cancel | `:sbt_cancel()` | `:sbt_cancel(issuerSignature)` |
-| CredentialObject.t_Aggregate | `:update_profile()` | `:update_profile(holderDID,vpData)` |
+```text
+GEOMETRY PASS CompetencyNet.rnw retained IDs=71 added figures=30 retained node boxes=15 redirected existing arcs=1
+GEOMETRY PASS CredentialObject.rnw retained IDs=75 added figures=30 retained node boxes=17 redirected existing arcs=1
+GEOMETRY PASS EvidenceNet.rnw retained IDs=47 added figures=0 retained node boxes=11 redirected existing arcs=0
+GEOMETRY PASS EvidenceObject.rnw retained IDs=30 added figures=0 retained node boxes=7 redirected existing arcs=0
+GEOMETRY PASS HEDULedgerNet.rnw retained IDs=53 added figures=1 retained node boxes=13 redirected existing arcs=0
+GEOMETRY PASS HRAgent.rnw retained IDs=53 added figures=0 retained node boxes=13 redirected existing arcs=0
+GEOMETRY PASS ProfessorAgent.rnw retained IDs=47 added figures=0 retained node boxes=11 redirected existing arcs=0
+GEOMETRY PASS StudentAgent.rnw retained IDs=73 added figures=44 retained node boxes=17 redirected existing arcs=1
+GEOMETRY PASS SystemNet.rnw retained IDs=80 added figures=0 retained node boxes=16 redirected existing arcs=0
+GEOMETRY PASS UniversityAgent.rnw retained IDs=47 added figures=0 retained node boxes=11 redirected existing arcs=0
+GEOMETRY PASS WalletNet.rnw retained IDs=55 added figures=37 retained node boxes=13 redirected existing arcs=1
+```
 
-## Initial value changes
+This independently reopens checkpoint/current drawings and compares each retained FigureWithID/type, all old node boxes, retained style attributes, unchanged non-arc text boxes, and unaffected arc geometry. Intentional reconnected arcs are identified separately. Native serialization changes REF indexes as new nested objects are added; REF indexes are serialization references, not stable FigureWithID values. All saved references deserialize correctly.
 
-| Net.place | Before | After |
-|---|---|---|
-| StudentAgent.p_Idle | `[80,50,0,100]` | `[80,50,0,100,"did:example:student1","bafyEvidence001","student-signature"]` |
-| ProfessorAgent.p_Idle | `[]` | `["did:example:assessor1","https://example.org/criteria"]` |
-| UniversityAgent.p_Idle | `[]` | `["did:example:issuer1","did:example:student1","credential-001"]` |
-| EvidenceNet.p_Created | `[]` | `50` |
-| CompetencyNet.p_Submitted | `[]` | `["did:example:issuer1","did:example:student1","credential-001","issuer-signature","did:example:student1","vp-001"]` |
-| CredentialObject.p_Submitted | `[]` | `["did:example:issuer1","did:example:student1","credential-001","student-signature","issuer-signature","did:example:student1","vp-001"]` |
+Renew's native serializer emits trailing spaces, and `model.tsv` uses empty trailing fields. Standard `git diff --check` reports these format-level whitespace warnings. They were retained rather than rewriting the validated native serialization. The source/script/Markdown whitespace check passes. Effective geometry is compared after native deserialization; raw cached text positions can be normalized by Renew's writer while their displayed positions remain unchanged.
 
-## Executed checks
+## Native and GUI checks
 
-Baseline: happy, reject, cancel, expire, grade_reject and ledger_reject were replayed before model changes with identical RNW hashes before/after. Integrated: those six plus bad_signature passed through Validate.ps1 -Smoke. Smoke arguments change scenario inputs only in memory; all template files are read-only during validation. Final tokens demonstrate DID/CID/assessor/grade/criteria in EvidenceObject, issuer/student/credential data in WalletNet, and holderDID/vpData in ledger and HR.
+All eleven saved drawings were opened from disk in the actual Renew GUI after closing the unchanged cached drawings, and all eleven names were visible in the Windows menu. Native deserialization and compilation also passed. A separate fresh launcher attempt encountered Renew plugin startup errors (`Server Socket is occupied` / `ConcurrentModificationException`) while other sessions were running; the successful GUI check used an existing Renew session. No launcher change was needed for the RNW repairs.
 
-Full native evidence: VALIDATION_EVIDENCE.txt. Launch.ps1 was executed and all eleven integrated drawings appeared in Renew's Windows menu. The displayed WalletNet showed the new sbt_mint reference/payload inscription. The GUI-compatible native loader also opened every drawing during final validation. The most recent validation.log records the final compile-only check; the seven scenario traces remain preserved in VALIDATION_EVIDENCE.txt.
+| Scenario | Final classification | Outcome | Enabled | Active unfinished | Uninvoked | References |
+| --- | --- | --- | --- | --- | --- | --- |
+| happy | EXPECTED_SUCCESS_TERMINATION | SUCCESS | 0 | 0 | [] | 11/11 |
+| reject | EXPECTED_FAILURE_TERMINATION | HOLDER_REJECTED | 0 | 0 | [HEDULedgerNet, HRAgent] | 11/11 |
+| cancel | EXPECTED_FAILURE_TERMINATION | CANCELLED | 0 | 0 | [HEDULedgerNet, HRAgent] | 11/11 |
+| expire | EXPECTED_FAILURE_TERMINATION | EXPIRED | 0 | 0 | [HEDULedgerNet, HRAgent] | 11/11 |
+| grade_reject | EXPECTED_FAILURE_TERMINATION | EVIDENCE_REJECTED | 0 | 0 | [CompetencyNet, HEDULedgerNet, HRAgent, UniversityAgent, WalletNet] | 10/10 |
+| ledger_reject | EXPECTED_FAILURE_TERMINATION | LEDGER_REJECTED | 0 | 0 | [HRAgent] | 11/11 |
+| bad_signature | EXPECTED_FAILURE_TERMINATION | INVALID_SIGNATURE | 0 | 0 | [HEDULedgerNet, HRAgent] | 11/11 |
+| bad_issuer_signature | EXPECTED_FAILURE_TERMINATION | INVALID_ISSUER_SIGNATURE | 0 | 0 | [HEDULedgerNet, HRAgent] | 11/11 |
+| grade_reject_waiting | EXPECTED_FAILURE_TERMINATION | EVIDENCE_REJECTED | 0 | 0 | [CompetencyNet, HEDULedgerNet, HRAgent, UniversityAgent, WalletNet] | 10/10 |
+| cancel_submitted | EXPECTED_FAILURE_TERMINATION | CANCELLED | 0 | 0 | [HEDULedgerNet, HRAgent] | 11/11 |
+| cancel_waiting | EXPECTED_FAILURE_TERMINATION | CANCELLED | 0 | 0 | [HEDULedgerNet, HRAgent] | 11/11 |
+| expire_submitted | EXPECTED_FAILURE_TERMINATION | EXPIRED | 0 | 0 | [HEDULedgerNet, HRAgent] | 11/11 |
+| expire_waiting | EXPECTED_FAILURE_TERMINATION | EXPIRED | 0 | 0 | [HEDULedgerNet, HRAgent] | 11/11 |
+| bad_issuer_signature_submitted | EXPECTED_FAILURE_TERMINATION | INVALID_ISSUER_SIGNATURE | 0 | 0 | [HEDULedgerNet, HRAgent] | 11/11 |
+| bad_issuer_signature_waiting | EXPECTED_FAILURE_TERMINATION | INVALID_ISSUER_SIGNATURE | 0 | 0 | [HEDULedgerNet, HRAgent] | 11/11 |
 
-Whitespace check: Markdown, PowerShell, Java and JSON changes pass git diff --check. RNW changed lines retain the baseline serializer's trailing whitespace intentionally; it was not stripped because non-text serialization is frozen.
+All 15 directed assertions are backed by actual final marking inspection and complete binding search. Correct signature paths remain executable, invalid signatures remain unacceptable, and pre-anchor VP steps are negatively checked. Every new receiver has an executed intended witness; incompatible phase alternatives are explicitly excluded by guards.
 
-## Remaining boundaries and approvals
+## Changed supporting files
 
-No blocker requiring structural approval for the scoped base workflow or local alternatives. Global completion after evidence rejection, cancellation, expiry, or ledger rejection remains outside the frozen graphs, as detailed in MODEL_VALIDATION.md. No structural changes were made. No push or merge was performed; main remains at the baseline commit.
+`model.tsv` and `model_manifest.json` track the saved graph/annotations. `tools/BuildProject.java` verifies annotation ownership, executes expanded scenarios and checks complete endpoints. `Validate.ps1` includes the fifteen scenarios. CHANNEL_MATRIX, MODEL_VALIDATION and this report are rebuilt for the repaired state. README's manual sequence and scope are corrected to include explicit ledger anchoring. The three requested repair/post-repair reports and a compact native evidence file are new. The six original audit reports and old VALIDATION_EVIDENCE remain historical records without edits.
 
-## Unmeasured metrics
+## Acceptance gate
 
-- Reachable states: **NOT MEASURED YET**.
-- State-space transitions: **NOT MEASURED YET**.
-- Deadlock counts: **NOT MEASURED YET**.
-- Boundedness proof: **NOT MEASURED YET**.
-- Throughput: **NOT MEASURED YET**.
-- Latency: **NOT MEASURED YET**.
-- TPS: **NOT MEASURED YET**.
-- 500 concurrent agents: **NOT MEASURED YET**.
-- Race-condition results: **NOT MEASURED YET**.
-- Poisson workloads: **NOT MEASURED YET**.
-- MMPP workloads: **NOT MEASURED YET**.
+| Acceptance gate | Result |
+| --- | --- |
+| A. All 11 RNW drawings open? | PASS |
+| B. All 11 compile? | PASS |
+| C. Nominal lifecycle terminates? | PASS |
+| D. Evidence rejection terminates coherently? | PASS |
+| E. SBT rejection terminates coherently? | PASS |
+| F. Cancellation terminates coherently? | PASS |
+| G. Expiry terminates coherently? | PASS |
+| H. Invalid signature terminates coherently? | PASS |
+| I. Ledger rejection terminates coherently? | PASS |
+| J. Commit-before-share enforced? | PASS |
+| K. Active permanent waits in tested scenarios? | NO |
+| L. Confirmed global deadlock in tested scenarios? | NO |
+| M. Exhaustive state-space analysis performed? | NO |

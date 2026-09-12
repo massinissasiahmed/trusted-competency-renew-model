@@ -56,3 +56,25 @@ simulation-output/
 # Keep documentation
 !README.md
 !MODEL_VALIDATION.md
+
+# Preserve formal experiment source data and evidence; generated classes stay ignored.
+!results/
+results/*
+!results/*.csv
+!results/*.json
+!results/*.txt
+
+# Dedicated post-P7 evidence; generated checkpoint/classes remain local.
+!results/post_p7/
+!results/post_p7/**/
+!results/post_p7/**/*.csv
+!results/post_p7/**/*.json
+!results/post_p7/**/*.txt
+!results/post_p7/**/*.md
+results/post_p7/checkpoint/
+results/post_p7/build/
+
+# Python caches are disposable; the saved validation log is scientific evidence.
+__pycache__/
+*.pyc
+!validation.log

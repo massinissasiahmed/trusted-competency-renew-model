@@ -1,0 +1,7 @@
+# Preserve validated bytes; recognize native Windows line endings without conversion.
+* -text whitespace=cr-at-eol
+# Native Renew serialization and empty trailing TSV columns are intentional.
+*.rnw whitespace=cr-at-eol,-blank-at-eol
+model.tsv whitespace=cr-at-eol,-blank-at-eol
+# Captured native evidence retains its original whitespace, including terminal blank lines.
+results/** whitespace=cr-at-eol,-blank-at-eol,-blank-at-eof

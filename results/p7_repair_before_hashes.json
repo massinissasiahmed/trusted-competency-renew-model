@@ -1,0 +1,20 @@
+{
+  "NEW_CORRECTNESS_DEFECT.md": "80f18e2612231e328ea565e50f06d31a35e218ed0db85d7acdc088719991735c",
+  "results/p7_counterexample.txt": "3182ba284b9abf0d968a04f6b3f22ebc58914a2bf8a7b0bc0f062d62aa399a4f",
+  "results/p7_final_marking.csv": "4083f2446535a5baaafb328b5eb5fb1c5b5c85e3469103b826e76ea0be416cbd",
+  "results/interleaving_results.csv": "b68319b3d12e001864abe1f3c5e7b44c0835d612ede139eeaf1a78560c025c04",
+  "CompetencyNet.rnw": "e5cbe12f12445d86955d985009d9c61922f824051ef8fec82c6c4f90af4e2a7a",
+  "CredentialObject.rnw": "559bf6314e8a9fd0dde584f70ac4205a4ad1087b3afc6d7852f7f0b64a6f2064",
+  "EvidenceNet.rnw": "76e6d3c9489e2ec0ffbfb84ad23414975a3b502ecc0ec8163e5b5a35397d56a0",
+  "EvidenceObject.rnw": "80d7e066372fbc8ebec486a486082362f7e13abe99c5c9dc47f4c5997bbba08a",
+  "HEDULedgerNet.rnw": "0ff9aae085212dd0233559149801ea37033b255eb0139fc6a77fd924451544c4",
+  "HRAgent.rnw": "1e68fa0ad1ac2851276cdd79ff8038bc31f01f8b15a5c872eeec26b7f9a72fab",
+  "ProfessorAgent.rnw": "a169f319dc89df8896459ee8d231bbfce6a00bf62178ff5f2814ca4a1be4ef35",
+  "StudentAgent.rnw": "8b07a2406267b8bd964b75d8565ac7a49262f5b40e4e83c90bf5f244c2ea2ab8",
+  "SystemNet.rnw": "04bc84a59bff43a5ec27947f14635163f472e1e28d433d0a3ce4c9382a7553c3",
+  "UniversityAgent.rnw": "95725af7b9bd57e7f7665e2ca74a5594b833ace785882cc880633e989c715967",
+  "WalletNet.rnw": "ecbc5bb8e4bb302ec121380ea058f265f164c3c90849e2a4edd7befa166ada8a",
+  "model.tsv": "75ed625c546b2d1d3e0f3a640e5439318c74f97c3eb4652a6575f0a62f9e280f",
+  "model_manifest.json": "5cd79b346590cfc54a56298d7b10299e82ec9f69e96cc05833a98cd097e761cd",
+  "tools/BuildProject.java": "8c9c24363ab749bd3217f121c7e085ff68b98ea4e6d4488aa38485c4681feba9"
+}

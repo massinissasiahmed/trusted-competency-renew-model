@@ -1,0 +1,32 @@
+Compiled from "SimulatorHelper.java"
+public class de.renew.engine.simulator.SimulatorHelper {
+  static final boolean $assertionsDisabled;
+  public de.renew.engine.simulator.SimulatorHelper();
+  public static void searchOnce(de.renew.engine.searcher.Searcher, de.renew.engine.searcher.Finder, de.renew.engine.searcher.Searchable, de.renew.engine.searcher.Triggerable);
+  public static boolean isFirable(de.renew.engine.searcher.Searchable, de.renew.engine.searcher.Triggerable, de.renew.engine.searcher.Searcher);
+  public static boolean isFirable(de.renew.engine.searcher.Searchable, de.renew.engine.searcher.Triggerable);
+  public static java.util.Collection<de.renew.engine.simulator.Binding> findAllBindings(de.renew.engine.searcher.Searchable, de.renew.engine.searcher.Triggerable, de.renew.engine.searcher.Searcher);
+  public static java.util.Collection<de.renew.engine.simulator.Binding> findAllBindings(de.renew.engine.searcher.Searchable, de.renew.engine.searcher.Triggerable);
+  static {};
+}
+Compiled from "NetInstance.java"
+public interface de.renew.net.NetInstance extends de.renew.engine.searcher.ChannelTarget,java.io.Serializable {
+  public abstract void earlyConfirmation();
+  public abstract void earlyConfirmationTrace(de.renew.engine.common.StepIdentifier);
+  public abstract void lateConfirmation(de.renew.engine.common.StepIdentifier);
+  public abstract void createConfirmation(de.renew.engine.common.StepIdentifier);
+  public abstract java.lang.Object getInstance(java.lang.Object);
+  public abstract de.renew.net.PlaceInstance getInstance(de.renew.net.Place);
+  public abstract de.renew.net.TransitionInstance getInstance(de.renew.net.Transition);
+  public abstract de.renew.net.Net getNet();
+  public abstract java.lang.String getID();
+  public abstract void setID(java.lang.String);
+  public abstract de.renew.net.IDRegistry getRegistry();
+}
+Compiled from "NetInstanceList.java"
+public class de.renew.net.NetInstanceList {
+  public static synchronized void add(de.renew.net.NetInstance);
+  public static synchronized de.renew.net.NetInstance[] getAll();
+  public static synchronized de.renew.net.NetInstance getNetInstance(java.lang.String);
+  static {};
+}

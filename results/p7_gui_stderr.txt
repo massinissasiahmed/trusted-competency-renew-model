@@ -1,0 +1,18 @@
+log4j:WARN No appenders could be found for logger (de.renew.plugin.PluginProperties).
+log4j:WARN Please initialize the log4j system properly.
+java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at de.renew.loader/de.renew.plugin.Loader.loadRenew(Loader.java:180)
+	at de.renew.loader/de.renew.plugin.Loader.main(Loader.java:55)
+Caused by: java.util.ConcurrentModificationException
+	at java.base/java.util.Vector$Itr.checkForComodification(Vector.java:1298)
+	at java.base/java.util.Vector$Itr.next(Vector.java:1254)
+	at de.renew.gui/de.renew.gui.GuiPalettes.notifyGuiOpen(GuiPalettes.java:56)
+	at de.renew.gui/de.renew.gui.GuiPlugin.openGui(GuiPlugin.java:446)
+	at de.renew.gui/de.renew.gui.StartGuiCommand.execute(StartGuiCommand.java:27)
+	at de.renew.loader/de.renew.plugin.PluginManager.main(PluginManager.java:1075)
+	at de.renew.loader/de.renew.plugin.PluginManager.main(PluginManager.java:1002)
+	... 6 more
