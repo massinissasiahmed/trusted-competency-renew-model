@@ -1,0 +1,723 @@
+MODE smoke SCENARIO happy (existing drawings are read-only)
+INFO: no additional plugin locations set.
+STRUCTURE OK CompetencyNet directed arcs=24
+INSCRIPTIONS OK CompetencyNet
+READ OK CompetencyNet.rnw
+STRUCTURE OK CredentialObject directed arcs=24
+INSCRIPTIONS OK CredentialObject
+READ OK CredentialObject.rnw
+STRUCTURE OK EvidenceNet directed arcs=10
+INSCRIPTIONS OK EvidenceNet
+READ OK EvidenceNet.rnw
+STRUCTURE OK EvidenceObject directed arcs=6
+INSCRIPTIONS OK EvidenceObject
+READ OK EvidenceObject.rnw
+STRUCTURE OK HEDULedgerNet directed arcs=12
+INSCRIPTIONS OK HEDULedgerNet
+READ OK HEDULedgerNet.rnw
+STRUCTURE OK HRAgent directed arcs=12
+INSCRIPTIONS OK HRAgent
+READ OK HRAgent.rnw
+STRUCTURE OK ProfessorAgent directed arcs=10
+INSCRIPTIONS OK ProfessorAgent
+READ OK ProfessorAgent.rnw
+STRUCTURE OK StudentAgent directed arcs=28
+INSCRIPTIONS OK StudentAgent
+READ OK StudentAgent.rnw
+STRUCTURE OK SystemNet directed arcs=16
+INSCRIPTIONS OK SystemNet
+READ OK SystemNet.rnw
+STRUCTURE OK UniversityAgent directed arcs=10
+INSCRIPTIONS OK UniversityAgent
+READ OK UniversityAgent.rnw
+STRUCTURE OK WalletNet directed arcs=22
+INSCRIPTIONS OK WalletNet
+READ OK WalletNet.rnw
+COMPILE OK CompetencyNet places=8 transitions=12
+COMPILE OK CredentialObject places=10 transitions=12
+COMPILE OK EvidenceNet places=6 transitions=5
+COMPILE OK EvidenceObject places=4 transitions=3
+COMPILE OK HEDULedgerNet places=7 transitions=6
+COMPILE OK HRAgent places=7 transitions=6
+COMPILE OK ProfessorAgent places=6 transitions=5
+COMPILE OK StudentAgent places=10 transitions=14
+COMPILE OK SystemNet places=8 transitions=8
+COMPILE OK UniversityAgent places=6 transitions=5
+COMPILE OK WalletNet places=8 transitions=11
+PASS: all 11 RNW files deserialized and compiled together with Renew Timed Java Compiler.
+INFO: Using sequential simulator ...
+BOOTSTRAP OBSERVED SystemNet.t_CreateStudent
+BOOTSTRAP OBSERVED SystemNet.t_CreateProfessor
+BOOTSTRAP OBSERVED SystemNet.t_CreateUniversity
+BOOTSTRAP OBSERVED SystemNet.t_CreateEvidence
+BOOTSTRAP OBSERVED SystemNet.t_CreateCompetency
+BOOTSTRAP OBSERVED SystemNet.t_CreateWallet
+BOOTSTRAP OBSERVED SystemNet.t_CreateLedger
+BOOTSTRAP OBSERVED SystemNet.t_CreateHR
+BOOTSTRAP OBSERVED StudentAgent.t_PrepareEvidence
+REFERENCE	0	creation	9	9	1	0
+CREATED TOKEN CompetencyNet.p_Submitted = [[did:example:issuer1,did:example:student1,credential-001,issuer-signature,did:example:student1,vp-001]]
+CREATED TOKEN EvidenceNet.p_Created = [int(50)]
+CREATED TOKEN HEDULedgerNet.p_Received = [[]]
+CREATED TOKEN HRAgent.p_Idle = [[]]
+CREATED TOKEN ProfessorAgent.p_Idle = [[did:example:assessor1,https://example.org/criteria]]
+CREATED TOKEN StudentAgent.p_EvidenceReady = [[ProfessorAgent[6],UniversityAgent[8],EvidenceNet[4],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:student1,bafyEvidence001,student-signature]]
+CREATED TOKEN SystemNet.p_CompetencyPool = [CompetencyNet[12]]
+CREATED TOKEN SystemNet.p_EvidencePool = [EvidenceNet[4]]
+CREATED TOKEN SystemNet.p_HRPool = [HRAgent[16]]
+CREATED TOKEN SystemNet.p_LedgerPool = [HEDULedgerNet[14]]
+CREATED TOKEN SystemNet.p_ProfessorPool = [ProfessorAgent[6]]
+CREATED TOKEN SystemNet.p_StudentPool = [StudentAgent[2]]
+CREATED TOKEN SystemNet.p_UniversityPool = [UniversityAgent[8]]
+CREATED TOKEN SystemNet.p_WalletPool = [WalletNet[10]]
+CREATED TOKEN UniversityAgent.p_Idle = [[did:example:issuer1,did:example:student1,credential-001]]
+CREATED TOKEN WalletNet.p_Empty = [[]]
+AVAILABLE	0	before:StudentAgent.t_SubmitEvidence	StudentAgent.t_SubmitEvidence	EvidenceNet.t_IPFS_Upload,EvidenceObject.t_IPFS_Upload,ProfessorAgent.t_ReceiveEvidence,StudentAgent.t_SubmitEvidence
+ENUMERATED	0	before:StudentAgent.t_SubmitEvidence	1
+BINDING StudentAgent.t_SubmitEvidence = EvidenceNet.t_IPFS_Upload,EvidenceObject.t_IPFS_Upload,ProfessorAgent.t_ReceiveEvidence,StudentAgent.t_SubmitEvidence
+FIRED StudentAgent.t_SubmitEvidence
+STEP TOKEN CompetencyNet.p_Submitted = [[did:example:issuer1,did:example:student1,credential-001,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN EvidenceNet.p_UploadedIPFS = [[EvidenceObject[33],did:example:student1,bafyEvidence001,int(50)]]
+STEP TOKEN HEDULedgerNet.p_Received = [[]]
+STEP TOKEN HRAgent.p_Idle = [[]]
+STEP TOKEN ProfessorAgent.p_EvidenceReceived = [[StudentAgent[2],UniversityAgent[8],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],EvidenceNet[4],int(80),int(50),int(0),int(100),did:example:assessor1,https://example.org/criteria]]
+STEP TOKEN StudentAgent.p_Submitted = [[ProfessorAgent[6],UniversityAgent[8],EvidenceNet[4],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:student1,bafyEvidence001,student-signature]]
+STEP TOKEN SystemNet.p_CompetencyPool = [CompetencyNet[12]]
+STEP TOKEN SystemNet.p_EvidencePool = [EvidenceNet[4]]
+STEP TOKEN SystemNet.p_HRPool = [HRAgent[16]]
+STEP TOKEN SystemNet.p_LedgerPool = [HEDULedgerNet[14]]
+STEP TOKEN SystemNet.p_ProfessorPool = [ProfessorAgent[6]]
+STEP TOKEN SystemNet.p_StudentPool = [StudentAgent[2]]
+STEP TOKEN SystemNet.p_UniversityPool = [UniversityAgent[8]]
+STEP TOKEN SystemNet.p_WalletPool = [WalletNet[10]]
+STEP TOKEN UniversityAgent.p_Idle = [[did:example:issuer1,did:example:student1,credential-001]]
+STEP TOKEN WalletNet.p_Empty = [[]]
+REFERENCE	0	after:StudentAgent.t_SubmitEvidence	10	10	4	0
+AVAILABLE	0	before:EvidenceNet.t_LMS_Submit	StudentAgent.t_WaitCredential	StudentAgent.t_WaitCredential
+AVAILABLE	0	before:EvidenceNet.t_LMS_Submit	EvidenceNet.t_LMS_Submit	EvidenceNet.t_LMS_Submit,EvidenceObject.t_LMS_Submit
+AVAILABLE	0	before:EvidenceNet.t_LMS_Submit	ProfessorAgent.t_StartReview	ProfessorAgent.t_StartReview
+ENUMERATED	0	before:EvidenceNet.t_LMS_Submit	3
+BINDING EvidenceNet.t_LMS_Submit = EvidenceNet.t_LMS_Submit,EvidenceObject.t_LMS_Submit
+FIRED EvidenceNet.t_LMS_Submit
+STEP TOKEN CompetencyNet.p_Submitted = [[did:example:issuer1,did:example:student1,credential-001,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN EvidenceNet.p_SubmittedLMS = [[EvidenceObject[33],did:example:student1,bafyEvidence001,int(50)]]
+STEP TOKEN EvidenceObject.p_SubmittedLMS = [[did:example:student1,bafyEvidence001]]
+STEP TOKEN HEDULedgerNet.p_Received = [[]]
+STEP TOKEN HRAgent.p_Idle = [[]]
+STEP TOKEN ProfessorAgent.p_EvidenceReceived = [[StudentAgent[2],UniversityAgent[8],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],EvidenceNet[4],int(80),int(50),int(0),int(100),did:example:assessor1,https://example.org/criteria]]
+STEP TOKEN StudentAgent.p_Submitted = [[ProfessorAgent[6],UniversityAgent[8],EvidenceNet[4],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:student1,bafyEvidence001,student-signature]]
+STEP TOKEN SystemNet.p_CompetencyPool = [CompetencyNet[12]]
+STEP TOKEN SystemNet.p_EvidencePool = [EvidenceNet[4]]
+STEP TOKEN SystemNet.p_HRPool = [HRAgent[16]]
+STEP TOKEN SystemNet.p_LedgerPool = [HEDULedgerNet[14]]
+STEP TOKEN SystemNet.p_ProfessorPool = [ProfessorAgent[6]]
+STEP TOKEN SystemNet.p_StudentPool = [StudentAgent[2]]
+STEP TOKEN SystemNet.p_UniversityPool = [UniversityAgent[8]]
+STEP TOKEN SystemNet.p_WalletPool = [WalletNet[10]]
+STEP TOKEN UniversityAgent.p_Idle = [[did:example:issuer1,did:example:student1,credential-001]]
+STEP TOKEN WalletNet.p_Empty = [[]]
+REFERENCE	0	after:EvidenceNet.t_LMS_Submit	10	10	4	0
+AVAILABLE	0	before:EvidenceNet.t_Review_Request	StudentAgent.t_WaitCredential	StudentAgent.t_WaitCredential
+AVAILABLE	0	before:EvidenceNet.t_Review_Request	EvidenceNet.t_Review_Request	EvidenceNet.t_Review_Request
+AVAILABLE	0	before:EvidenceNet.t_Review_Request	ProfessorAgent.t_StartReview	ProfessorAgent.t_StartReview
+ENUMERATED	0	before:EvidenceNet.t_Review_Request	3
+BINDING EvidenceNet.t_Review_Request = EvidenceNet.t_Review_Request
+FIRED EvidenceNet.t_Review_Request
+STEP TOKEN CompetencyNet.p_Submitted = [[did:example:issuer1,did:example:student1,credential-001,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN EvidenceNet.p_UnderReview = [[EvidenceObject[33],did:example:student1,bafyEvidence001,int(50)]]
+STEP TOKEN EvidenceObject.p_SubmittedLMS = [[did:example:student1,bafyEvidence001]]
+STEP TOKEN HEDULedgerNet.p_Received = [[]]
+STEP TOKEN HRAgent.p_Idle = [[]]
+STEP TOKEN ProfessorAgent.p_EvidenceReceived = [[StudentAgent[2],UniversityAgent[8],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],EvidenceNet[4],int(80),int(50),int(0),int(100),did:example:assessor1,https://example.org/criteria]]
+STEP TOKEN StudentAgent.p_Submitted = [[ProfessorAgent[6],UniversityAgent[8],EvidenceNet[4],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:student1,bafyEvidence001,student-signature]]
+STEP TOKEN SystemNet.p_CompetencyPool = [CompetencyNet[12]]
+STEP TOKEN SystemNet.p_EvidencePool = [EvidenceNet[4]]
+STEP TOKEN SystemNet.p_HRPool = [HRAgent[16]]
+STEP TOKEN SystemNet.p_LedgerPool = [HEDULedgerNet[14]]
+STEP TOKEN SystemNet.p_ProfessorPool = [ProfessorAgent[6]]
+STEP TOKEN SystemNet.p_StudentPool = [StudentAgent[2]]
+STEP TOKEN SystemNet.p_UniversityPool = [UniversityAgent[8]]
+STEP TOKEN SystemNet.p_WalletPool = [WalletNet[10]]
+STEP TOKEN UniversityAgent.p_Idle = [[did:example:issuer1,did:example:student1,credential-001]]
+STEP TOKEN WalletNet.p_Empty = [[]]
+REFERENCE	0	after:EvidenceNet.t_Review_Request	10	10	4	0
+AVAILABLE	0	before:ProfessorAgent.t_StartReview	StudentAgent.t_WaitCredential	StudentAgent.t_WaitCredential
+AVAILABLE	0	before:ProfessorAgent.t_StartReview	ProfessorAgent.t_StartReview	ProfessorAgent.t_StartReview
+ENUMERATED	0	before:ProfessorAgent.t_StartReview	2
+BINDING ProfessorAgent.t_StartReview = ProfessorAgent.t_StartReview
+FIRED ProfessorAgent.t_StartReview
+STEP TOKEN CompetencyNet.p_Submitted = [[did:example:issuer1,did:example:student1,credential-001,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN EvidenceNet.p_UnderReview = [[EvidenceObject[33],did:example:student1,bafyEvidence001,int(50)]]
+STEP TOKEN EvidenceObject.p_SubmittedLMS = [[did:example:student1,bafyEvidence001]]
+STEP TOKEN HEDULedgerNet.p_Received = [[]]
+STEP TOKEN HRAgent.p_Idle = [[]]
+STEP TOKEN ProfessorAgent.p_UnderReview = [[StudentAgent[2],UniversityAgent[8],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],EvidenceNet[4],int(80),int(50),int(0),int(100),did:example:assessor1,https://example.org/criteria]]
+STEP TOKEN StudentAgent.p_Submitted = [[ProfessorAgent[6],UniversityAgent[8],EvidenceNet[4],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:student1,bafyEvidence001,student-signature]]
+STEP TOKEN SystemNet.p_CompetencyPool = [CompetencyNet[12]]
+STEP TOKEN SystemNet.p_EvidencePool = [EvidenceNet[4]]
+STEP TOKEN SystemNet.p_HRPool = [HRAgent[16]]
+STEP TOKEN SystemNet.p_LedgerPool = [HEDULedgerNet[14]]
+STEP TOKEN SystemNet.p_ProfessorPool = [ProfessorAgent[6]]
+STEP TOKEN SystemNet.p_StudentPool = [StudentAgent[2]]
+STEP TOKEN SystemNet.p_UniversityPool = [UniversityAgent[8]]
+STEP TOKEN SystemNet.p_WalletPool = [WalletNet[10]]
+STEP TOKEN UniversityAgent.p_Idle = [[did:example:issuer1,did:example:student1,credential-001]]
+STEP TOKEN WalletNet.p_Empty = [[]]
+REFERENCE	0	after:ProfessorAgent.t_StartReview	10	10	4	0
+AVAILABLE	0	before:ProfessorAgent.t_AssessEvidence	StudentAgent.t_WaitCredential	StudentAgent.t_WaitCredential
+AVAILABLE	0	before:ProfessorAgent.t_AssessEvidence	ProfessorAgent.t_AssessEvidence	EvidenceNet.t_Grade_Assign,EvidenceObject.t_Grade_Assign,ProfessorAgent.t_AssessEvidence
+ENUMERATED	0	before:ProfessorAgent.t_AssessEvidence	2
+BINDING ProfessorAgent.t_AssessEvidence = EvidenceNet.t_Grade_Assign,EvidenceObject.t_Grade_Assign,ProfessorAgent.t_AssessEvidence
+FIRED ProfessorAgent.t_AssessEvidence
+STEP TOKEN CompetencyNet.p_Submitted = [[did:example:issuer1,did:example:student1,credential-001,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN EvidenceNet.p_Graded = [[EvidenceObject[33],did:example:student1,bafyEvidence001,int(50),did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN EvidenceObject.p_Graded = [[did:example:student1,bafyEvidence001,did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN HEDULedgerNet.p_Received = [[]]
+STEP TOKEN HRAgent.p_Idle = [[]]
+STEP TOKEN ProfessorAgent.p_Evaluated = [[StudentAgent[2],UniversityAgent[8],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],EvidenceNet[4],int(80),int(50),int(0),int(100),did:example:assessor1,https://example.org/criteria]]
+STEP TOKEN StudentAgent.p_Submitted = [[ProfessorAgent[6],UniversityAgent[8],EvidenceNet[4],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:student1,bafyEvidence001,student-signature]]
+STEP TOKEN SystemNet.p_CompetencyPool = [CompetencyNet[12]]
+STEP TOKEN SystemNet.p_EvidencePool = [EvidenceNet[4]]
+STEP TOKEN SystemNet.p_HRPool = [HRAgent[16]]
+STEP TOKEN SystemNet.p_LedgerPool = [HEDULedgerNet[14]]
+STEP TOKEN SystemNet.p_ProfessorPool = [ProfessorAgent[6]]
+STEP TOKEN SystemNet.p_StudentPool = [StudentAgent[2]]
+STEP TOKEN SystemNet.p_UniversityPool = [UniversityAgent[8]]
+STEP TOKEN SystemNet.p_WalletPool = [WalletNet[10]]
+STEP TOKEN UniversityAgent.p_Idle = [[did:example:issuer1,did:example:student1,credential-001]]
+STEP TOKEN WalletNet.p_Empty = [[]]
+REFERENCE	0	after:ProfessorAgent.t_AssessEvidence	10	10	4	0
+AVAILABLE	0	before:ProfessorAgent.t_ApproveEvidence	StudentAgent.t_WaitCredential	StudentAgent.t_WaitCredential
+AVAILABLE	0	before:ProfessorAgent.t_ApproveEvidence	ProfessorAgent.t_ApproveEvidence	ProfessorAgent.t_ApproveEvidence,UniversityAgent.t_ReceiveEvidence
+ENUMERATED	0	before:ProfessorAgent.t_ApproveEvidence	2
+BINDING ProfessorAgent.t_ApproveEvidence = ProfessorAgent.t_ApproveEvidence,UniversityAgent.t_ReceiveEvidence
+FIRED ProfessorAgent.t_ApproveEvidence
+STEP TOKEN CompetencyNet.p_Submitted = [[did:example:issuer1,did:example:student1,credential-001,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN EvidenceNet.p_Graded = [[EvidenceObject[33],did:example:student1,bafyEvidence001,int(50),did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN EvidenceObject.p_Graded = [[did:example:student1,bafyEvidence001,did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN HEDULedgerNet.p_Received = [[]]
+STEP TOKEN HRAgent.p_Idle = [[]]
+STEP TOKEN ProfessorAgent.p_Approved = [[StudentAgent[2],UniversityAgent[8],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],EvidenceNet[4],int(80),int(50),int(0),int(100),did:example:assessor1,https://example.org/criteria]]
+STEP TOKEN StudentAgent.p_Submitted = [[ProfessorAgent[6],UniversityAgent[8],EvidenceNet[4],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:student1,bafyEvidence001,student-signature]]
+STEP TOKEN SystemNet.p_CompetencyPool = [CompetencyNet[12]]
+STEP TOKEN SystemNet.p_EvidencePool = [EvidenceNet[4]]
+STEP TOKEN SystemNet.p_HRPool = [HRAgent[16]]
+STEP TOKEN SystemNet.p_LedgerPool = [HEDULedgerNet[14]]
+STEP TOKEN SystemNet.p_ProfessorPool = [ProfessorAgent[6]]
+STEP TOKEN SystemNet.p_StudentPool = [StudentAgent[2]]
+STEP TOKEN SystemNet.p_UniversityPool = [UniversityAgent[8]]
+STEP TOKEN SystemNet.p_WalletPool = [WalletNet[10]]
+STEP TOKEN UniversityAgent.p_EvidenceReceived = [[StudentAgent[2],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001]]
+STEP TOKEN WalletNet.p_Empty = [[]]
+REFERENCE	0	after:ProfessorAgent.t_ApproveEvidence	10	10	5	0
+AVAILABLE	0	before:UniversityAgent.t_VerifyEvidence	UniversityAgent.t_VerifyEvidence	UniversityAgent.t_VerifyEvidence
+AVAILABLE	0	before:UniversityAgent.t_VerifyEvidence	StudentAgent.t_WaitCredential	StudentAgent.t_WaitCredential
+ENUMERATED	0	before:UniversityAgent.t_VerifyEvidence	2
+BINDING UniversityAgent.t_VerifyEvidence = UniversityAgent.t_VerifyEvidence
+FIRED UniversityAgent.t_VerifyEvidence
+STEP TOKEN CompetencyNet.p_Submitted = [[did:example:issuer1,did:example:student1,credential-001,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN EvidenceNet.p_Graded = [[EvidenceObject[33],did:example:student1,bafyEvidence001,int(50),did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN EvidenceObject.p_Graded = [[did:example:student1,bafyEvidence001,did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN HEDULedgerNet.p_Received = [[]]
+STEP TOKEN HRAgent.p_Idle = [[]]
+STEP TOKEN ProfessorAgent.p_Approved = [[StudentAgent[2],UniversityAgent[8],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],EvidenceNet[4],int(80),int(50),int(0),int(100),did:example:assessor1,https://example.org/criteria]]
+STEP TOKEN StudentAgent.p_Submitted = [[ProfessorAgent[6],UniversityAgent[8],EvidenceNet[4],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:student1,bafyEvidence001,student-signature]]
+STEP TOKEN SystemNet.p_CompetencyPool = [CompetencyNet[12]]
+STEP TOKEN SystemNet.p_EvidencePool = [EvidenceNet[4]]
+STEP TOKEN SystemNet.p_HRPool = [HRAgent[16]]
+STEP TOKEN SystemNet.p_LedgerPool = [HEDULedgerNet[14]]
+STEP TOKEN SystemNet.p_ProfessorPool = [ProfessorAgent[6]]
+STEP TOKEN SystemNet.p_StudentPool = [StudentAgent[2]]
+STEP TOKEN SystemNet.p_UniversityPool = [UniversityAgent[8]]
+STEP TOKEN SystemNet.p_WalletPool = [WalletNet[10]]
+STEP TOKEN UniversityAgent.p_Verifying = [[StudentAgent[2],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001]]
+STEP TOKEN WalletNet.p_Empty = [[]]
+REFERENCE	0	after:UniversityAgent.t_VerifyEvidence	10	10	5	0
+AVAILABLE	0	before:UniversityAgent.t_RequestCredential	UniversityAgent.t_RequestCredential	CompetencyNet.t_Review_Init,CredentialObject.t_StartReview,UniversityAgent.t_RequestCredential
+AVAILABLE	0	before:UniversityAgent.t_RequestCredential	StudentAgent.t_WaitCredential	StudentAgent.t_WaitCredential
+ENUMERATED	0	before:UniversityAgent.t_RequestCredential	2
+BINDING UniversityAgent.t_RequestCredential = CompetencyNet.t_Review_Init,CredentialObject.t_StartReview,UniversityAgent.t_RequestCredential
+FIRED UniversityAgent.t_RequestCredential
+STEP TOKEN CompetencyNet.p_UnderReview = [[StudentAgent[2],CredentialObject[59],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN EvidenceNet.p_Graded = [[EvidenceObject[33],did:example:student1,bafyEvidence001,int(50),did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN EvidenceObject.p_Graded = [[did:example:student1,bafyEvidence001,did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN HEDULedgerNet.p_Received = [[]]
+STEP TOKEN HRAgent.p_Idle = [[]]
+STEP TOKEN ProfessorAgent.p_Approved = [[StudentAgent[2],UniversityAgent[8],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],EvidenceNet[4],int(80),int(50),int(0),int(100),did:example:assessor1,https://example.org/criteria]]
+STEP TOKEN StudentAgent.p_Submitted = [[ProfessorAgent[6],UniversityAgent[8],EvidenceNet[4],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:student1,bafyEvidence001,student-signature]]
+STEP TOKEN SystemNet.p_CompetencyPool = [CompetencyNet[12]]
+STEP TOKEN SystemNet.p_EvidencePool = [EvidenceNet[4]]
+STEP TOKEN SystemNet.p_HRPool = [HRAgent[16]]
+STEP TOKEN SystemNet.p_LedgerPool = [HEDULedgerNet[14]]
+STEP TOKEN SystemNet.p_ProfessorPool = [ProfessorAgent[6]]
+STEP TOKEN SystemNet.p_StudentPool = [StudentAgent[2]]
+STEP TOKEN SystemNet.p_UniversityPool = [UniversityAgent[8]]
+STEP TOKEN SystemNet.p_WalletPool = [WalletNet[10]]
+STEP TOKEN UniversityAgent.p_CredentialRequested = [[StudentAgent[2],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001]]
+STEP TOKEN WalletNet.p_Empty = [[]]
+REFERENCE	0	after:UniversityAgent.t_RequestCredential	11	11	7	0
+AVAILABLE	0	before:CompetencyNet.t_Verification_Pass	StudentAgent.t_WaitCredential	StudentAgent.t_WaitCredential
+AVAILABLE	0	before:CompetencyNet.t_Verification_Pass	CompetencyNet.t_Verification_Pass	CompetencyNet.t_Verification_Pass,CredentialObject.t_Validate
+ENUMERATED	0	before:CompetencyNet.t_Verification_Pass	2
+BINDING CompetencyNet.t_Verification_Pass = CompetencyNet.t_Verification_Pass,CredentialObject.t_Validate
+FIRED CompetencyNet.t_Verification_Pass
+STEP TOKEN CompetencyNet.p_Validated = [[StudentAgent[2],CredentialObject[59],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN CredentialObject.p_Validated = [[int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,student-signature,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN EvidenceNet.p_Graded = [[EvidenceObject[33],did:example:student1,bafyEvidence001,int(50),did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN EvidenceObject.p_Graded = [[did:example:student1,bafyEvidence001,did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN HEDULedgerNet.p_Received = [[]]
+STEP TOKEN HRAgent.p_Idle = [[]]
+STEP TOKEN ProfessorAgent.p_Approved = [[StudentAgent[2],UniversityAgent[8],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],EvidenceNet[4],int(80),int(50),int(0),int(100),did:example:assessor1,https://example.org/criteria]]
+STEP TOKEN StudentAgent.p_Submitted = [[ProfessorAgent[6],UniversityAgent[8],EvidenceNet[4],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:student1,bafyEvidence001,student-signature]]
+STEP TOKEN SystemNet.p_CompetencyPool = [CompetencyNet[12]]
+STEP TOKEN SystemNet.p_EvidencePool = [EvidenceNet[4]]
+STEP TOKEN SystemNet.p_HRPool = [HRAgent[16]]
+STEP TOKEN SystemNet.p_LedgerPool = [HEDULedgerNet[14]]
+STEP TOKEN SystemNet.p_ProfessorPool = [ProfessorAgent[6]]
+STEP TOKEN SystemNet.p_StudentPool = [StudentAgent[2]]
+STEP TOKEN SystemNet.p_UniversityPool = [UniversityAgent[8]]
+STEP TOKEN SystemNet.p_WalletPool = [WalletNet[10]]
+STEP TOKEN UniversityAgent.p_CredentialRequested = [[StudentAgent[2],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001]]
+STEP TOKEN WalletNet.p_Empty = [[]]
+REFERENCE	0	after:CompetencyNet.t_Verification_Pass	11	11	7	0
+AVAILABLE	0	before:UniversityAgent.t_IssueCredential	UniversityAgent.t_IssueCredential	CompetencyNet.t_SBT_Mint,CredentialObject.t_Mint,UniversityAgent.t_IssueCredential,WalletNet.t_ReceiveCredential
+AVAILABLE	0	before:UniversityAgent.t_IssueCredential	StudentAgent.t_WaitCredential	StudentAgent.t_WaitCredential
+ENUMERATED	0	before:UniversityAgent.t_IssueCredential	2
+BINDING UniversityAgent.t_IssueCredential = CompetencyNet.t_SBT_Mint,CredentialObject.t_Mint,UniversityAgent.t_IssueCredential,WalletNet.t_ReceiveCredential
+FIRED UniversityAgent.t_IssueCredential
+STEP TOKEN CompetencyNet.p_PendingAccept = [[StudentAgent[2],CredentialObject[59],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN CredentialObject.p_PendingAccept = [[int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,student-signature,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN EvidenceNet.p_Graded = [[EvidenceObject[33],did:example:student1,bafyEvidence001,int(50),did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN EvidenceObject.p_Graded = [[did:example:student1,bafyEvidence001,did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN HEDULedgerNet.p_Received = [[]]
+STEP TOKEN HRAgent.p_Idle = [[]]
+STEP TOKEN ProfessorAgent.p_Approved = [[StudentAgent[2],UniversityAgent[8],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],EvidenceNet[4],int(80),int(50),int(0),int(100),did:example:assessor1,https://example.org/criteria]]
+STEP TOKEN StudentAgent.p_Submitted = [[ProfessorAgent[6],UniversityAgent[8],EvidenceNet[4],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:student1,bafyEvidence001,student-signature]]
+STEP TOKEN SystemNet.p_CompetencyPool = [CompetencyNet[12]]
+STEP TOKEN SystemNet.p_EvidencePool = [EvidenceNet[4]]
+STEP TOKEN SystemNet.p_HRPool = [HRAgent[16]]
+STEP TOKEN SystemNet.p_LedgerPool = [HEDULedgerNet[14]]
+STEP TOKEN SystemNet.p_ProfessorPool = [ProfessorAgent[6]]
+STEP TOKEN SystemNet.p_StudentPool = [StudentAgent[2]]
+STEP TOKEN SystemNet.p_UniversityPool = [UniversityAgent[8]]
+STEP TOKEN SystemNet.p_WalletPool = [WalletNet[10]]
+STEP TOKEN UniversityAgent.p_CredentialIssued = [[StudentAgent[2],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001]]
+STEP TOKEN WalletNet.p_CredentialReceived = [[CompetencyNet[12],did:example:issuer1,did:example:student1,credential-001]]
+REFERENCE	0	after:UniversityAgent.t_IssueCredential	11	11	8	0
+AVAILABLE	0	before:StudentAgent.t_WaitCredential	StudentAgent.t_WaitCredential	StudentAgent.t_WaitCredential
+AVAILABLE	0	before:StudentAgent.t_WaitCredential	CompetencyNet.t_SBT_Cancel	CompetencyNet.t_SBT_Cancel,CredentialObject.t_Cancel,StudentAgent.t_AbortSubmitted,WalletNet.t_AbortReceived
+ENUMERATED	0	before:StudentAgent.t_WaitCredential	2
+BINDING StudentAgent.t_WaitCredential = StudentAgent.t_WaitCredential
+FIRED StudentAgent.t_WaitCredential
+STEP TOKEN CompetencyNet.p_PendingAccept = [[StudentAgent[2],CredentialObject[59],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN CredentialObject.p_PendingAccept = [[int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,student-signature,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN EvidenceNet.p_Graded = [[EvidenceObject[33],did:example:student1,bafyEvidence001,int(50),did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN EvidenceObject.p_Graded = [[did:example:student1,bafyEvidence001,did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN HEDULedgerNet.p_Received = [[]]
+STEP TOKEN HRAgent.p_Idle = [[]]
+STEP TOKEN ProfessorAgent.p_Approved = [[StudentAgent[2],UniversityAgent[8],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],EvidenceNet[4],int(80),int(50),int(0),int(100),did:example:assessor1,https://example.org/criteria]]
+STEP TOKEN StudentAgent.p_WaitingCredential = [[ProfessorAgent[6],UniversityAgent[8],EvidenceNet[4],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:student1,bafyEvidence001,student-signature]]
+STEP TOKEN SystemNet.p_CompetencyPool = [CompetencyNet[12]]
+STEP TOKEN SystemNet.p_EvidencePool = [EvidenceNet[4]]
+STEP TOKEN SystemNet.p_HRPool = [HRAgent[16]]
+STEP TOKEN SystemNet.p_LedgerPool = [HEDULedgerNet[14]]
+STEP TOKEN SystemNet.p_ProfessorPool = [ProfessorAgent[6]]
+STEP TOKEN SystemNet.p_StudentPool = [StudentAgent[2]]
+STEP TOKEN SystemNet.p_UniversityPool = [UniversityAgent[8]]
+STEP TOKEN SystemNet.p_WalletPool = [WalletNet[10]]
+STEP TOKEN UniversityAgent.p_CredentialIssued = [[StudentAgent[2],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001]]
+STEP TOKEN WalletNet.p_CredentialReceived = [[CompetencyNet[12],did:example:issuer1,did:example:student1,credential-001]]
+REFERENCE	0	after:StudentAgent.t_WaitCredential	11	11	8	0
+AVAILABLE	0	before:StudentAgent.t_ReceiveCredential	StudentAgent.t_ReceiveCredential	StudentAgent.t_ReceiveCredential,WalletNet.t_RequestConsent
+AVAILABLE	0	before:StudentAgent.t_ReceiveCredential	CompetencyNet.t_SBT_Cancel	CompetencyNet.t_SBT_Cancel,CredentialObject.t_Cancel,StudentAgent.t_AbortWaiting,WalletNet.t_AbortReceived
+ENUMERATED	0	before:StudentAgent.t_ReceiveCredential	2
+BINDING StudentAgent.t_ReceiveCredential = StudentAgent.t_ReceiveCredential,WalletNet.t_RequestConsent
+FIRED StudentAgent.t_ReceiveCredential
+STEP TOKEN CompetencyNet.p_PendingAccept = [[StudentAgent[2],CredentialObject[59],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN CredentialObject.p_PendingAccept = [[int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,student-signature,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN EvidenceNet.p_Graded = [[EvidenceObject[33],did:example:student1,bafyEvidence001,int(50),did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN EvidenceObject.p_Graded = [[did:example:student1,bafyEvidence001,did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN HEDULedgerNet.p_Received = [[]]
+STEP TOKEN HRAgent.p_Idle = [[]]
+STEP TOKEN ProfessorAgent.p_Approved = [[StudentAgent[2],UniversityAgent[8],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],EvidenceNet[4],int(80),int(50),int(0),int(100),did:example:assessor1,https://example.org/criteria]]
+STEP TOKEN StudentAgent.p_CredentialReceived = [[ProfessorAgent[6],UniversityAgent[8],EvidenceNet[4],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:student1,bafyEvidence001,student-signature]]
+STEP TOKEN SystemNet.p_CompetencyPool = [CompetencyNet[12]]
+STEP TOKEN SystemNet.p_EvidencePool = [EvidenceNet[4]]
+STEP TOKEN SystemNet.p_HRPool = [HRAgent[16]]
+STEP TOKEN SystemNet.p_LedgerPool = [HEDULedgerNet[14]]
+STEP TOKEN SystemNet.p_ProfessorPool = [ProfessorAgent[6]]
+STEP TOKEN SystemNet.p_StudentPool = [StudentAgent[2]]
+STEP TOKEN SystemNet.p_UniversityPool = [UniversityAgent[8]]
+STEP TOKEN SystemNet.p_WalletPool = [WalletNet[10]]
+STEP TOKEN UniversityAgent.p_CredentialIssued = [[StudentAgent[2],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001]]
+STEP TOKEN WalletNet.p_PendingConsent = [[CompetencyNet[12],did:example:issuer1,did:example:student1,credential-001]]
+REFERENCE	0	after:StudentAgent.t_ReceiveCredential	11	11	8	0
+AVAILABLE	0	decision	StudentAgent.t_RejectCredential	CompetencyNet.t_SBT_Reject,CredentialObject.t_Reject,StudentAgent.t_RejectCredential,WalletNet.t_RejectCredential
+AVAILABLE	0	decision	StudentAgent.t_AcceptCredential	CompetencyNet.t_SBT_Accept,CredentialObject.t_Accept,HEDULedgerNet.t_Execute,StudentAgent.t_AcceptCredential,WalletNet.t_AcceptCredential
+AVAILABLE	0	decision	CompetencyNet.t_SBT_Cancel	CompetencyNet.t_SBT_Cancel,CredentialObject.t_Cancel,StudentAgent.t_AbortReceived,WalletNet.t_AbortConsent
+ENUMERATED	0	decision	3
+DECISION_CHOICES CompetencyNet.t_SBT_Cancel,StudentAgent.t_AcceptCredential,StudentAgent.t_RejectCredential
+AVAILABLE	0	before:StudentAgent.t_AcceptCredential	StudentAgent.t_RejectCredential	CompetencyNet.t_SBT_Reject,CredentialObject.t_Reject,StudentAgent.t_RejectCredential,WalletNet.t_RejectCredential
+AVAILABLE	0	before:StudentAgent.t_AcceptCredential	StudentAgent.t_AcceptCredential	CompetencyNet.t_SBT_Accept,CredentialObject.t_Accept,HEDULedgerNet.t_Execute,StudentAgent.t_AcceptCredential,WalletNet.t_AcceptCredential
+AVAILABLE	0	before:StudentAgent.t_AcceptCredential	CompetencyNet.t_SBT_Cancel	CompetencyNet.t_SBT_Cancel,CredentialObject.t_Cancel,StudentAgent.t_AbortReceived,WalletNet.t_AbortConsent
+ENUMERATED	0	before:StudentAgent.t_AcceptCredential	3
+BINDING StudentAgent.t_AcceptCredential = CompetencyNet.t_SBT_Accept,CredentialObject.t_Accept,HEDULedgerNet.t_Execute,StudentAgent.t_AcceptCredential,WalletNet.t_AcceptCredential
+FIRED StudentAgent.t_AcceptCredential
+STEP TOKEN CompetencyNet.p_AwaitingAnchor = [[StudentAgent[2],CredentialObject[59],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN CredentialObject.p_AwaitingAnchor = [[int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,student-signature,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN EvidenceNet.p_Graded = [[EvidenceObject[33],did:example:student1,bafyEvidence001,int(50),did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN EvidenceObject.p_Graded = [[did:example:student1,bafyEvidence001,did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN HEDULedgerNet.p_Executed = [[CompetencyNet[12]]]
+STEP TOKEN HRAgent.p_Idle = [[]]
+STEP TOKEN ProfessorAgent.p_Approved = [[StudentAgent[2],UniversityAgent[8],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],EvidenceNet[4],int(80),int(50),int(0),int(100),did:example:assessor1,https://example.org/criteria]]
+STEP TOKEN StudentAgent.p_AwaitingAnchor = [[ProfessorAgent[6],UniversityAgent[8],EvidenceNet[4],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:student1,bafyEvidence001,student-signature]]
+STEP TOKEN SystemNet.p_CompetencyPool = [CompetencyNet[12]]
+STEP TOKEN SystemNet.p_EvidencePool = [EvidenceNet[4]]
+STEP TOKEN SystemNet.p_HRPool = [HRAgent[16]]
+STEP TOKEN SystemNet.p_LedgerPool = [HEDULedgerNet[14]]
+STEP TOKEN SystemNet.p_ProfessorPool = [ProfessorAgent[6]]
+STEP TOKEN SystemNet.p_StudentPool = [StudentAgent[2]]
+STEP TOKEN SystemNet.p_UniversityPool = [UniversityAgent[8]]
+STEP TOKEN SystemNet.p_WalletPool = [WalletNet[10]]
+STEP TOKEN UniversityAgent.p_CredentialIssued = [[StudentAgent[2],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001]]
+STEP TOKEN WalletNet.p_AwaitingAnchor = [[CompetencyNet[12],did:example:issuer1,did:example:student1,credential-001]]
+REFERENCE	0	after:StudentAgent.t_AcceptCredential	11	11	9	0
+AVAILABLE	0	before:HEDULedgerNet.t_Order	HEDULedgerNet.t_Order	HEDULedgerNet.t_Order
+ENUMERATED	0	before:HEDULedgerNet.t_Order	1
+BINDING HEDULedgerNet.t_Order = HEDULedgerNet.t_Order
+FIRED HEDULedgerNet.t_Order
+STEP TOKEN CompetencyNet.p_AwaitingAnchor = [[StudentAgent[2],CredentialObject[59],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN CredentialObject.p_AwaitingAnchor = [[int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,student-signature,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN EvidenceNet.p_Graded = [[EvidenceObject[33],did:example:student1,bafyEvidence001,int(50),did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN EvidenceObject.p_Graded = [[did:example:student1,bafyEvidence001,did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN HEDULedgerNet.p_Ordered = [[CompetencyNet[12]]]
+STEP TOKEN HRAgent.p_Idle = [[]]
+STEP TOKEN ProfessorAgent.p_Approved = [[StudentAgent[2],UniversityAgent[8],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],EvidenceNet[4],int(80),int(50),int(0),int(100),did:example:assessor1,https://example.org/criteria]]
+STEP TOKEN StudentAgent.p_AwaitingAnchor = [[ProfessorAgent[6],UniversityAgent[8],EvidenceNet[4],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:student1,bafyEvidence001,student-signature]]
+STEP TOKEN SystemNet.p_CompetencyPool = [CompetencyNet[12]]
+STEP TOKEN SystemNet.p_EvidencePool = [EvidenceNet[4]]
+STEP TOKEN SystemNet.p_HRPool = [HRAgent[16]]
+STEP TOKEN SystemNet.p_LedgerPool = [HEDULedgerNet[14]]
+STEP TOKEN SystemNet.p_ProfessorPool = [ProfessorAgent[6]]
+STEP TOKEN SystemNet.p_StudentPool = [StudentAgent[2]]
+STEP TOKEN SystemNet.p_UniversityPool = [UniversityAgent[8]]
+STEP TOKEN SystemNet.p_WalletPool = [WalletNet[10]]
+STEP TOKEN UniversityAgent.p_CredentialIssued = [[StudentAgent[2],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001]]
+STEP TOKEN WalletNet.p_AwaitingAnchor = [[CompetencyNet[12],did:example:issuer1,did:example:student1,credential-001]]
+REFERENCE	0	after:HEDULedgerNet.t_Order	11	11	9	0
+AVAILABLE	0	before:HEDULedgerNet.t_Validate	HEDULedgerNet.t_Validate	HEDULedgerNet.t_Validate
+AVAILABLE	0	before:HEDULedgerNet.t_Validate	HEDULedgerNet.t_Reject	CompetencyNet.t_LedgerFailed,CredentialObject.t_LedgerFailed,HEDULedgerNet.t_Reject,StudentAgent.t_AbortAwaitingAnchor,WalletNet.t_AbortAwaitingAnchor
+ENUMERATED	0	before:HEDULedgerNet.t_Validate	2
+BINDING HEDULedgerNet.t_Validate = HEDULedgerNet.t_Validate
+FIRED HEDULedgerNet.t_Validate
+STEP TOKEN CompetencyNet.p_AwaitingAnchor = [[StudentAgent[2],CredentialObject[59],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN CredentialObject.p_AwaitingAnchor = [[int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,student-signature,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN EvidenceNet.p_Graded = [[EvidenceObject[33],did:example:student1,bafyEvidence001,int(50),did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN EvidenceObject.p_Graded = [[did:example:student1,bafyEvidence001,did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN HEDULedgerNet.p_Validated = [[CompetencyNet[12]]]
+STEP TOKEN HRAgent.p_Idle = [[]]
+STEP TOKEN ProfessorAgent.p_Approved = [[StudentAgent[2],UniversityAgent[8],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],EvidenceNet[4],int(80),int(50),int(0),int(100),did:example:assessor1,https://example.org/criteria]]
+STEP TOKEN StudentAgent.p_AwaitingAnchor = [[ProfessorAgent[6],UniversityAgent[8],EvidenceNet[4],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:student1,bafyEvidence001,student-signature]]
+STEP TOKEN SystemNet.p_CompetencyPool = [CompetencyNet[12]]
+STEP TOKEN SystemNet.p_EvidencePool = [EvidenceNet[4]]
+STEP TOKEN SystemNet.p_HRPool = [HRAgent[16]]
+STEP TOKEN SystemNet.p_LedgerPool = [HEDULedgerNet[14]]
+STEP TOKEN SystemNet.p_ProfessorPool = [ProfessorAgent[6]]
+STEP TOKEN SystemNet.p_StudentPool = [StudentAgent[2]]
+STEP TOKEN SystemNet.p_UniversityPool = [UniversityAgent[8]]
+STEP TOKEN SystemNet.p_WalletPool = [WalletNet[10]]
+STEP TOKEN UniversityAgent.p_CredentialIssued = [[StudentAgent[2],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001]]
+STEP TOKEN WalletNet.p_AwaitingAnchor = [[CompetencyNet[12],did:example:issuer1,did:example:student1,credential-001]]
+REFERENCE	0	after:HEDULedgerNet.t_Validate	11	11	9	0
+AVAILABLE	0	before:HEDULedgerNet.t_Commit	HEDULedgerNet.t_Commit	HEDULedgerNet.t_Commit
+ENUMERATED	0	before:HEDULedgerNet.t_Commit	1
+BINDING HEDULedgerNet.t_Commit = HEDULedgerNet.t_Commit
+FIRED HEDULedgerNet.t_Commit
+STEP TOKEN CompetencyNet.p_AwaitingAnchor = [[StudentAgent[2],CredentialObject[59],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN CredentialObject.p_AwaitingAnchor = [[int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,student-signature,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN EvidenceNet.p_Graded = [[EvidenceObject[33],did:example:student1,bafyEvidence001,int(50),did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN EvidenceObject.p_Graded = [[did:example:student1,bafyEvidence001,did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN HEDULedgerNet.p_Committed = [[CompetencyNet[12]]]
+STEP TOKEN HRAgent.p_Idle = [[]]
+STEP TOKEN ProfessorAgent.p_Approved = [[StudentAgent[2],UniversityAgent[8],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],EvidenceNet[4],int(80),int(50),int(0),int(100),did:example:assessor1,https://example.org/criteria]]
+STEP TOKEN StudentAgent.p_AwaitingAnchor = [[ProfessorAgent[6],UniversityAgent[8],EvidenceNet[4],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:student1,bafyEvidence001,student-signature]]
+STEP TOKEN SystemNet.p_CompetencyPool = [CompetencyNet[12]]
+STEP TOKEN SystemNet.p_EvidencePool = [EvidenceNet[4]]
+STEP TOKEN SystemNet.p_HRPool = [HRAgent[16]]
+STEP TOKEN SystemNet.p_LedgerPool = [HEDULedgerNet[14]]
+STEP TOKEN SystemNet.p_ProfessorPool = [ProfessorAgent[6]]
+STEP TOKEN SystemNet.p_StudentPool = [StudentAgent[2]]
+STEP TOKEN SystemNet.p_UniversityPool = [UniversityAgent[8]]
+STEP TOKEN SystemNet.p_WalletPool = [WalletNet[10]]
+STEP TOKEN UniversityAgent.p_CredentialIssued = [[StudentAgent[2],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001]]
+STEP TOKEN WalletNet.p_AwaitingAnchor = [[CompetencyNet[12],did:example:issuer1,did:example:student1,credential-001]]
+REFERENCE	0	after:HEDULedgerNet.t_Commit	11	11	9	0
+AVAILABLE	0	before:HEDULedgerNet.t_Anchor	HEDULedgerNet.t_Anchor	CompetencyNet.t_AnchorConfirmed,CredentialObject.t_AnchorConfirmed,HEDULedgerNet.t_Anchor,StudentAgent.t_AnchorConfirmed,WalletNet.t_AnchorConfirmed
+ENUMERATED	0	before:HEDULedgerNet.t_Anchor	1
+BINDING HEDULedgerNet.t_Anchor = CompetencyNet.t_AnchorConfirmed,CredentialObject.t_AnchorConfirmed,HEDULedgerNet.t_Anchor,StudentAgent.t_AnchorConfirmed,WalletNet.t_AnchorConfirmed
+FIRED HEDULedgerNet.t_Anchor
+STEP TOKEN CompetencyNet.p_BlockchainAnchored = [[StudentAgent[2],CredentialObject[59],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN CredentialObject.p_Anchored = [[int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,student-signature,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN EvidenceNet.p_Graded = [[EvidenceObject[33],did:example:student1,bafyEvidence001,int(50),did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN EvidenceObject.p_Graded = [[did:example:student1,bafyEvidence001,did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN HEDULedgerNet.p_Anchored = [[CompetencyNet[12],ANCHORED]]
+STEP TOKEN HRAgent.p_Idle = [[]]
+STEP TOKEN ProfessorAgent.p_Approved = [[StudentAgent[2],UniversityAgent[8],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],EvidenceNet[4],int(80),int(50),int(0),int(100),did:example:assessor1,https://example.org/criteria]]
+STEP TOKEN StudentAgent.p_Accepted = [[ProfessorAgent[6],UniversityAgent[8],EvidenceNet[4],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:student1,bafyEvidence001,student-signature]]
+STEP TOKEN SystemNet.p_CompetencyPool = [CompetencyNet[12]]
+STEP TOKEN SystemNet.p_EvidencePool = [EvidenceNet[4]]
+STEP TOKEN SystemNet.p_HRPool = [HRAgent[16]]
+STEP TOKEN SystemNet.p_LedgerPool = [HEDULedgerNet[14]]
+STEP TOKEN SystemNet.p_ProfessorPool = [ProfessorAgent[6]]
+STEP TOKEN SystemNet.p_StudentPool = [StudentAgent[2]]
+STEP TOKEN SystemNet.p_UniversityPool = [UniversityAgent[8]]
+STEP TOKEN SystemNet.p_WalletPool = [WalletNet[10]]
+STEP TOKEN UniversityAgent.p_CredentialIssued = [[StudentAgent[2],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001]]
+STEP TOKEN WalletNet.p_Accepted = [[CompetencyNet[12],did:example:issuer1,did:example:student1,credential-001]]
+REFERENCE	0	after:HEDULedgerNet.t_Anchor	11	11	9	0
+TERMINAL OK CompetencyNet.p_BlockchainAnchored
+TERMINAL OK CredentialObject.p_Anchored
+ANCHOR_ATOMIC PASS
+AVAILABLE	0	before:StudentAgent.t_GenerateVP	StudentAgent.t_GenerateVP	StudentAgent.t_GenerateVP
+AVAILABLE	0	before:StudentAgent.t_GenerateVP	WalletNet.t_GenerateVP	WalletNet.t_GenerateVP
+ENUMERATED	0	before:StudentAgent.t_GenerateVP	2
+BINDING StudentAgent.t_GenerateVP = StudentAgent.t_GenerateVP
+FIRED StudentAgent.t_GenerateVP
+STEP TOKEN CompetencyNet.p_BlockchainAnchored = [[StudentAgent[2],CredentialObject[59],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN CredentialObject.p_Anchored = [[int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,student-signature,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN EvidenceNet.p_Graded = [[EvidenceObject[33],did:example:student1,bafyEvidence001,int(50),did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN EvidenceObject.p_Graded = [[did:example:student1,bafyEvidence001,did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN HEDULedgerNet.p_Anchored = [[CompetencyNet[12],ANCHORED]]
+STEP TOKEN HRAgent.p_Idle = [[]]
+STEP TOKEN ProfessorAgent.p_Approved = [[StudentAgent[2],UniversityAgent[8],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],EvidenceNet[4],int(80),int(50),int(0),int(100),did:example:assessor1,https://example.org/criteria]]
+STEP TOKEN StudentAgent.p_PresentationReady = [[ProfessorAgent[6],UniversityAgent[8],EvidenceNet[4],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:student1,bafyEvidence001,student-signature]]
+STEP TOKEN SystemNet.p_CompetencyPool = [CompetencyNet[12]]
+STEP TOKEN SystemNet.p_EvidencePool = [EvidenceNet[4]]
+STEP TOKEN SystemNet.p_HRPool = [HRAgent[16]]
+STEP TOKEN SystemNet.p_LedgerPool = [HEDULedgerNet[14]]
+STEP TOKEN SystemNet.p_ProfessorPool = [ProfessorAgent[6]]
+STEP TOKEN SystemNet.p_StudentPool = [StudentAgent[2]]
+STEP TOKEN SystemNet.p_UniversityPool = [UniversityAgent[8]]
+STEP TOKEN SystemNet.p_WalletPool = [WalletNet[10]]
+STEP TOKEN UniversityAgent.p_CredentialIssued = [[StudentAgent[2],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001]]
+STEP TOKEN WalletNet.p_Accepted = [[CompetencyNet[12],did:example:issuer1,did:example:student1,credential-001]]
+REFERENCE	0	after:StudentAgent.t_GenerateVP	11	11	9	0
+AVAILABLE	0	before:StudentAgent.t_ShareVP	StudentAgent.t_ShareVP	HRAgent.t_ReceiveVP,StudentAgent.t_ShareVP
+AVAILABLE	0	before:StudentAgent.t_ShareVP	WalletNet.t_GenerateVP	WalletNet.t_GenerateVP
+ENUMERATED	0	before:StudentAgent.t_ShareVP	2
+BINDING StudentAgent.t_ShareVP = HRAgent.t_ReceiveVP,StudentAgent.t_ShareVP
+FIRED StudentAgent.t_ShareVP
+STEP TOKEN CompetencyNet.p_BlockchainAnchored = [[StudentAgent[2],CredentialObject[59],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN CredentialObject.p_Anchored = [[int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,student-signature,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN EvidenceNet.p_Graded = [[EvidenceObject[33],did:example:student1,bafyEvidence001,int(50),did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN EvidenceObject.p_Graded = [[did:example:student1,bafyEvidence001,did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN HEDULedgerNet.p_Anchored = [[CompetencyNet[12],ANCHORED]]
+STEP TOKEN HRAgent.p_VPReceived = [[]]
+STEP TOKEN ProfessorAgent.p_Approved = [[StudentAgent[2],UniversityAgent[8],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],EvidenceNet[4],int(80),int(50),int(0),int(100),did:example:assessor1,https://example.org/criteria]]
+STEP TOKEN StudentAgent.p_VPShared = [[ProfessorAgent[6],UniversityAgent[8],EvidenceNet[4],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:student1,bafyEvidence001,student-signature]]
+STEP TOKEN SystemNet.p_CompetencyPool = [CompetencyNet[12]]
+STEP TOKEN SystemNet.p_EvidencePool = [EvidenceNet[4]]
+STEP TOKEN SystemNet.p_HRPool = [HRAgent[16]]
+STEP TOKEN SystemNet.p_LedgerPool = [HEDULedgerNet[14]]
+STEP TOKEN SystemNet.p_ProfessorPool = [ProfessorAgent[6]]
+STEP TOKEN SystemNet.p_StudentPool = [StudentAgent[2]]
+STEP TOKEN SystemNet.p_UniversityPool = [UniversityAgent[8]]
+STEP TOKEN SystemNet.p_WalletPool = [WalletNet[10]]
+STEP TOKEN UniversityAgent.p_CredentialIssued = [[StudentAgent[2],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001]]
+STEP TOKEN WalletNet.p_Accepted = [[CompetencyNet[12],did:example:issuer1,did:example:student1,credential-001]]
+REFERENCE	0	after:StudentAgent.t_ShareVP	11	11	10	0
+AVAILABLE	0	before:HRAgent.t_ParseVP	HRAgent.t_ParseVP	HRAgent.t_ParseVP
+AVAILABLE	0	before:HRAgent.t_ParseVP	WalletNet.t_GenerateVP	WalletNet.t_GenerateVP
+ENUMERATED	0	before:HRAgent.t_ParseVP	2
+BINDING HRAgent.t_ParseVP = HRAgent.t_ParseVP
+FIRED HRAgent.t_ParseVP
+STEP TOKEN CompetencyNet.p_BlockchainAnchored = [[StudentAgent[2],CredentialObject[59],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN CredentialObject.p_Anchored = [[int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,student-signature,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN EvidenceNet.p_Graded = [[EvidenceObject[33],did:example:student1,bafyEvidence001,int(50),did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN EvidenceObject.p_Graded = [[did:example:student1,bafyEvidence001,did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN HEDULedgerNet.p_Anchored = [[CompetencyNet[12],ANCHORED]]
+STEP TOKEN HRAgent.p_Parsed = [[]]
+STEP TOKEN ProfessorAgent.p_Approved = [[StudentAgent[2],UniversityAgent[8],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],EvidenceNet[4],int(80),int(50),int(0),int(100),did:example:assessor1,https://example.org/criteria]]
+STEP TOKEN StudentAgent.p_VPShared = [[ProfessorAgent[6],UniversityAgent[8],EvidenceNet[4],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:student1,bafyEvidence001,student-signature]]
+STEP TOKEN SystemNet.p_CompetencyPool = [CompetencyNet[12]]
+STEP TOKEN SystemNet.p_EvidencePool = [EvidenceNet[4]]
+STEP TOKEN SystemNet.p_HRPool = [HRAgent[16]]
+STEP TOKEN SystemNet.p_LedgerPool = [HEDULedgerNet[14]]
+STEP TOKEN SystemNet.p_ProfessorPool = [ProfessorAgent[6]]
+STEP TOKEN SystemNet.p_StudentPool = [StudentAgent[2]]
+STEP TOKEN SystemNet.p_UniversityPool = [UniversityAgent[8]]
+STEP TOKEN SystemNet.p_WalletPool = [WalletNet[10]]
+STEP TOKEN UniversityAgent.p_CredentialIssued = [[StudentAgent[2],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001]]
+STEP TOKEN WalletNet.p_Accepted = [[CompetencyNet[12],did:example:issuer1,did:example:student1,credential-001]]
+REFERENCE	0	after:HRAgent.t_ParseVP	11	11	10	0
+AVAILABLE	0	before:CompetencyNet.t_Agg_Ingest	WalletNet.t_GenerateVP	WalletNet.t_GenerateVP
+AVAILABLE	0	before:CompetencyNet.t_Agg_Ingest	CompetencyNet.t_Agg_Ingest	CompetencyNet.t_Agg_Ingest,CredentialObject.t_Aggregate,HRAgent.t_BuildProfile
+ENUMERATED	0	before:CompetencyNet.t_Agg_Ingest	2
+BINDING CompetencyNet.t_Agg_Ingest = CompetencyNet.t_Agg_Ingest,CredentialObject.t_Aggregate,HRAgent.t_BuildProfile
+FIRED CompetencyNet.t_Agg_Ingest
+STEP TOKEN CompetencyNet.p_ProfileAggregated = [[StudentAgent[2],CredentialObject[59],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN CredentialObject.p_Aggregated = [[int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,student-signature,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN EvidenceNet.p_Graded = [[EvidenceObject[33],did:example:student1,bafyEvidence001,int(50),did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN EvidenceObject.p_Graded = [[did:example:student1,bafyEvidence001,did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN HEDULedgerNet.p_Anchored = [[CompetencyNet[12],ANCHORED]]
+STEP TOKEN HRAgent.p_CompetencyProfile = [[did:example:student1,vp-001]]
+STEP TOKEN ProfessorAgent.p_Approved = [[StudentAgent[2],UniversityAgent[8],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],EvidenceNet[4],int(80),int(50),int(0),int(100),did:example:assessor1,https://example.org/criteria]]
+STEP TOKEN StudentAgent.p_VPShared = [[ProfessorAgent[6],UniversityAgent[8],EvidenceNet[4],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:student1,bafyEvidence001,student-signature]]
+STEP TOKEN SystemNet.p_CompetencyPool = [CompetencyNet[12]]
+STEP TOKEN SystemNet.p_EvidencePool = [EvidenceNet[4]]
+STEP TOKEN SystemNet.p_HRPool = [HRAgent[16]]
+STEP TOKEN SystemNet.p_LedgerPool = [HEDULedgerNet[14]]
+STEP TOKEN SystemNet.p_ProfessorPool = [ProfessorAgent[6]]
+STEP TOKEN SystemNet.p_StudentPool = [StudentAgent[2]]
+STEP TOKEN SystemNet.p_UniversityPool = [UniversityAgent[8]]
+STEP TOKEN SystemNet.p_WalletPool = [WalletNet[10]]
+STEP TOKEN UniversityAgent.p_CredentialIssued = [[StudentAgent[2],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001]]
+STEP TOKEN WalletNet.p_Accepted = [[CompetencyNet[12],did:example:issuer1,did:example:student1,credential-001]]
+REFERENCE	0	after:CompetencyNet.t_Agg_Ingest	11	11	10	0
+AVAILABLE	0	before:HRAgent.t_SemanticMatch	HRAgent.t_SemanticMatch	HRAgent.t_SemanticMatch
+AVAILABLE	0	before:HRAgent.t_SemanticMatch	WalletNet.t_GenerateVP	WalletNet.t_GenerateVP
+ENUMERATED	0	before:HRAgent.t_SemanticMatch	2
+BINDING HRAgent.t_SemanticMatch = HRAgent.t_SemanticMatch
+FIRED HRAgent.t_SemanticMatch
+STEP TOKEN CompetencyNet.p_ProfileAggregated = [[StudentAgent[2],CredentialObject[59],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN CredentialObject.p_Aggregated = [[int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,student-signature,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN EvidenceNet.p_Graded = [[EvidenceObject[33],did:example:student1,bafyEvidence001,int(50),did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN EvidenceObject.p_Graded = [[did:example:student1,bafyEvidence001,did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN HEDULedgerNet.p_Anchored = [[CompetencyNet[12],ANCHORED]]
+STEP TOKEN HRAgent.p_Matching = [[did:example:student1,vp-001]]
+STEP TOKEN ProfessorAgent.p_Approved = [[StudentAgent[2],UniversityAgent[8],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],EvidenceNet[4],int(80),int(50),int(0),int(100),did:example:assessor1,https://example.org/criteria]]
+STEP TOKEN StudentAgent.p_VPShared = [[ProfessorAgent[6],UniversityAgent[8],EvidenceNet[4],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:student1,bafyEvidence001,student-signature]]
+STEP TOKEN SystemNet.p_CompetencyPool = [CompetencyNet[12]]
+STEP TOKEN SystemNet.p_EvidencePool = [EvidenceNet[4]]
+STEP TOKEN SystemNet.p_HRPool = [HRAgent[16]]
+STEP TOKEN SystemNet.p_LedgerPool = [HEDULedgerNet[14]]
+STEP TOKEN SystemNet.p_ProfessorPool = [ProfessorAgent[6]]
+STEP TOKEN SystemNet.p_StudentPool = [StudentAgent[2]]
+STEP TOKEN SystemNet.p_UniversityPool = [UniversityAgent[8]]
+STEP TOKEN SystemNet.p_WalletPool = [WalletNet[10]]
+STEP TOKEN UniversityAgent.p_CredentialIssued = [[StudentAgent[2],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001]]
+STEP TOKEN WalletNet.p_Accepted = [[CompetencyNet[12],did:example:issuer1,did:example:student1,credential-001]]
+REFERENCE	0	after:HRAgent.t_SemanticMatch	11	11	10	0
+AVAILABLE	0	before:HRAgent.t_GapAnalysis	HRAgent.t_GapAnalysis	HRAgent.t_GapAnalysis
+AVAILABLE	0	before:HRAgent.t_GapAnalysis	WalletNet.t_GenerateVP	WalletNet.t_GenerateVP
+ENUMERATED	0	before:HRAgent.t_GapAnalysis	2
+BINDING HRAgent.t_GapAnalysis = HRAgent.t_GapAnalysis
+FIRED HRAgent.t_GapAnalysis
+STEP TOKEN CompetencyNet.p_ProfileAggregated = [[StudentAgent[2],CredentialObject[59],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN CredentialObject.p_Aggregated = [[int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,student-signature,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN EvidenceNet.p_Graded = [[EvidenceObject[33],did:example:student1,bafyEvidence001,int(50),did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN EvidenceObject.p_Graded = [[did:example:student1,bafyEvidence001,did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN HEDULedgerNet.p_Anchored = [[CompetencyNet[12],ANCHORED]]
+STEP TOKEN HRAgent.p_GapAnalysis = [[did:example:student1,vp-001]]
+STEP TOKEN ProfessorAgent.p_Approved = [[StudentAgent[2],UniversityAgent[8],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],EvidenceNet[4],int(80),int(50),int(0),int(100),did:example:assessor1,https://example.org/criteria]]
+STEP TOKEN StudentAgent.p_VPShared = [[ProfessorAgent[6],UniversityAgent[8],EvidenceNet[4],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:student1,bafyEvidence001,student-signature]]
+STEP TOKEN SystemNet.p_CompetencyPool = [CompetencyNet[12]]
+STEP TOKEN SystemNet.p_EvidencePool = [EvidenceNet[4]]
+STEP TOKEN SystemNet.p_HRPool = [HRAgent[16]]
+STEP TOKEN SystemNet.p_LedgerPool = [HEDULedgerNet[14]]
+STEP TOKEN SystemNet.p_ProfessorPool = [ProfessorAgent[6]]
+STEP TOKEN SystemNet.p_StudentPool = [StudentAgent[2]]
+STEP TOKEN SystemNet.p_UniversityPool = [UniversityAgent[8]]
+STEP TOKEN SystemNet.p_WalletPool = [WalletNet[10]]
+STEP TOKEN UniversityAgent.p_CredentialIssued = [[StudentAgent[2],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001]]
+STEP TOKEN WalletNet.p_Accepted = [[CompetencyNet[12],did:example:issuer1,did:example:student1,credential-001]]
+REFERENCE	0	after:HRAgent.t_GapAnalysis	11	11	10	0
+AVAILABLE	0	before:HRAgent.t_GenerateResult	HRAgent.t_GenerateResult	HRAgent.t_GenerateResult
+AVAILABLE	0	before:HRAgent.t_GenerateResult	WalletNet.t_GenerateVP	WalletNet.t_GenerateVP
+ENUMERATED	0	before:HRAgent.t_GenerateResult	2
+BINDING HRAgent.t_GenerateResult = HRAgent.t_GenerateResult
+FIRED HRAgent.t_GenerateResult
+STEP TOKEN CompetencyNet.p_ProfileAggregated = [[StudentAgent[2],CredentialObject[59],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN CredentialObject.p_Aggregated = [[int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,student-signature,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN EvidenceNet.p_Graded = [[EvidenceObject[33],did:example:student1,bafyEvidence001,int(50),did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN EvidenceObject.p_Graded = [[did:example:student1,bafyEvidence001,did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN HEDULedgerNet.p_Anchored = [[CompetencyNet[12],ANCHORED]]
+STEP TOKEN HRAgent.p_ResultReady = [[did:example:student1,vp-001]]
+STEP TOKEN ProfessorAgent.p_Approved = [[StudentAgent[2],UniversityAgent[8],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],EvidenceNet[4],int(80),int(50),int(0),int(100),did:example:assessor1,https://example.org/criteria]]
+STEP TOKEN StudentAgent.p_VPShared = [[ProfessorAgent[6],UniversityAgent[8],EvidenceNet[4],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:student1,bafyEvidence001,student-signature]]
+STEP TOKEN SystemNet.p_CompetencyPool = [CompetencyNet[12]]
+STEP TOKEN SystemNet.p_EvidencePool = [EvidenceNet[4]]
+STEP TOKEN SystemNet.p_HRPool = [HRAgent[16]]
+STEP TOKEN SystemNet.p_LedgerPool = [HEDULedgerNet[14]]
+STEP TOKEN SystemNet.p_ProfessorPool = [ProfessorAgent[6]]
+STEP TOKEN SystemNet.p_StudentPool = [StudentAgent[2]]
+STEP TOKEN SystemNet.p_UniversityPool = [UniversityAgent[8]]
+STEP TOKEN SystemNet.p_WalletPool = [WalletNet[10]]
+STEP TOKEN UniversityAgent.p_CredentialIssued = [[StudentAgent[2],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001]]
+STEP TOKEN WalletNet.p_Accepted = [[CompetencyNet[12],did:example:issuer1,did:example:student1,credential-001]]
+REFERENCE	0	after:HRAgent.t_GenerateResult	11	11	10	0
+AVAILABLE	0	before:WalletNet.t_GenerateVP	WalletNet.t_GenerateVP	WalletNet.t_GenerateVP
+ENUMERATED	0	before:WalletNet.t_GenerateVP	1
+BINDING WalletNet.t_GenerateVP = WalletNet.t_GenerateVP
+FIRED WalletNet.t_GenerateVP
+STEP TOKEN CompetencyNet.p_ProfileAggregated = [[StudentAgent[2],CredentialObject[59],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN CredentialObject.p_Aggregated = [[int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,student-signature,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN EvidenceNet.p_Graded = [[EvidenceObject[33],did:example:student1,bafyEvidence001,int(50),did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN EvidenceObject.p_Graded = [[did:example:student1,bafyEvidence001,did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN HEDULedgerNet.p_Anchored = [[CompetencyNet[12],ANCHORED]]
+STEP TOKEN HRAgent.p_ResultReady = [[did:example:student1,vp-001]]
+STEP TOKEN ProfessorAgent.p_Approved = [[StudentAgent[2],UniversityAgent[8],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],EvidenceNet[4],int(80),int(50),int(0),int(100),did:example:assessor1,https://example.org/criteria]]
+STEP TOKEN StudentAgent.p_VPShared = [[ProfessorAgent[6],UniversityAgent[8],EvidenceNet[4],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:student1,bafyEvidence001,student-signature]]
+STEP TOKEN SystemNet.p_CompetencyPool = [CompetencyNet[12]]
+STEP TOKEN SystemNet.p_EvidencePool = [EvidenceNet[4]]
+STEP TOKEN SystemNet.p_HRPool = [HRAgent[16]]
+STEP TOKEN SystemNet.p_LedgerPool = [HEDULedgerNet[14]]
+STEP TOKEN SystemNet.p_ProfessorPool = [ProfessorAgent[6]]
+STEP TOKEN SystemNet.p_StudentPool = [StudentAgent[2]]
+STEP TOKEN SystemNet.p_UniversityPool = [UniversityAgent[8]]
+STEP TOKEN SystemNet.p_WalletPool = [WalletNet[10]]
+STEP TOKEN UniversityAgent.p_CredentialIssued = [[StudentAgent[2],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001]]
+STEP TOKEN WalletNet.p_VPReady = [[CompetencyNet[12],did:example:issuer1,did:example:student1,credential-001]]
+REFERENCE	0	after:WalletNet.t_GenerateVP	11	11	10	0
+AVAILABLE	0	before:WalletNet.t_ShareVP	WalletNet.t_ShareVP	WalletNet.t_ShareVP
+ENUMERATED	0	before:WalletNet.t_ShareVP	1
+BINDING WalletNet.t_ShareVP = WalletNet.t_ShareVP
+FIRED WalletNet.t_ShareVP
+STEP TOKEN CompetencyNet.p_ProfileAggregated = [[StudentAgent[2],CredentialObject[59],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN CredentialObject.p_Aggregated = [[int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,student-signature,issuer-signature,did:example:student1,vp-001]]
+STEP TOKEN EvidenceNet.p_Graded = [[EvidenceObject[33],did:example:student1,bafyEvidence001,int(50),did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN EvidenceObject.p_Graded = [[did:example:student1,bafyEvidence001,did:example:assessor1,int(80),https://example.org/criteria]]
+STEP TOKEN HEDULedgerNet.p_Anchored = [[CompetencyNet[12],ANCHORED]]
+STEP TOKEN HRAgent.p_ResultReady = [[did:example:student1,vp-001]]
+STEP TOKEN ProfessorAgent.p_Approved = [[StudentAgent[2],UniversityAgent[8],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],EvidenceNet[4],int(80),int(50),int(0),int(100),did:example:assessor1,https://example.org/criteria]]
+STEP TOKEN StudentAgent.p_VPShared = [[ProfessorAgent[6],UniversityAgent[8],EvidenceNet[4],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:student1,bafyEvidence001,student-signature]]
+STEP TOKEN SystemNet.p_CompetencyPool = [CompetencyNet[12]]
+STEP TOKEN SystemNet.p_EvidencePool = [EvidenceNet[4]]
+STEP TOKEN SystemNet.p_HRPool = [HRAgent[16]]
+STEP TOKEN SystemNet.p_LedgerPool = [HEDULedgerNet[14]]
+STEP TOKEN SystemNet.p_ProfessorPool = [ProfessorAgent[6]]
+STEP TOKEN SystemNet.p_StudentPool = [StudentAgent[2]]
+STEP TOKEN SystemNet.p_UniversityPool = [UniversityAgent[8]]
+STEP TOKEN SystemNet.p_WalletPool = [WalletNet[10]]
+STEP TOKEN UniversityAgent.p_CredentialIssued = [[StudentAgent[2],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001]]
+STEP TOKEN WalletNet.p_VPShared = [[CompetencyNet[12],did:example:issuer1,did:example:student1,credential-001]]
+REFERENCE	0	after:WalletNet.t_ShareVP	11	11	10	0
+ENUMERATED	0	terminal	0
+FINAL TOKEN CompetencyNet.p_ProfileAggregated = [[StudentAgent[2],CredentialObject[59],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,issuer-signature,did:example:student1,vp-001]]
+FINAL TOKEN CredentialObject.p_Aggregated = [[int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,student-signature,issuer-signature,did:example:student1,vp-001]]
+FINAL TOKEN EvidenceNet.p_Graded = [[EvidenceObject[33],did:example:student1,bafyEvidence001,int(50),did:example:assessor1,int(80),https://example.org/criteria]]
+FINAL TOKEN EvidenceObject.p_Graded = [[did:example:student1,bafyEvidence001,did:example:assessor1,int(80),https://example.org/criteria]]
+FINAL TOKEN HEDULedgerNet.p_Anchored = [[CompetencyNet[12],ANCHORED]]
+FINAL TOKEN HRAgent.p_ResultReady = [[did:example:student1,vp-001]]
+FINAL TOKEN ProfessorAgent.p_Approved = [[StudentAgent[2],UniversityAgent[8],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],EvidenceNet[4],int(80),int(50),int(0),int(100),did:example:assessor1,https://example.org/criteria]]
+FINAL TOKEN StudentAgent.p_VPShared = [[ProfessorAgent[6],UniversityAgent[8],EvidenceNet[4],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:student1,bafyEvidence001,student-signature]]
+FINAL TOKEN SystemNet.p_CompetencyPool = [CompetencyNet[12]]
+FINAL TOKEN SystemNet.p_EvidencePool = [EvidenceNet[4]]
+FINAL TOKEN SystemNet.p_HRPool = [HRAgent[16]]
+FINAL TOKEN SystemNet.p_LedgerPool = [HEDULedgerNet[14]]
+FINAL TOKEN SystemNet.p_ProfessorPool = [ProfessorAgent[6]]
+FINAL TOKEN SystemNet.p_StudentPool = [StudentAgent[2]]
+FINAL TOKEN SystemNet.p_UniversityPool = [UniversityAgent[8]]
+FINAL TOKEN SystemNet.p_WalletPool = [WalletNet[10]]
+FINAL TOKEN UniversityAgent.p_CredentialIssued = [[StudentAgent[2],CompetencyNet[12],WalletNet[10],HEDULedgerNet[14],HRAgent[16],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001]]
+FINAL TOKEN WalletNet.p_VPShared = [[CompetencyNet[12],did:example:issuer1,did:example:student1,credential-001]]
+ENABLED BINDINGS 0
+ACTIVE UNFINISHED 0
+ACTIVE [CompetencyNet, CredentialObject, EvidenceNet, EvidenceObject, HEDULedgerNet, HRAgent, ProfessorAgent, StudentAgent, UniversityAgent, WalletNet]
+INACTIVE UNINVOKED []
+RETAINED REFERENCES 11/11
+PASS SCENARIO happy EXPECTED_SUCCESS_TERMINATION OUTCOME SUCCESS
+REFERENCE	0	terminal	11	11	10	0
+RESULT	0	SUCCESS	27	0	0	11/11
+RUNTIME_NS 637988900
+ROOTS_COMPLETED 1

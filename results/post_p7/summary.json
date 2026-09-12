@@ -1,0 +1,30 @@
+{
+  "structure": {
+    "places": 80,
+    "transitions": 87,
+    "arcs": 174
+  },
+  "nets": 11,
+  "baseline_regressions": 15,
+  "focused_pass": true,
+  "representative_executions": 24,
+  "representative_fixtures": 16,
+  "interleaving_executions": 55,
+  "distinct_interleaving_executions": 53,
+  "explored_terminal_executions": 79,
+  "expected_success": 39,
+  "expected_failure": 40,
+  "defective_global_deadlocks": 0,
+  "violated_properties": [],
+  "observed_transitions": 86,
+  "total_transitions": 87,
+  "coverage_percent": 98.85057471264368,
+  "concurrency_executions": 40,
+  "maximum_roots": 10,
+  "runtime_executions": 450,
+  "runtime_scenarios": 15,
+  "exhaustive_state_space": false,
+  "reachable_state_count": null,
+  "boundedness_verified": false,
+  "liveness_verified": false
+}

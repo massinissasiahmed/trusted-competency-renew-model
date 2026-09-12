@@ -1,0 +1,97 @@
+fixture_id,decision,feasibility,reason,evidence
+f01,accept,AVAILABLE,native complete binding,raw/f01_auto.txt
+f01,reject,AVAILABLE,native complete binding,raw/f01_auto.txt
+f01,cancel,AVAILABLE,native complete binding,raw/f01_auto.txt
+f01,expire,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f01_auto.txt
+f01,student_denial,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f01_auto.txt
+f01,issuer_denial,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f01_auto.txt
+f02,accept,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f02_auto.txt
+f02,reject,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f02_auto.txt
+f02,cancel,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f02_auto.txt
+f02,expire,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f02_auto.txt
+f02,student_denial,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f02_auto.txt
+f02,issuer_denial,AVAILABLE,native complete binding,raw/f02_auto.txt
+f03,accept,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f03_auto.txt
+f03,reject,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f03_auto.txt
+f03,cancel,AVAILABLE,native complete binding,raw/f03_auto.txt
+f03,expire,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f03_auto.txt
+f03,student_denial,AVAILABLE,native complete binding,raw/f03_auto.txt
+f03,issuer_denial,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f03_auto.txt
+f04,accept,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f04_auto.txt
+f04,reject,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f04_auto.txt
+f04,cancel,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f04_auto.txt
+f04,expire,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f04_auto.txt
+f04,student_denial,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f04_auto.txt
+f04,issuer_denial,AVAILABLE,native complete binding,raw/f04_auto.txt
+f05,accept,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f05_auto.txt
+f05,reject,AVAILABLE,native complete binding,raw/f05_auto.txt
+f05,cancel,AVAILABLE,native complete binding,raw/f05_auto.txt
+f05,expire,AVAILABLE,native complete binding,raw/f05_auto.txt
+f05,student_denial,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f05_auto.txt
+f05,issuer_denial,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f05_auto.txt
+f06,accept,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f06_auto.txt
+f06,reject,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f06_auto.txt
+f06,cancel,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f06_auto.txt
+f06,expire,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f06_auto.txt
+f06,student_denial,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f06_auto.txt
+f06,issuer_denial,AVAILABLE,native complete binding,raw/f06_auto.txt
+f07,accept,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f07_auto.txt
+f07,reject,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f07_auto.txt
+f07,cancel,AVAILABLE,native complete binding,raw/f07_auto.txt
+f07,expire,AVAILABLE,native complete binding,raw/f07_auto.txt
+f07,student_denial,AVAILABLE,native complete binding,raw/f07_auto.txt
+f07,issuer_denial,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f07_auto.txt
+f08,accept,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f08_auto.txt
+f08,reject,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f08_auto.txt
+f08,cancel,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f08_auto.txt
+f08,expire,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f08_auto.txt
+f08,student_denial,INFEASIBLE,no native complete binding; guards/signature equality/phase exclude it,raw/f08_auto.txt
+f08,issuer_denial,AVAILABLE,native complete binding,raw/f08_auto.txt
+f09,accept,INFEASIBLE,credential phase not reached after evidence rejection,raw/f09_auto.txt
+f09,reject,INFEASIBLE,credential phase not reached after evidence rejection,raw/f09_auto.txt
+f09,cancel,INFEASIBLE,credential phase not reached after evidence rejection,raw/f09_auto.txt
+f09,expire,INFEASIBLE,credential phase not reached after evidence rejection,raw/f09_auto.txt
+f09,student_denial,INFEASIBLE,credential phase not reached after evidence rejection,raw/f09_auto.txt
+f09,issuer_denial,INFEASIBLE,credential phase not reached after evidence rejection,raw/f09_auto.txt
+f10,accept,INFEASIBLE,credential phase not reached after evidence rejection,raw/f10_auto.txt
+f10,reject,INFEASIBLE,credential phase not reached after evidence rejection,raw/f10_auto.txt
+f10,cancel,INFEASIBLE,credential phase not reached after evidence rejection,raw/f10_auto.txt
+f10,expire,INFEASIBLE,credential phase not reached after evidence rejection,raw/f10_auto.txt
+f10,student_denial,INFEASIBLE,credential phase not reached after evidence rejection,raw/f10_auto.txt
+f10,issuer_denial,INFEASIBLE,credential phase not reached after evidence rejection,raw/f10_auto.txt
+f11,accept,INFEASIBLE,credential phase not reached after evidence rejection,raw/f11_auto.txt
+f11,reject,INFEASIBLE,credential phase not reached after evidence rejection,raw/f11_auto.txt
+f11,cancel,INFEASIBLE,credential phase not reached after evidence rejection,raw/f11_auto.txt
+f11,expire,INFEASIBLE,credential phase not reached after evidence rejection,raw/f11_auto.txt
+f11,student_denial,INFEASIBLE,credential phase not reached after evidence rejection,raw/f11_auto.txt
+f11,issuer_denial,INFEASIBLE,credential phase not reached after evidence rejection,raw/f11_auto.txt
+f12,accept,INFEASIBLE,credential phase not reached after evidence rejection,raw/f12_auto.txt
+f12,reject,INFEASIBLE,credential phase not reached after evidence rejection,raw/f12_auto.txt
+f12,cancel,INFEASIBLE,credential phase not reached after evidence rejection,raw/f12_auto.txt
+f12,expire,INFEASIBLE,credential phase not reached after evidence rejection,raw/f12_auto.txt
+f12,student_denial,INFEASIBLE,credential phase not reached after evidence rejection,raw/f12_auto.txt
+f12,issuer_denial,INFEASIBLE,credential phase not reached after evidence rejection,raw/f12_auto.txt
+f13,accept,INFEASIBLE,credential phase not reached after evidence rejection,raw/f13_auto.txt
+f13,reject,INFEASIBLE,credential phase not reached after evidence rejection,raw/f13_auto.txt
+f13,cancel,INFEASIBLE,credential phase not reached after evidence rejection,raw/f13_auto.txt
+f13,expire,INFEASIBLE,credential phase not reached after evidence rejection,raw/f13_auto.txt
+f13,student_denial,INFEASIBLE,credential phase not reached after evidence rejection,raw/f13_auto.txt
+f13,issuer_denial,INFEASIBLE,credential phase not reached after evidence rejection,raw/f13_auto.txt
+f14,accept,INFEASIBLE,credential phase not reached after evidence rejection,raw/f14_auto.txt
+f14,reject,INFEASIBLE,credential phase not reached after evidence rejection,raw/f14_auto.txt
+f14,cancel,INFEASIBLE,credential phase not reached after evidence rejection,raw/f14_auto.txt
+f14,expire,INFEASIBLE,credential phase not reached after evidence rejection,raw/f14_auto.txt
+f14,student_denial,INFEASIBLE,credential phase not reached after evidence rejection,raw/f14_auto.txt
+f14,issuer_denial,INFEASIBLE,credential phase not reached after evidence rejection,raw/f14_auto.txt
+f15,accept,INFEASIBLE,credential phase not reached after evidence rejection,raw/f15_auto.txt
+f15,reject,INFEASIBLE,credential phase not reached after evidence rejection,raw/f15_auto.txt
+f15,cancel,INFEASIBLE,credential phase not reached after evidence rejection,raw/f15_auto.txt
+f15,expire,INFEASIBLE,credential phase not reached after evidence rejection,raw/f15_auto.txt
+f15,student_denial,INFEASIBLE,credential phase not reached after evidence rejection,raw/f15_auto.txt
+f15,issuer_denial,INFEASIBLE,credential phase not reached after evidence rejection,raw/f15_auto.txt
+f16,accept,INFEASIBLE,credential phase not reached after evidence rejection,raw/f16_auto.txt
+f16,reject,INFEASIBLE,credential phase not reached after evidence rejection,raw/f16_auto.txt
+f16,cancel,INFEASIBLE,credential phase not reached after evidence rejection,raw/f16_auto.txt
+f16,expire,INFEASIBLE,credential phase not reached after evidence rejection,raw/f16_auto.txt
+f16,student_denial,INFEASIBLE,credential phase not reached after evidence rejection,raw/f16_auto.txt
+f16,issuer_denial,INFEASIBLE,credential phase not reached after evidence rejection,raw/f16_auto.txt

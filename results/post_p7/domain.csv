@@ -1,0 +1,10 @@
+dimension,representatives,interpretation
+grade,80;40,pass;fail
+threshold,50,fixed
+current_time,0;100,before expiry;at expiry
+expiry,100,fixed; time does not advance
+student_signature,valid;invalid,string fixtures
+issuer_signature,valid;invalid,string fixtures
+holder_decision,accept;reject,only where native binding exists
+ledger,success;reject,reject only from ordered
+roots,1,representative correctness domain
