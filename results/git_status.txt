@@ -1,0 +1,51 @@
+On branch analysis/formal-experiments
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   .gitignore
+	modified:   CHANNEL_MATRIX.md
+	modified:   CompetencyNet.rnw
+	modified:   CredentialObject.rnw
+	modified:   EvidenceNet.rnw
+	modified:   HEDULedgerNet.rnw
+	modified:   MODEL_VALIDATION.md
+	modified:   ProfessorAgent.rnw
+	modified:   README.md
+	modified:   REGRESSION_REPORT.md
+	modified:   StudentAgent.rnw
+	modified:   UniversityAgent.rnw
+	modified:   Validate.ps1
+	modified:   WalletNet.rnw
+	modified:   model.tsv
+	modified:   model_manifest.json
+	modified:   tools/BuildProject.java
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	ANALYSIS_DOMAIN.md
+	CHANNEL_LIVENESS_AUDIT.md
+	CONCURRENCY_ANALYSIS.md
+	DEADLOCK_AUDIT_SUMMARY.md
+	DEADLOCK_FINDINGS.md
+	EXPERIMENT_REPRODUCIBILITY.md
+	FAILURE_PROTOCOL_REPAIR.md
+	FAILURE_SCENARIO_FINAL_MARKINGS.md
+	FORMAL_ANALYSIS_CAPABILITY.md
+	FORMAL_PROPERTIES.md
+	INTERLEAVING_ANALYSIS.md
+	NEW_CORRECTNESS_DEFECT.md
+	PERFORMANCE_MEASUREMENTS.md
+	POST_REPAIR_DEADLOCK_AUDIT.md
+	POST_REPAIR_FINAL_MARKINGS.md
+	POST_REPAIR_VALIDATION_EVIDENCE.txt
+	PROPERTY_RESULTS.md
+	RunFormalExperiments.ps1
+	SCIENTIFIC_RESULTS.md
+	STATE_SPACE_ANALYSIS.md
+	TERMINAL_STATE_AUDIT.md
+	WAITING_STATE_MATRIX.md
+	WORKLOAD_CLAIM_AUDIT.md
+	results/
+	tools/formal_experiments.py
+
+no changes added to commit (use "git add" and/or "git commit -a")

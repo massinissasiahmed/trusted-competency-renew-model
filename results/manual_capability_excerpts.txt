@@ -1,0 +1,39 @@
+18:                        Release 4.1
+129:         2.6.4   Sequential Mode       . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   19
+918: gure that Renew uses a sequential simulator instead of the default concurrent
+972: and Renew uses the sequential simulation engine by default on every run. Of course, values
+982: Sequential mode and a box where you can change the engine multiplicity (for details, see
+997: a simulation from within the running application, it will be sequential.
+1097: gure a negative number for the property de.renew.simulatorMode, sequential
+1100: gure multiple concurrent instances of the sequential simulator. Only the
+1101: special case of exactly one sequential simulator is of use and explained in the next section.
+1105: 2.6.4 Sequential Mode
+1116: results. You can then select the sequential mode to check your nets.
+1119: gure sequential mode is the same as
+1123:    If we restrict the Petri net formalism to purely sequential behavior, we can add certain
+1127:    The sequential arc types can now be added to and removed from the tool bar via the
+1128: menu entry Simulation/Show        sequential-only arcs (see Section 4.3.6).
+1129:    If you try to simulate nets that contain sequential-only features and the simulation is con-
+1132: need to set the Sequential      mode in the Configure Simulation dialog (see Section 4.3.6)
+2043: SequentialSimulator is replaced by the NonConcurrentSimulator without deadlock de-
+2086: visually tagged. Fixed some drawing edit bugs in the GUI. Fixed some rare deadlocks in the
+2328: introduced. Logging and the simulator have been partially reworked to allow deadlock-free
+3614: rings of the transitions are no longer sequential. E.g., we
+3689: might be needed to trigger the next simulation step, we might run into a deadlock.
+4026:    In order to use this arc type, you need to select the extended sequential mode as described
+4122:    In order to use this arc type, you need to select the extended sequential mode as described
+4194: to be used with the extended sequential mode as described in Subsection 2.6.4.
+4207: Timed nets can only be simulated in the sequential simulation mode as described in subsec-
+4208: tion 2.6.4.   For your convenience, the sequential simulation mode is enabled automatically
+4460: to a deadlock when the thread of the simulation engine has to wait in a monitor for another
+7118: Engine    The two options Sequential       mode and Multiplicity con
+7120: of the simulation engine.     The sequential mode is of interest when you work with a timed
+7122: enhance the performance on multiprocessor systems.      A sequential mode with multiplicity
+7123: greater than one is not sequential because it uses multiple concurrent sequential simulators.
+7125: tions 2.6.3 and 2.6.4.Just think of the Sequential Mode check box as the sign of the
+7415:         compiler must be executed in a sequential simulation.
+7434: Show sequential-only arcs
+7437: arc types (see section 4.2.3) which are allowed in sequential simulations only.      Please note
+7446:    For your convenience, the sequential simulation mode (see sections 4.3.6 and 2.6.4) is
+8615:              any direct, indirect, special, incidental, or consequential damages of any
+8707:    We are not liable for any direct, indirect, incidental or consequential damage including,

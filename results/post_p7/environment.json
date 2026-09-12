@@ -1,0 +1,10 @@
+{
+  "commit": "b9f19c2618904646d2dc712a2620eebeb5a4e907",
+  "branch": "analysis/post-p7-experiments",
+  "os": "Windows-11-10.0.26200-SP0",
+  "java": "openjdk version \"17.0.20.1\" 2026-08-18\nOpenJDK Runtime Environment Temurin-17.0.20.1+1 (build 17.0.20.1+1)\nOpenJDK 64-Bit Server VM Temurin-17.0.20.1+1 (build 17.0.20.1+1, mixed mode, sharing)\n",
+  "renew": "4.1 (local manual; earlier capability audit)",
+  "compiler": "Timed Java Compiler / JavaNetCompiler(true,true,true)",
+  "engine": "Sequential, simulatorMode=-1",
+  "checkpoint": "Uncommitted working tree; hashes identify actual input, not HEAD alone"
+}

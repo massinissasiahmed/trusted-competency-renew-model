@@ -1,0 +1,649 @@
+Renew 4.1 actual validation output; Java 17; sequential engine
+MODE validate SCENARIO happy (existing drawings are read-only)
+INFO: no additional plugin locations set.
+STRUCTURE OK CompetencyNet directed arcs=16
+INSCRIPTIONS OK CompetencyNet
+READ OK CompetencyNet.rnw
+STRUCTURE OK CredentialObject directed arcs=16
+INSCRIPTIONS OK CredentialObject
+READ OK CredentialObject.rnw
+STRUCTURE OK EvidenceNet directed arcs=10
+INSCRIPTIONS OK EvidenceNet
+READ OK EvidenceNet.rnw
+STRUCTURE OK EvidenceObject directed arcs=6
+INSCRIPTIONS OK EvidenceObject
+READ OK EvidenceObject.rnw
+STRUCTURE OK HEDULedgerNet directed arcs=12
+INSCRIPTIONS OK HEDULedgerNet
+READ OK HEDULedgerNet.rnw
+STRUCTURE OK HRAgent directed arcs=12
+INSCRIPTIONS OK HRAgent
+READ OK HRAgent.rnw
+STRUCTURE OK ProfessorAgent directed arcs=10
+INSCRIPTIONS OK ProfessorAgent
+READ OK ProfessorAgent.rnw
+STRUCTURE OK StudentAgent directed arcs=16
+INSCRIPTIONS OK StudentAgent
+READ OK StudentAgent.rnw
+STRUCTURE OK SystemNet directed arcs=16
+INSCRIPTIONS OK SystemNet
+READ OK SystemNet.rnw
+STRUCTURE OK UniversityAgent directed arcs=10
+INSCRIPTIONS OK UniversityAgent
+READ OK UniversityAgent.rnw
+STRUCTURE OK WalletNet directed arcs=12
+INSCRIPTIONS OK WalletNet
+READ OK WalletNet.rnw
+COMPILE OK CompetencyNet places=7 transitions=8
+COMPILE OK CredentialObject places=9 transitions=8
+COMPILE OK EvidenceNet places=6 transitions=5
+COMPILE OK EvidenceObject places=4 transitions=3
+COMPILE OK HEDULedgerNet places=7 transitions=6
+COMPILE OK HRAgent places=7 transitions=6
+COMPILE OK ProfessorAgent places=6 transitions=5
+COMPILE OK StudentAgent places=9 transitions=8
+COMPILE OK SystemNet places=8 transitions=8
+COMPILE OK UniversityAgent places=6 transitions=5
+COMPILE OK WalletNet places=7 transitions=6
+PASS: all 11 RNW files deserialized and compiled together with Renew Timed Java Compiler.
+MODE smoke SCENARIO happy (existing drawings are read-only)
+INFO: no additional plugin locations set.
+STRUCTURE OK CompetencyNet directed arcs=16
+INSCRIPTIONS OK CompetencyNet
+READ OK CompetencyNet.rnw
+STRUCTURE OK CredentialObject directed arcs=16
+INSCRIPTIONS OK CredentialObject
+READ OK CredentialObject.rnw
+STRUCTURE OK EvidenceNet directed arcs=10
+INSCRIPTIONS OK EvidenceNet
+READ OK EvidenceNet.rnw
+STRUCTURE OK EvidenceObject directed arcs=6
+INSCRIPTIONS OK EvidenceObject
+READ OK EvidenceObject.rnw
+STRUCTURE OK HEDULedgerNet directed arcs=12
+INSCRIPTIONS OK HEDULedgerNet
+READ OK HEDULedgerNet.rnw
+STRUCTURE OK HRAgent directed arcs=12
+INSCRIPTIONS OK HRAgent
+READ OK HRAgent.rnw
+STRUCTURE OK ProfessorAgent directed arcs=10
+INSCRIPTIONS OK ProfessorAgent
+READ OK ProfessorAgent.rnw
+STRUCTURE OK StudentAgent directed arcs=16
+INSCRIPTIONS OK StudentAgent
+READ OK StudentAgent.rnw
+STRUCTURE OK SystemNet directed arcs=16
+INSCRIPTIONS OK SystemNet
+READ OK SystemNet.rnw
+STRUCTURE OK UniversityAgent directed arcs=10
+INSCRIPTIONS OK UniversityAgent
+READ OK UniversityAgent.rnw
+STRUCTURE OK WalletNet directed arcs=12
+INSCRIPTIONS OK WalletNet
+READ OK WalletNet.rnw
+COMPILE OK CompetencyNet places=7 transitions=8
+COMPILE OK CredentialObject places=9 transitions=8
+COMPILE OK EvidenceNet places=6 transitions=5
+COMPILE OK EvidenceObject places=4 transitions=3
+COMPILE OK HEDULedgerNet places=7 transitions=6
+COMPILE OK HRAgent places=7 transitions=6
+COMPILE OK ProfessorAgent places=6 transitions=5
+COMPILE OK StudentAgent places=9 transitions=8
+COMPILE OK SystemNet places=8 transitions=8
+COMPILE OK UniversityAgent places=6 transitions=5
+COMPILE OK WalletNet places=7 transitions=6
+PASS: all 11 RNW files deserialized and compiled together with Renew Timed Java Compiler.
+INFO: Using sequential simulator ...
+INITIAL p_LedgerPool [[]]
+INITIAL p_CompetencyPool [[]]
+INITIAL p_EvidencePool [[]]
+INITIAL p_WalletPool [[]]
+INITIAL p_UniversityPool [[]]
+INITIAL p_ProfessorPool [[]]
+INITIAL p_HRPool [[]]
+INITIAL p_StudentPool [[]]
+SMOKE OK: t_CreateStudent fired
+INSTANCE OK p_LedgerPool [HEDULedgerNet[4]]
+INSTANCE OK p_CompetencyPool [CompetencyNet[14]]
+INSTANCE OK p_EvidencePool [EvidenceNet[10]]
+INSTANCE OK p_WalletPool [WalletNet[8]]
+INSTANCE OK p_UniversityPool [UniversityAgent[16]]
+INSTANCE OK p_ProfessorPool [ProfessorAgent[12]]
+INSTANCE OK p_HRPool [HRAgent[6]]
+INSTANCE OK p_StudentPool [StudentAgent[2]]
+FIRED StudentAgent.t_SubmitEvidence
+FIRED EvidenceNet.t_LMS_Submit
+FIRED EvidenceNet.t_Review_Request
+FIRED ProfessorAgent.t_StartReview
+FIRED ProfessorAgent.t_AssessEvidence
+FIRED ProfessorAgent.t_ApproveEvidence
+FIRED UniversityAgent.t_VerifyEvidence
+FIRED UniversityAgent.t_RequestCredential
+FIRED CompetencyNet.t_Verification_Pass
+FIRED UniversityAgent.t_IssueCredential
+FIRED StudentAgent.t_WaitCredential
+FIRED StudentAgent.t_ReceiveCredential
+FIRED StudentAgent.t_AcceptCredential
+FIRED HEDULedgerNet.t_Order
+FIRED HEDULedgerNet.t_Validate
+FIRED HEDULedgerNet.t_Commit
+FIRED StudentAgent.t_GenerateVP
+FIRED StudentAgent.t_ShareVP
+FIRED HRAgent.t_ParseVP
+FIRED CompetencyNet.t_Agg_Ingest
+FIRED HRAgent.t_SemanticMatch
+FIRED HRAgent.t_GapAnalysis
+FIRED HRAgent.t_GenerateResult
+FIRED WalletNet.t_GenerateVP
+FIRED WalletNet.t_ShareVP
+TERMINAL OK StudentAgent.p_VPShared
+TERMINAL OK ProfessorAgent.p_Approved
+TERMINAL OK UniversityAgent.p_CredentialIssued
+TERMINAL OK EvidenceNet.p_Graded
+TERMINAL OK CompetencyNet.p_ProfileAggregated
+TERMINAL OK WalletNet.p_VPShared
+TERMINAL OK HEDULedgerNet.p_Anchored
+TERMINAL OK HRAgent.p_ResultReady
+TERMINAL OK EvidenceObject.p_Graded
+TERMINAL OK CredentialObject.p_Aggregated
+FINAL TOKEN SystemNet.p_LedgerPool = [HEDULedgerNet[4]]
+FINAL TOKEN SystemNet.p_CompetencyPool = [CompetencyNet[14]]
+FINAL TOKEN SystemNet.p_EvidencePool = [EvidenceNet[10]]
+FINAL TOKEN SystemNet.p_WalletPool = [WalletNet[8]]
+FINAL TOKEN SystemNet.p_UniversityPool = [UniversityAgent[16]]
+FINAL TOKEN SystemNet.p_ProfessorPool = [ProfessorAgent[12]]
+FINAL TOKEN SystemNet.p_HRPool = [HRAgent[6]]
+FINAL TOKEN SystemNet.p_StudentPool = [StudentAgent[2]]
+FINAL TOKEN WalletNet.p_VPShared = [[CompetencyNet[14],did:example:issuer1,did:example:student1,credential-001]]
+FINAL TOKEN UniversityAgent.p_CredentialIssued = [[CompetencyNet[14],WalletNet[8],HEDULedgerNet[4],HRAgent[6],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001]]
+FINAL TOKEN ProfessorAgent.p_Approved = [[UniversityAgent[16],CompetencyNet[14],WalletNet[8],HEDULedgerNet[4],HRAgent[6],EvidenceNet[10],int(80),int(50),int(0),int(100),did:example:assessor1,https://example.org/criteria]]
+FINAL TOKEN CompetencyNet.p_ProfileAggregated = [[CredentialObject[35],WalletNet[8],HEDULedgerNet[4],HRAgent[6],int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,issuer-signature,did:example:student1,vp-001]]
+FINAL TOKEN HEDULedgerNet.p_Anchored = [[did:example:student1,vp-001]]
+FINAL TOKEN EvidenceNet.p_Graded = [[EvidenceObject[27],did:example:student1,bafyEvidence001,int(50),did:example:assessor1,int(80),https://example.org/criteria]]
+FINAL TOKEN CredentialObject.p_Aggregated = [[int(80),int(50),int(0),int(100),did:example:issuer1,did:example:student1,credential-001,student-signature,issuer-signature,did:example:student1,vp-001]]
+FINAL TOKEN EvidenceObject.p_Graded = [[did:example:student1,bafyEvidence001,did:example:assessor1,int(80),https://example.org/criteria]]
+FINAL TOKEN StudentAgent.p_VPShared = [[ProfessorAgent[12],UniversityAgent[16],EvidenceNet[10],CompetencyNet[14],WalletNet[8],HEDULedgerNet[4],HRAgent[6],int(80),int(50),int(0),int(100),did:example:student1,bafyEvidence001,student-signature]]
+FINAL TOKEN HRAgent.p_ResultReady = [[did:example:student1,vp-001]]
+PASS SCENARIO happy: directed lifecycle in actual Renew engine.
+MODE smoke SCENARIO reject (existing drawings are read-only)
+INFO: no additional plugin locations set.
+STRUCTURE OK CompetencyNet directed arcs=16
+INSCRIPTIONS OK CompetencyNet
+READ OK CompetencyNet.rnw
+STRUCTURE OK CredentialObject directed arcs=16
+INSCRIPTIONS OK CredentialObject
+READ OK CredentialObject.rnw
+STRUCTURE OK EvidenceNet directed arcs=10
+INSCRIPTIONS OK EvidenceNet
+READ OK EvidenceNet.rnw
+STRUCTURE OK EvidenceObject directed arcs=6
+INSCRIPTIONS OK EvidenceObject
+READ OK EvidenceObject.rnw
+STRUCTURE OK HEDULedgerNet directed arcs=12
+INSCRIPTIONS OK HEDULedgerNet
+READ OK HEDULedgerNet.rnw
+STRUCTURE OK HRAgent directed arcs=12
+INSCRIPTIONS OK HRAgent
+READ OK HRAgent.rnw
+STRUCTURE OK ProfessorAgent directed arcs=10
+INSCRIPTIONS OK ProfessorAgent
+READ OK ProfessorAgent.rnw
+STRUCTURE OK StudentAgent directed arcs=16
+INSCRIPTIONS OK StudentAgent
+READ OK StudentAgent.rnw
+STRUCTURE OK SystemNet directed arcs=16
+INSCRIPTIONS OK SystemNet
+READ OK SystemNet.rnw
+STRUCTURE OK UniversityAgent directed arcs=10
+INSCRIPTIONS OK UniversityAgent
+READ OK UniversityAgent.rnw
+STRUCTURE OK WalletNet directed arcs=12
+INSCRIPTIONS OK WalletNet
+READ OK WalletNet.rnw
+COMPILE OK CompetencyNet places=7 transitions=8
+COMPILE OK CredentialObject places=9 transitions=8
+COMPILE OK EvidenceNet places=6 transitions=5
+COMPILE OK EvidenceObject places=4 transitions=3
+COMPILE OK HEDULedgerNet places=7 transitions=6
+COMPILE OK HRAgent places=7 transitions=6
+COMPILE OK ProfessorAgent places=6 transitions=5
+COMPILE OK StudentAgent places=9 transitions=8
+COMPILE OK SystemNet places=8 transitions=8
+COMPILE OK UniversityAgent places=6 transitions=5
+COMPILE OK WalletNet places=7 transitions=6
+PASS: all 11 RNW files deserialized and compiled together with Renew Timed Java Compiler.
+INFO: Using sequential simulator ...
+INITIAL p_LedgerPool [[]]
+INITIAL p_CompetencyPool [[]]
+INITIAL p_EvidencePool [[]]
+INITIAL p_WalletPool [[]]
+INITIAL p_UniversityPool [[]]
+INITIAL p_ProfessorPool [[]]
+INITIAL p_HRPool [[]]
+INITIAL p_StudentPool [[]]
+SMOKE OK: t_CreateStudent fired
+INSTANCE OK p_LedgerPool [HEDULedgerNet[14]]
+INSTANCE OK p_CompetencyPool [CompetencyNet[12]]
+INSTANCE OK p_EvidencePool [EvidenceNet[10]]
+INSTANCE OK p_WalletPool [WalletNet[4]]
+INSTANCE OK p_UniversityPool [UniversityAgent[6]]
+INSTANCE OK p_ProfessorPool [ProfessorAgent[8]]
+INSTANCE OK p_HRPool [HRAgent[16]]
+INSTANCE OK p_StudentPool [StudentAgent[2]]
+FIRED StudentAgent.t_SubmitEvidence
+FIRED EvidenceNet.t_LMS_Submit
+FIRED EvidenceNet.t_Review_Request
+FIRED ProfessorAgent.t_StartReview
+FIRED ProfessorAgent.t_AssessEvidence
+FIRED ProfessorAgent.t_ApproveEvidence
+FIRED UniversityAgent.t_VerifyEvidence
+FIRED UniversityAgent.t_RequestCredential
+FIRED CompetencyNet.t_Verification_Pass
+FIRED UniversityAgent.t_IssueCredential
+FIRED StudentAgent.t_WaitCredential
+FIRED StudentAgent.t_ReceiveCredential
+FIRED StudentAgent.t_RejectCredential
+TERMINAL OK StudentAgent.p_Rejected
+TERMINAL OK WalletNet.p_Rejected
+TERMINAL OK CompetencyNet.p_Terminated
+TERMINAL OK CredentialObject.p_Rejected
+PASS SCENARIO reject
+MODE smoke SCENARIO cancel (existing drawings are read-only)
+INFO: no additional plugin locations set.
+STRUCTURE OK CompetencyNet directed arcs=16
+INSCRIPTIONS OK CompetencyNet
+READ OK CompetencyNet.rnw
+STRUCTURE OK CredentialObject directed arcs=16
+INSCRIPTIONS OK CredentialObject
+READ OK CredentialObject.rnw
+STRUCTURE OK EvidenceNet directed arcs=10
+INSCRIPTIONS OK EvidenceNet
+READ OK EvidenceNet.rnw
+STRUCTURE OK EvidenceObject directed arcs=6
+INSCRIPTIONS OK EvidenceObject
+READ OK EvidenceObject.rnw
+STRUCTURE OK HEDULedgerNet directed arcs=12
+INSCRIPTIONS OK HEDULedgerNet
+READ OK HEDULedgerNet.rnw
+STRUCTURE OK HRAgent directed arcs=12
+INSCRIPTIONS OK HRAgent
+READ OK HRAgent.rnw
+STRUCTURE OK ProfessorAgent directed arcs=10
+INSCRIPTIONS OK ProfessorAgent
+READ OK ProfessorAgent.rnw
+STRUCTURE OK StudentAgent directed arcs=16
+INSCRIPTIONS OK StudentAgent
+READ OK StudentAgent.rnw
+STRUCTURE OK SystemNet directed arcs=16
+INSCRIPTIONS OK SystemNet
+READ OK SystemNet.rnw
+STRUCTURE OK UniversityAgent directed arcs=10
+INSCRIPTIONS OK UniversityAgent
+READ OK UniversityAgent.rnw
+STRUCTURE OK WalletNet directed arcs=12
+INSCRIPTIONS OK WalletNet
+READ OK WalletNet.rnw
+COMPILE OK CompetencyNet places=7 transitions=8
+COMPILE OK CredentialObject places=9 transitions=8
+COMPILE OK EvidenceNet places=6 transitions=5
+COMPILE OK EvidenceObject places=4 transitions=3
+COMPILE OK HEDULedgerNet places=7 transitions=6
+COMPILE OK HRAgent places=7 transitions=6
+COMPILE OK ProfessorAgent places=6 transitions=5
+COMPILE OK StudentAgent places=9 transitions=8
+COMPILE OK SystemNet places=8 transitions=8
+COMPILE OK UniversityAgent places=6 transitions=5
+COMPILE OK WalletNet places=7 transitions=6
+PASS: all 11 RNW files deserialized and compiled together with Renew Timed Java Compiler.
+INFO: Using sequential simulator ...
+INITIAL p_LedgerPool [[]]
+INITIAL p_CompetencyPool [[]]
+INITIAL p_EvidencePool [[]]
+INITIAL p_WalletPool [[]]
+INITIAL p_UniversityPool [[]]
+INITIAL p_ProfessorPool [[]]
+INITIAL p_HRPool [[]]
+INITIAL p_StudentPool [[]]
+SMOKE OK: t_CreateStudent fired
+INSTANCE OK p_LedgerPool [HEDULedgerNet[14]]
+INSTANCE OK p_CompetencyPool [CompetencyNet[12]]
+INSTANCE OK p_EvidencePool [EvidenceNet[10]]
+INSTANCE OK p_WalletPool [WalletNet[4]]
+INSTANCE OK p_UniversityPool [UniversityAgent[6]]
+INSTANCE OK p_ProfessorPool [ProfessorAgent[8]]
+INSTANCE OK p_HRPool [HRAgent[16]]
+INSTANCE OK p_StudentPool [StudentAgent[2]]
+FIRED StudentAgent.t_SubmitEvidence
+FIRED EvidenceNet.t_LMS_Submit
+FIRED EvidenceNet.t_Review_Request
+FIRED ProfessorAgent.t_StartReview
+FIRED ProfessorAgent.t_AssessEvidence
+FIRED ProfessorAgent.t_ApproveEvidence
+FIRED UniversityAgent.t_VerifyEvidence
+FIRED UniversityAgent.t_RequestCredential
+FIRED CompetencyNet.t_Verification_Pass
+FIRED UniversityAgent.t_IssueCredential
+FIRED StudentAgent.t_WaitCredential
+FIRED StudentAgent.t_ReceiveCredential
+FIRED CompetencyNet.t_SBT_Cancel
+TERMINAL OK CompetencyNet.p_Terminated
+TERMINAL OK CredentialObject.p_Cancelled
+PASS SCENARIO cancel
+MODE smoke SCENARIO expire (existing drawings are read-only)
+INFO: no additional plugin locations set.
+STRUCTURE OK CompetencyNet directed arcs=16
+INSCRIPTIONS OK CompetencyNet
+READ OK CompetencyNet.rnw
+STRUCTURE OK CredentialObject directed arcs=16
+INSCRIPTIONS OK CredentialObject
+READ OK CredentialObject.rnw
+STRUCTURE OK EvidenceNet directed arcs=10
+INSCRIPTIONS OK EvidenceNet
+READ OK EvidenceNet.rnw
+STRUCTURE OK EvidenceObject directed arcs=6
+INSCRIPTIONS OK EvidenceObject
+READ OK EvidenceObject.rnw
+STRUCTURE OK HEDULedgerNet directed arcs=12
+INSCRIPTIONS OK HEDULedgerNet
+READ OK HEDULedgerNet.rnw
+STRUCTURE OK HRAgent directed arcs=12
+INSCRIPTIONS OK HRAgent
+READ OK HRAgent.rnw
+STRUCTURE OK ProfessorAgent directed arcs=10
+INSCRIPTIONS OK ProfessorAgent
+READ OK ProfessorAgent.rnw
+STRUCTURE OK StudentAgent directed arcs=16
+INSCRIPTIONS OK StudentAgent
+READ OK StudentAgent.rnw
+STRUCTURE OK SystemNet directed arcs=16
+INSCRIPTIONS OK SystemNet
+READ OK SystemNet.rnw
+STRUCTURE OK UniversityAgent directed arcs=10
+INSCRIPTIONS OK UniversityAgent
+READ OK UniversityAgent.rnw
+STRUCTURE OK WalletNet directed arcs=12
+INSCRIPTIONS OK WalletNet
+READ OK WalletNet.rnw
+COMPILE OK CompetencyNet places=7 transitions=8
+COMPILE OK CredentialObject places=9 transitions=8
+COMPILE OK EvidenceNet places=6 transitions=5
+COMPILE OK EvidenceObject places=4 transitions=3
+COMPILE OK HEDULedgerNet places=7 transitions=6
+COMPILE OK HRAgent places=7 transitions=6
+COMPILE OK ProfessorAgent places=6 transitions=5
+COMPILE OK StudentAgent places=9 transitions=8
+COMPILE OK SystemNet places=8 transitions=8
+COMPILE OK UniversityAgent places=6 transitions=5
+COMPILE OK WalletNet places=7 transitions=6
+PASS: all 11 RNW files deserialized and compiled together with Renew Timed Java Compiler.
+INFO: Using sequential simulator ...
+INITIAL p_StudentPool [[]]
+INITIAL p_LedgerPool [[]]
+INITIAL p_UniversityPool [[]]
+INITIAL p_CompetencyPool [[]]
+INITIAL p_HRPool [[]]
+INITIAL p_ProfessorPool [[]]
+INITIAL p_WalletPool [[]]
+INITIAL p_EvidencePool [[]]
+SMOKE OK: t_CreateStudent fired
+INSTANCE OK p_StudentPool [StudentAgent[2]]
+INSTANCE OK p_LedgerPool [HEDULedgerNet[12]]
+INSTANCE OK p_UniversityPool [UniversityAgent[14]]
+INSTANCE OK p_CompetencyPool [CompetencyNet[4]]
+INSTANCE OK p_HRPool [HRAgent[6]]
+INSTANCE OK p_ProfessorPool [ProfessorAgent[10]]
+INSTANCE OK p_WalletPool [WalletNet[8]]
+INSTANCE OK p_EvidencePool [EvidenceNet[16]]
+FIRED StudentAgent.t_SubmitEvidence
+FIRED EvidenceNet.t_LMS_Submit
+FIRED EvidenceNet.t_Review_Request
+FIRED ProfessorAgent.t_StartReview
+FIRED ProfessorAgent.t_AssessEvidence
+FIRED ProfessorAgent.t_ApproveEvidence
+FIRED UniversityAgent.t_VerifyEvidence
+FIRED UniversityAgent.t_RequestCredential
+FIRED CompetencyNet.t_Verification_Pass
+FIRED UniversityAgent.t_IssueCredential
+FIRED StudentAgent.t_WaitCredential
+FIRED StudentAgent.t_ReceiveCredential
+EXPECTED DISABLED StudentAgent.t_AcceptCredential expire
+FIRED CompetencyNet.t_SBT_Expire
+TERMINAL OK CompetencyNet.p_Terminated
+TERMINAL OK CredentialObject.p_Expired
+PASS SCENARIO expire
+MODE smoke SCENARIO grade_reject (existing drawings are read-only)
+INFO: no additional plugin locations set.
+STRUCTURE OK CompetencyNet directed arcs=16
+INSCRIPTIONS OK CompetencyNet
+READ OK CompetencyNet.rnw
+STRUCTURE OK CredentialObject directed arcs=16
+INSCRIPTIONS OK CredentialObject
+READ OK CredentialObject.rnw
+STRUCTURE OK EvidenceNet directed arcs=10
+INSCRIPTIONS OK EvidenceNet
+READ OK EvidenceNet.rnw
+STRUCTURE OK EvidenceObject directed arcs=6
+INSCRIPTIONS OK EvidenceObject
+READ OK EvidenceObject.rnw
+STRUCTURE OK HEDULedgerNet directed arcs=12
+INSCRIPTIONS OK HEDULedgerNet
+READ OK HEDULedgerNet.rnw
+STRUCTURE OK HRAgent directed arcs=12
+INSCRIPTIONS OK HRAgent
+READ OK HRAgent.rnw
+STRUCTURE OK ProfessorAgent directed arcs=10
+INSCRIPTIONS OK ProfessorAgent
+READ OK ProfessorAgent.rnw
+STRUCTURE OK StudentAgent directed arcs=16
+INSCRIPTIONS OK StudentAgent
+READ OK StudentAgent.rnw
+STRUCTURE OK SystemNet directed arcs=16
+INSCRIPTIONS OK SystemNet
+READ OK SystemNet.rnw
+STRUCTURE OK UniversityAgent directed arcs=10
+INSCRIPTIONS OK UniversityAgent
+READ OK UniversityAgent.rnw
+STRUCTURE OK WalletNet directed arcs=12
+INSCRIPTIONS OK WalletNet
+READ OK WalletNet.rnw
+COMPILE OK CompetencyNet places=7 transitions=8
+COMPILE OK CredentialObject places=9 transitions=8
+COMPILE OK EvidenceNet places=6 transitions=5
+COMPILE OK EvidenceObject places=4 transitions=3
+COMPILE OK HEDULedgerNet places=7 transitions=6
+COMPILE OK HRAgent places=7 transitions=6
+COMPILE OK ProfessorAgent places=6 transitions=5
+COMPILE OK StudentAgent places=9 transitions=8
+COMPILE OK SystemNet places=8 transitions=8
+COMPILE OK UniversityAgent places=6 transitions=5
+COMPILE OK WalletNet places=7 transitions=6
+PASS: all 11 RNW files deserialized and compiled together with Renew Timed Java Compiler.
+INFO: Using sequential simulator ...
+INITIAL p_StudentPool [[]]
+INITIAL p_LedgerPool [[]]
+INITIAL p_UniversityPool [[]]
+INITIAL p_CompetencyPool [[]]
+INITIAL p_HRPool [[]]
+INITIAL p_ProfessorPool [[]]
+INITIAL p_WalletPool [[]]
+INITIAL p_EvidencePool [[]]
+SMOKE OK: t_CreateStudent fired
+INSTANCE OK p_StudentPool [StudentAgent[2]]
+INSTANCE OK p_LedgerPool [HEDULedgerNet[4]]
+INSTANCE OK p_UniversityPool [UniversityAgent[14]]
+INSTANCE OK p_CompetencyPool [CompetencyNet[6]]
+INSTANCE OK p_HRPool [HRAgent[16]]
+INSTANCE OK p_ProfessorPool [ProfessorAgent[10]]
+INSTANCE OK p_WalletPool [WalletNet[12]]
+INSTANCE OK p_EvidencePool [EvidenceNet[8]]
+FIRED StudentAgent.t_SubmitEvidence
+FIRED EvidenceNet.t_LMS_Submit
+FIRED EvidenceNet.t_Review_Request
+FIRED ProfessorAgent.t_StartReview
+FIRED ProfessorAgent.t_AssessEvidence
+FIRED ProfessorAgent.t_RejectEvidence
+TERMINAL OK ProfessorAgent.p_Rejected
+TERMINAL OK EvidenceNet.p_Rejected
+PASS SCENARIO grade_reject; StudentAgent has no evidence-rejection notification path.
+MODE smoke SCENARIO ledger_reject (existing drawings are read-only)
+INFO: no additional plugin locations set.
+STRUCTURE OK CompetencyNet directed arcs=16
+INSCRIPTIONS OK CompetencyNet
+READ OK CompetencyNet.rnw
+STRUCTURE OK CredentialObject directed arcs=16
+INSCRIPTIONS OK CredentialObject
+READ OK CredentialObject.rnw
+STRUCTURE OK EvidenceNet directed arcs=10
+INSCRIPTIONS OK EvidenceNet
+READ OK EvidenceNet.rnw
+STRUCTURE OK EvidenceObject directed arcs=6
+INSCRIPTIONS OK EvidenceObject
+READ OK EvidenceObject.rnw
+STRUCTURE OK HEDULedgerNet directed arcs=12
+INSCRIPTIONS OK HEDULedgerNet
+READ OK HEDULedgerNet.rnw
+STRUCTURE OK HRAgent directed arcs=12
+INSCRIPTIONS OK HRAgent
+READ OK HRAgent.rnw
+STRUCTURE OK ProfessorAgent directed arcs=10
+INSCRIPTIONS OK ProfessorAgent
+READ OK ProfessorAgent.rnw
+STRUCTURE OK StudentAgent directed arcs=16
+INSCRIPTIONS OK StudentAgent
+READ OK StudentAgent.rnw
+STRUCTURE OK SystemNet directed arcs=16
+INSCRIPTIONS OK SystemNet
+READ OK SystemNet.rnw
+STRUCTURE OK UniversityAgent directed arcs=10
+INSCRIPTIONS OK UniversityAgent
+READ OK UniversityAgent.rnw
+STRUCTURE OK WalletNet directed arcs=12
+INSCRIPTIONS OK WalletNet
+READ OK WalletNet.rnw
+COMPILE OK CompetencyNet places=7 transitions=8
+COMPILE OK CredentialObject places=9 transitions=8
+COMPILE OK EvidenceNet places=6 transitions=5
+COMPILE OK EvidenceObject places=4 transitions=3
+COMPILE OK HEDULedgerNet places=7 transitions=6
+COMPILE OK HRAgent places=7 transitions=6
+COMPILE OK ProfessorAgent places=6 transitions=5
+COMPILE OK StudentAgent places=9 transitions=8
+COMPILE OK SystemNet places=8 transitions=8
+COMPILE OK UniversityAgent places=6 transitions=5
+COMPILE OK WalletNet places=7 transitions=6
+PASS: all 11 RNW files deserialized and compiled together with Renew Timed Java Compiler.
+INFO: Using sequential simulator ...
+INITIAL p_LedgerPool [[]]
+INITIAL p_CompetencyPool [[]]
+INITIAL p_EvidencePool [[]]
+INITIAL p_WalletPool [[]]
+INITIAL p_UniversityPool [[]]
+INITIAL p_ProfessorPool [[]]
+INITIAL p_HRPool [[]]
+INITIAL p_StudentPool [[]]
+SMOKE OK: t_CreateStudent fired
+INSTANCE OK p_LedgerPool [HEDULedgerNet[14]]
+INSTANCE OK p_CompetencyPool [CompetencyNet[12]]
+INSTANCE OK p_EvidencePool [EvidenceNet[10]]
+INSTANCE OK p_WalletPool [WalletNet[4]]
+INSTANCE OK p_UniversityPool [UniversityAgent[6]]
+INSTANCE OK p_ProfessorPool [ProfessorAgent[8]]
+INSTANCE OK p_HRPool [HRAgent[16]]
+INSTANCE OK p_StudentPool [StudentAgent[2]]
+FIRED StudentAgent.t_SubmitEvidence
+FIRED EvidenceNet.t_LMS_Submit
+FIRED EvidenceNet.t_Review_Request
+FIRED ProfessorAgent.t_StartReview
+FIRED ProfessorAgent.t_AssessEvidence
+FIRED ProfessorAgent.t_ApproveEvidence
+FIRED UniversityAgent.t_VerifyEvidence
+FIRED UniversityAgent.t_RequestCredential
+FIRED CompetencyNet.t_Verification_Pass
+FIRED UniversityAgent.t_IssueCredential
+FIRED StudentAgent.t_WaitCredential
+FIRED StudentAgent.t_ReceiveCredential
+FIRED StudentAgent.t_AcceptCredential
+FIRED HEDULedgerNet.t_Order
+FIRED HEDULedgerNet.t_Reject
+TERMINAL OK HEDULedgerNet.p_Rejected
+PASS SCENARIO ledger_reject; aggregation cannot complete.
+MODE smoke SCENARIO bad_signature (existing drawings are read-only)
+INFO: no additional plugin locations set.
+STRUCTURE OK CompetencyNet directed arcs=16
+INSCRIPTIONS OK CompetencyNet
+READ OK CompetencyNet.rnw
+STRUCTURE OK CredentialObject directed arcs=16
+INSCRIPTIONS OK CredentialObject
+READ OK CredentialObject.rnw
+STRUCTURE OK EvidenceNet directed arcs=10
+INSCRIPTIONS OK EvidenceNet
+READ OK EvidenceNet.rnw
+STRUCTURE OK EvidenceObject directed arcs=6
+INSCRIPTIONS OK EvidenceObject
+READ OK EvidenceObject.rnw
+STRUCTURE OK HEDULedgerNet directed arcs=12
+INSCRIPTIONS OK HEDULedgerNet
+READ OK HEDULedgerNet.rnw
+STRUCTURE OK HRAgent directed arcs=12
+INSCRIPTIONS OK HRAgent
+READ OK HRAgent.rnw
+STRUCTURE OK ProfessorAgent directed arcs=10
+INSCRIPTIONS OK ProfessorAgent
+READ OK ProfessorAgent.rnw
+STRUCTURE OK StudentAgent directed arcs=16
+INSCRIPTIONS OK StudentAgent
+READ OK StudentAgent.rnw
+STRUCTURE OK SystemNet directed arcs=16
+INSCRIPTIONS OK SystemNet
+READ OK SystemNet.rnw
+STRUCTURE OK UniversityAgent directed arcs=10
+INSCRIPTIONS OK UniversityAgent
+READ OK UniversityAgent.rnw
+STRUCTURE OK WalletNet directed arcs=12
+INSCRIPTIONS OK WalletNet
+READ OK WalletNet.rnw
+COMPILE OK CompetencyNet places=7 transitions=8
+COMPILE OK CredentialObject places=9 transitions=8
+COMPILE OK EvidenceNet places=6 transitions=5
+COMPILE OK EvidenceObject places=4 transitions=3
+COMPILE OK HEDULedgerNet places=7 transitions=6
+COMPILE OK HRAgent places=7 transitions=6
+COMPILE OK ProfessorAgent places=6 transitions=5
+COMPILE OK StudentAgent places=9 transitions=8
+COMPILE OK SystemNet places=8 transitions=8
+COMPILE OK UniversityAgent places=6 transitions=5
+COMPILE OK WalletNet places=7 transitions=6
+PASS: all 11 RNW files deserialized and compiled together with Renew Timed Java Compiler.
+INFO: Using sequential simulator ...
+INITIAL p_StudentPool [[]]
+INITIAL p_LedgerPool [[]]
+INITIAL p_UniversityPool [[]]
+INITIAL p_CompetencyPool [[]]
+INITIAL p_HRPool [[]]
+INITIAL p_ProfessorPool [[]]
+INITIAL p_WalletPool [[]]
+INITIAL p_EvidencePool [[]]
+SMOKE OK: t_CreateStudent fired
+INSTANCE OK p_StudentPool [StudentAgent[2]]
+INSTANCE OK p_LedgerPool [HEDULedgerNet[8]]
+INSTANCE OK p_UniversityPool [UniversityAgent[4]]
+INSTANCE OK p_CompetencyPool [CompetencyNet[14]]
+INSTANCE OK p_HRPool [HRAgent[16]]
+INSTANCE OK p_ProfessorPool [ProfessorAgent[10]]
+INSTANCE OK p_WalletPool [WalletNet[6]]
+INSTANCE OK p_EvidencePool [EvidenceNet[12]]
+FIRED StudentAgent.t_SubmitEvidence
+FIRED EvidenceNet.t_LMS_Submit
+FIRED EvidenceNet.t_Review_Request
+FIRED ProfessorAgent.t_StartReview
+FIRED ProfessorAgent.t_AssessEvidence
+FIRED ProfessorAgent.t_ApproveEvidence
+FIRED UniversityAgent.t_VerifyEvidence
+FIRED UniversityAgent.t_RequestCredential
+FIRED CompetencyNet.t_Verification_Pass
+FIRED UniversityAgent.t_IssueCredential
+FIRED StudentAgent.t_WaitCredential
+FIRED StudentAgent.t_ReceiveCredential
+EXPECTED DISABLED StudentAgent.t_AcceptCredential bad_signature
+TERMINAL OK StudentAgent.p_CredentialReceived
+PASS SCENARIO bad_signature

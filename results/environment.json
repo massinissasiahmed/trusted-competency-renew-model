@@ -1,0 +1,43 @@
+{
+  "commit": "b9f19c2618904646d2dc712a2620eebeb5a4e907",
+  "branch": "analysis/formal-experiments",
+  "baseline": "uncommitted repaired working tree, identified by SHA-256; commit alone is insufficient",
+  "renew_distribution": "4.1 (local manual release heading)",
+  "renew_home": "C:\\Users\\maci1\\Desktop\\renew_model\\.validation",
+  "java": "openjdk version \"17.0.20.1\" 2026-08-18\nOpenJDK Runtime Environment Temurin-17.0.20.1+1 (build 17.0.20.1+1)\nOpenJDK 64-Bit Server VM Temurin-17.0.20.1+1 (build 17.0.20.1+1, mixed mode, sharing)",
+  "os": "Windows-11-10.0.26200-SP0",
+  "compiler": "Timed Java Compiler; JavaNetCompiler(true,true,true)",
+  "engine": "sequential de.renew.simulatorMode=-1",
+  "validation_command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\\Validate.ps1 -Smoke",
+  "hashes": {
+    "README.md": "a5e47b4138ab1ab13121e2d8b4066150a88a4acd2a78a3b2c16f7985d5ccbca6",
+    "MODEL_VALIDATION.md": "b9f383428a5fcfff3b36bbd87f7a3c65b81b44b3b4c9eda7f1321a40ae691857",
+    "REGRESSION_REPORT.md": "2972c5a2f75bc50df44b50a2ecf07366c14f72104ce55622dfbd16f409cb8e6b",
+    "FAILURE_PROTOCOL_REPAIR.md": "ce7f293d5b785d8781ac9f33bf334239f98b509117791faeaba65d19a15cb25f",
+    "POST_REPAIR_DEADLOCK_AUDIT.md": "5fe633d3ff8cf15c835c2a84667fd40976e6b6c8606fb53d990b021d44bf115b",
+    "POST_REPAIR_FINAL_MARKINGS.md": "980f94005f901b22acbdf7aab874e6a8d234b805ba4c8fa924ddc2f271431ed6",
+    "POST_REPAIR_VALIDATION_EVIDENCE.txt": "2af5b7a54b65d2f4659c05d1efdcf5c168e9f846aa595536340faaf067724443",
+    "CHANNEL_MATRIX.md": "5c05176637a0932701ad0d1aa7c4822bee190d5de2ddc682c2acdf29398647db",
+    "model.tsv": "75ed625c546b2d1d3e0f3a640e5439318c74f97c3eb4652a6575f0a62f9e280f",
+    "model_manifest.json": "5cd79b346590cfc54a56298d7b10299e82ec9f69e96cc05833a98cd097e761cd",
+    "Validate.ps1": "f80dcc203e11cd33180a28f88498a72428bea3d5cabf7e6665df73e3cca3e2e4",
+    "tools/BuildProject.java": "8c9c24363ab749bd3217f121c7e085ff68b98ea4e6d4488aa38485c4681feba9",
+    "CompetencyNet.rnw": "e5cbe12f12445d86955d985009d9c61922f824051ef8fec82c6c4f90af4e2a7a",
+    "CredentialObject.rnw": "559bf6314e8a9fd0dde584f70ac4205a4ad1087b3afc6d7852f7f0b64a6f2064",
+    "EvidenceNet.rnw": "76e6d3c9489e2ec0ffbfb84ad23414975a3b502ecc0ec8163e5b5a35397d56a0",
+    "EvidenceObject.rnw": "80d7e066372fbc8ebec486a486082362f7e13abe99c5c9dc47f4c5997bbba08a",
+    "HEDULedgerNet.rnw": "0ff9aae085212dd0233559149801ea37033b255eb0139fc6a77fd924451544c4",
+    "HRAgent.rnw": "1e68fa0ad1ac2851276cdd79ff8038bc31f01f8b15a5c872eeec26b7f9a72fab",
+    "ProfessorAgent.rnw": "a169f319dc89df8896459ee8d231bbfce6a00bf62178ff5f2814ca4a1be4ef35",
+    "StudentAgent.rnw": "8b07a2406267b8bd964b75d8565ac7a49262f5b40e4e83c90bf5f244c2ea2ab8",
+    "SystemNet.rnw": "04bc84a59bff43a5ec27947f14635163f472e1e28d433d0a3ce4c9382a7553c3",
+    "UniversityAgent.rnw": "95725af7b9bd57e7f7665e2ca74a5594b833ace785882cc880633e989c715967",
+    "WalletNet.rnw": "ecbc5bb8e4bb302ec121380ea058f265f164c3c90849e2a4edd7befa166ada8a"
+  },
+  "structure": {
+    "nets": 11,
+    "places": 80,
+    "transitions": 87,
+    "arcs": 174
+  }
+}

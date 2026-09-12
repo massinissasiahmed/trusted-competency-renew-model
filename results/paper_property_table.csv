@@ -1,0 +1,11 @@
+property,name,status,scope
+P1,Nominal reachability,PASS,"Existential witness only, finite specified fixtures"
+P2,Failure terminal reachability,PASS,"Existential witness only, finite specified fixtures"
+P3,No unfinished global deadlock,NOT EXHAUSTIVELY VERIFIED,Partial directed evidence only; full campaign stopped on P7
+P4,Commit-before-share,NOT EXHAUSTIVELY VERIFIED,Partial directed evidence only; full campaign stopped on P7
+P5,Anchoring consistency,NOT EXHAUSTIVELY VERIFIED,Partial directed evidence only; full campaign stopped on P7
+P6,Invalid student signature safety,NOT EXHAUSTIVELY VERIFIED,Partial directed evidence only; full campaign stopped on P7
+P7,Invalid issuer signature safety,FAIL,Native invalid-issuer accepted/anchored success counterexample; cancellation still disabled
+P8,Reference retention,NOT EXHAUSTIVELY VERIFIED,Partial directed evidence only; full campaign stopped on P7
+P9,Terminal outcome consistency,NOT EXHAUSTIVELY VERIFIED,Partial directed evidence only; full campaign stopped on P7
+P10,Transition coverage,NOT EXHAUSTIVELY VERIFIED,Partial directed evidence only; full campaign stopped on P7

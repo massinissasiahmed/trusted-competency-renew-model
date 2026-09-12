@@ -1,0 +1,16 @@
+id,competition,executions,interpretation
+A,wait / evidence rejection,inter_A_reject_before_wait;inter_A_wait_before_reject,both feasible orders executed
+B,progress / cancellation,inter_cancel_phase0;inter_cancel_phase1;inter_cancel_phase2,all three abort phases; progress-first and cancel-first
+C,progress / expiry,inter_expire_phase0;inter_expire_phase1;inter_expire_phase2,all three abort phases at expiry
+D,holder accept / reject,inter_D_E_accept;inter_D_reject,both genuine alternatives at valid decision
+E,holder accept / issuer cancel,inter_D_E_accept;inter_cancel_phase2,both genuine alternatives at valid decision
+F,holder accept / expiry,inter_F_expiry_excludes_accept;inter_D_E_accept,NOT a simultaneous competition: fixed-time guards are mutually exclusive
+G,invalid student denial / apparent success,inter_G_student_denial;inter_G_cancel_instead_of_student_denial,success unavailable; denial/cancel genuinely feasible
+H,invalid issuer denial / apparent success,inter_issuer_deny_phase0;inter_issuer_deny_phase1;inter_issuer_deny_phase2,success unavailable; progress/denial phases observed
+I,ledger progress / reject,inter_I_ledger_reject;inter_D_E_accept,Validate/Reject compete only at Ordered; rejection unavailable elsewhere
+J,anchor / Student VP,inter_D_E_accept,VP disabled before anchor; no simultaneous competition
+K,anchor / Wallet VP,inter_D_E_accept,VP disabled before anchor; no simultaneous competition
+L,Student before Wallet,inter_VP_wallet_g7_s7,complete native successful continuation
+M,Wallet before Student,inter_VP_wallet_g0_s0,complete native successful continuation
+N,HR relative to independent Wallet,inter_VP_wallet_g*_s*,all ordered Wallet insertion slots among Student/HR steps tested
+O,assessment success / rejection,inter_O_wait_before_assessment_pass;inter_O_wait_before_assessment_fail,grade guards choose exclusive partners; no same-fixture two-way race

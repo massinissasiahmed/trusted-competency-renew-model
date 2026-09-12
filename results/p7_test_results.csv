@@ -1,0 +1,8 @@
+test,status,native_evidence
+P7-A,PASS,p7_post_repair_regressions.txt: happy SUCCESS
+P7-B,PASS,"p7_post_repair.txt: all complete bindings, received; finite denial"
+P7-C,PASS,p7_post_repair.txt: disabled valid cancellation; INVALID_ISSUER_SIGNATURE
+P7-D,PASS,p7_post_repair_regressions.txt: cancel CANCELLED
+P7-E,PASS,p7_post_repair_regressions.txt: submitted/waiting/received native denial endpoints
+P7-F,PASS,p7_post_repair.txt: no acceptance or ledger participant; order/validate/commit/anchor disabled
+P6,PASS,p7_post_repair_regressions.txt: invalid_student_received enumeration; INVALID_SIGNATURE

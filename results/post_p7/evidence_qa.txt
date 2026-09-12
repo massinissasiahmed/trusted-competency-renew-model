@@ -1,0 +1,1 @@
+PASS: CSV shape; complete fixture decision alternatives; 450 native runtime observations; 30 independent repetitions per scenario; recalculated statistics; 10 runs per root scale; per-checkpoint reference retention; directed coverage; unchanged model/historical hashes. No additional model executions were run for this evidence QA.

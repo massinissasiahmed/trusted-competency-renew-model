@@ -1,0 +1,16 @@
+{
+  "tested_P7": "PASS",
+  "exhaustive_P7": false,
+  "cryptographic_verification": false,
+  "regressions_passed": 15,
+  "old_firing_prefix_replayed": 12,
+  "drawings": 11,
+  "changed_drawings": 2,
+  "changed_inscriptions": 8,
+  "places_added": 0,
+  "transitions_added": 0,
+  "arcs_added": 0,
+  "replay_enabled_at_endpoint": 0,
+  "replay_active_unfinished": 0,
+  "historical_evidence_preserved": true
+}

@@ -1,0 +1,98 @@
+[
+  {
+    "file": "CH.ifa.draw-2.0.0.jar",
+    "sha256": "7bf8a6ea18f107641dca2db9758700de28b012c56d147cd30c13d0dc2c2f771a",
+    "configuration": "name = Renew JHotDraw\nmainClass = CH.ifa.draw.DrawPlugin\nprovides = ch.ifa.draw\nrequires = de.renew.util,de.renew.windowmanagement\nversion = 2.0.0\nversionDate = 2022-02-04\n\n# Known properties\n# ----------------\n# For documentation, see JavaDoc of class CH.ifa.draw.util.GuiProperties.\n\n# a) numeric values\t\n### The DrawingLoadServer is started at port 65111 if the property is not set\nde.renew.loadServerPort=<not set>\nde.renew.defaultFontSize=<not set>\nde.renew.menuFontSize=<not set>\nde.renew.defaultFontName=<not set>\n### Number of drawings listed in the recently saved menu (dynamically checked)\nch.ifa.draw.num-of-recent-files=10\n\n# b) boolean flags\nde.renew.windowResizable=false\nde.renew.avoidFrameReshape=false\nde.renew.customToolBorders=false\nde.renew.noGraphics=false\n### allow hotkeys for recently saved files\n### (must be available at start-up)\nch.ifa.draw.show-recentlysaved-hotkeys=false\n### workaround to bring window frames to front on certain os \n### (must be available at start-up)\nch.ifa.draw.window-focus-workaround=false\n\n# c) specific properties\n# smoothing strategy of polygon figure (alignment (default), distances, off)\nch.ifa.draw.polygon.smoothing=alignment\n\n# d) ToolButton Key Mapping\n# use upper case letters for sticky function\n# use Selection Tool to undo sticky function\n# use name of tool as suffix to define new map entries\n# (be careful not to use duplicate keys)\nde.renew.keymap.use-mapping=false\nde.renew.keymap.Selection_Tool=.\nde.renew.keymap.Transition_Tool=t\nde.renew.keymap.Place_Tool=p\nde.renew.keymap.Virtual_Place_Tool=v\nde.renew.keymap.Arc_Tool=a\nde.renew.keymap.Test_Arc_Tool=x\nde.renew.keymap.Reserve_Arc_Tool=r\nde.renew.keymap.Flexible_Arc_Tool=f\nde.renew.keymap.Inscription_Tool=i\nde.renew.keymap.Name_Tool=n\nde.renew.keymap.Declaration_Tool=d\n\n\n# e) grid settings\nch.ifa.draw.grid.size=5\nch.ifa.draw.grid.default=false\n",
+    "analysis_named_entries": []
+  },
+  {
+    "file": "de.renew.console-2.0.0.jar",
+    "sha256": "c4fab92343c24fd59a39dfb797f9b2210742e7416048e7032788a6a62cea3d60",
+    "configuration": "# +-------------------------------------------------------------------\n# | plugin.cfg (version 0.4)\n# |\n# | Configures the Console plug-in for Renew.\n# | This plug-in enhances Renew as functionality extension.\n# | This file is generated from a template (de/renew/pd/netcomponents/plugin.cfg.vm)\n# | with the PluginDevelopment Plugin (version 0.4).\n# | However, it may be edited / cutomized.\n# +-------------------------------------------------------------------\n\n# Fixed properties of the plugin\n# ------------------------------\nname = Renew Console\nmainClass = de.renew.console.ConsolePlugin\nprovides = de.renew.prompt\nrequires = de.renew.util, ch.ifa.draw\nversion = 2.0.0\nversionDate = 2022-02-04\nversionText = Advanced version of the Renew prompt (console) using JLine2.\n\n# User-configurable plugin properties\n# -----------------------------------\nde.renew.console.dont=false\nde.renew.console.keepalive=false\nde.renew.console.color=false\n",
+    "analysis_named_entries": []
+  },
+  {
+    "file": "de.renew.export-2.0.0.jar",
+    "sha256": "04a6cf50606db448908fdd5353828d5687d57733e7b95dea66685beccf3856a8",
+    "configuration": "name = Renew FreeHep Export\nmainClass = de.renew.export.io.exportFormats.ExportPlugin\nprovides = de.renew.export\nrequires = de.renew.util,ch.ifa.draw\nversion = 2.0.0\nversionDate = 2022-02-04\n\n# Known properties\n# ----------------\n\n#Page Size possible values are A3,A4,A5,A6,International,Letter,Legal,Executive,Ledger and BoundingBox\n#This value only works for PDF export\nde.renew.export.io.pageSize = BoundingBox\n\n#Page orientation possible values are Portrait or Landscape\n#This value only works for PDF export\nde.renew.export.io.pageOrientation = Portrait\n\n#EPS font handling possible values are Embed, Shapes or None\nde.renew.export.io.epsFontHandling = Shapes\n\n# set the background color of EPS transparent \n# dynamic boolean property (is determined during method call)\nde.renew.export.io.eps-transparency = false\n",
+    "analysis_named_entries": []
+  },
+  {
+    "file": "de.renew.formalism-2.0.0.jar",
+    "sha256": "7ce1257a149bb1dc79f212dec5c4f8b27f9f4378a38653e3b7ce42501328c749",
+    "configuration": "name = Renew Formalism\nmainClass = de.renew.formalism.FormalismPlugin\nprovides = de.renew.formalism\nrequires = de.renew.simulator\nversion = 2.0.0\nversionDate = 2022-02-04\n\nrenew.compiler = Java Net Compiler\n",
+    "analysis_named_entries": []
+  },
+  {
+    "file": "de.renew.formalism.gui-2.0.0.jar",
+    "sha256": "47af2df630afaa5ef86f2bb4f64dd30dc87a2eb1fc259d2446392d960a5fc63d",
+    "configuration": "mainClass=de.renew.formalism.gui.FormalismGuiPlugin\nname=Renew Formalism Gui\nrequires=de.renew.gui\nprovides=de.renew.formalism.gui\nversion = 2.0.0\nversionDate = 2022-02-04\n",
+    "analysis_named_entries": []
+  },
+  {
+    "file": "de.renew.gui-2.0.0.jar",
+    "sha256": "3adedf080952bc1ff1c44e40160aaf6964d757b4a1cd8bc1c34919f48696cb79",
+    "configuration": "mainClass = de.renew.gui.GuiPlugin\nname = Renew Gui\nprovides = de.renew.gui\nrequires = ch.ifa.draw,de.renew.formalism,de.renew.remote\nversion = 2.0.0\nversionDate = 2022-02-04\n\nde.renew.gui.shutdownOnClose = false\nde.renew.gui.autostart = false\nde.renew.gui.noTokenBackground = false\nshutdownTimeout = -1\nde.renew.gui.verificationMenu = false\n\nde.renew.help.gui.title = About Renew\nde.renew.help.gui.version = <h3>Renew Version 4.1</h3> February 14, 2023\nde.renew.help.gui.content = <p>\\u00a9 2023 Kummer, Wienberg, Duvigneau, Cabac, Haustermann, Mosteller</p>\\\n<p>Further credits are given in the renew user guide.</p>\nde.renew.help.gui.enableLinks = true\n    \n",
+    "analysis_named_entries": []
+  },
+  {
+    "file": "de.renew.logging.gui-2.0.0.jar",
+    "sha256": "0101b4b5bef0c6a90af7ff86297ce4e4307a48bb6f7f22177b085763410e5a38",
+    "configuration": "mainClass = de.renew.logging.gui.LoggingGuiPlugin\nname = Renew Logging\nprovides = de.renew.logging.gui\nrequires = de.renew.gui\nversion = 2.0.0\nversionDate = 2022-02-04\n\nappender.type.ConsoleAppender.class = org.apache.log4j.ConsoleAppender\nappender.type.FileAppender.class = org.apache.log4j.RollingFileAppender\nappender.type.GuiAppender.class = de.renew.logging.gui.GuiAppender\n\n\n",
+    "analysis_named_entries": []
+  },
+  {
+    "file": "de.renew.misc-2.0.0.jar",
+    "sha256": "0bd9e74ea9ca6969168f8e5f26701613ab90df08c9520a2bde334662d5985140",
+    "configuration": "name = Renew Misc\nmainClass = de.renew.watch.WatchPlugin\nprovides = de.renew.misc\nrequires = de.renew.formalism\nversion = 2.0.0\nversionDate = 2022-02-04\n",
+    "analysis_named_entries": []
+  },
+  {
+    "file": "de.renew.navigator-2.0.0.jar",
+    "sha256": "234dafcffeaa64c9b29588668540cce9bd4b37e8e16f558e0d48bb39f79dd269",
+    "configuration": "# +-------------------------------------------------------------------\n# | plugin.cfg (version ${pd.version})\n# |\n# | Configures the Navigator plug-in for Renew.\n# | This plug-in enhances Renew as functionality extension.\n# | This file is generated from a template (de/renew/pd/netcomponents/plugin.cfg.vm)\n# | with the PluginDevelopment Plugin (version ${pd.version}).\n# | However, it may be edited / customized.\n# +-------------------------------------------------------------------\n# Fixed properties of the plugin\n# ------------------------------\nname = Renew Navigator\nmainClass = de.renew.navigator.NavigatorPlugin\nprovides = de.renew.navigator\nrequires = ch.ifa.draw\nversion = 2.0.0\nversionDate = 2022-02-04\n\n# User-configurable plugin properties\n# -----------------------------------\n#load directories on startup:\n# specify directories as a SEMICOLON separated list!!!\n# subdirectories of your workspace can be added as follows, e.g.: \n#    Mulan/Fipa;Renew/Navigator/src/de/renew/navigator\n# directories beyond your workspace can be added as \n#    fully qualified path, i.e.: /<path>/<to>/<your>/<desired>/<dir>\nde.renew.navigator.workspace=<not set>\nde.renew.navigator.filesAtStartup=<not set>\n",
+    "analysis_named_entries": []
+  },
+  {
+    "file": "de.renew.netcomponents-2.0.0.jar",
+    "sha256": "d52017f5c5ac724c1cf35ba5ce3969247a4a6e646ce3da2ec000ef4105bd6474",
+    "configuration": "mainClass = de.renew.netcomponents.ComponentsToolPlugin\nname = Renew NetComponents\nalias = nc\nprovides = de.renew.nc\nrequires = de.renew.gui\nversion = 2.0.0\nversionDate = 2022-02-04\nversionText = Net Components Tool \nuser.toolsdir = tools\nde.renew.nc.init = false\n",
+    "analysis_named_entries": []
+  },
+  {
+    "file": "de.renew.ptchannel-0.1.jar",
+    "sha256": "f31d9cccb361ba1ed37be7502a487c3a33a03858fb1cc62b191c1eb4d6c0b4de",
+    "configuration": "# Fixed properties of the plugin\n# ------------------------------\nname = Renew PTChannel\nmainClass = de.renew.ptchannel.PTChannelPlugin\nprovides = de.renew.ptchannel\nrequires = de.renew.formalism\nversion = 0.1\nversionDate = 2021-08-23\n\n# User-configurable plugin properties\n# -----------------------------------\n",
+    "analysis_named_entries": []
+  },
+  {
+    "file": "de.renew.remote-2.0.0.jar",
+    "sha256": "14b42bbf8c47624ea30b74928e3276d4682ec2fa2852d96906a5f71abba487fe",
+    "configuration": "# +-------------------------------------------------------------------\n# | plugin.cfg (version ${pd.version})\n# |\n# | Configures the Remote plug-in for Renew.\n# | This plug-in enhances Renew as functionality extension.\n# | This file is generated from a template (de/renew/pd/netcomponents/plugin.cfg.vm)\n# | with the PluginDevelopment Plugin (version ${pd.version}).\n# | However, it may be edited / customized.\n# +-------------------------------------------------------------------\n\n# Fixed properties of the plugin\n# ------------------------------\nname = Renew Remote\nmainClass = de.renew.remote.RemotePlugin\nprovides = de.renew.remote\nrequires = de.renew.simulator\nversion = 2.0.0\nversionDate = 2022-02-04\n\n# User-configurable plugin properties\n# -----------------------------------\n",
+    "analysis_named_entries": []
+  },
+  {
+    "file": "de.renew.simulator-2.0.0.jar",
+    "sha256": "bb4861479f0f14095f97889af6df38bc9f42154f1e4af8e9dc0e775a4d130502",
+    "configuration": "# Plugin configuration file for the Renew Simulator plugin\n\n# Plugin specification properties\n# -------------------------------\nname = Renew Simulator\nmainClass = de.renew.application.SimulatorPlugin\nprovides = de.renew.simulator\nrequires = de.renew.util\nversion = 2.0.0\nversionDate = 2022-02-04\n\n\n# User-configurable properties\n# ----------------------------\n\n# A) Simulation engine\n# Note: simulatorMode combines simulatorClass and \n#       simulatorMultiplicity, but can be overridden\n#       by the other two properties.\nde.renew.simulatorMode = 1\nde.renew.simulatorClass = <not set>\nde.renew.simulatorMultiplicity = <not set>\nde.renew.eagerSimulation = false\nde.renew.netPath = <not set>\nde.renew.classReinit = false\nde.renew.simulatorPriority = <not set>\n\n# B) Remote access\nde.renew.remote.enable = false\nde.renew.remote.publicName = default\nde.renew.remote.serverClass = de.renew.remote.ServerImpl\nde.renew.remote.socketFactory = <not set>\n\n# C) Database backing\nde.renew.simdb.driver = <not set>\nde.renew.simdb.dialect = de.renew.database.entitylayer.SQLDialect\nde.renew.simdb.url = <not set>\nde.renew.simdb.user = <not set>\nde.renew.simdb.password = <not set>\n",
+    "analysis_named_entries": []
+  },
+  {
+    "file": "de.renew.splashscreen-2.0.0.jar",
+    "sha256": "3c574bd387883be1e679fdd35c271cfb7cd45dc6f43ba5f9c26eb1e958c4c177",
+    "configuration": "# +-------------------------------------------------------------------\n# | plugin.cfg (version ${pd.version})\n# |\n# | Configures the Splashscreen plug-in for Renew.\n# | This plug-in enhances Renew as functionality extension.\n# | This file is generated from a template (de/renew/pd/netcomponents/plugin.cfg.vm)\n# | with the PluginDevelopment Plugin (version ${pd.version}).\n# | However, it may be edited / cutomized.\n# +-------------------------------------------------------------------\n\n# Fixed properties of the plugin\n# ------------------------------\nname = Renew Splashscreen\nmainClass = de.renew.splashscreen.SplashscreenPlugin\nprovides = de.renew.splashscreen\nversion = 2.0.0\nversionDate = 2022-02-04\n\n# User-configurable plugin properties\n# -----------------------------------\n# (De-)activate the splash screen during initial loading of plugins:\nde.renew.splashscreen.enabled = true\n",
+    "analysis_named_entries": []
+  },
+  {
+    "file": "de.renew.util-2.0.0.jar",
+    "sha256": "9b49f63744a2b8978d36a0cb6e497861c294dbf595df4b01de87ac71b782c92e",
+    "configuration": "# Fixed properties of the plugin\n# ------------------------------\nname = Renew Util\nprovides = de.renew.util\nversion = 2.0.0\nversionDate = 2022-02-04\n\n# User-configurable plugin properties\n# -----------------------------------\n",
+    "analysis_named_entries": []
+  },
+  {
+    "file": "de.renew.windowmanagement-2.0.0.jar",
+    "sha256": "f5cf9b799a559f02861fcfdd00d71e3deada43664660b4c4a587db590231252b",
+    "configuration": "name = Renew Window Management\nmainClass = de.renew.windowmanagement.WindowManagementPlugin\nprovides = de.renew.windowmanagement\nrequires =\nversion = 2.0.0\nversionDate = 2022-02-04",
+    "analysis_named_entries": []
+  }
+]

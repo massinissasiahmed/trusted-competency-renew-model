@@ -1,0 +1,7 @@
+powershell.exe : log4j:WARN No appenders could be found for logger (de.renew.plugin.PluginProperties).
+At C:\Users\maci1\Desktop\renew_model\HEDU_Renew_Project\results\post_p7\checkpoint\VerifyP7.ps1:7 char:5
++     & powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\Valid ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (log4j:WARN No a...ginProperties).:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 

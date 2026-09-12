@@ -1,0 +1,38 @@
+{
+  "CompetencyNet": [
+    [
+      "co:sbt_accept(studentSignature)",
+      "co:sbt_accept(studentSignature,issuerSignature)"
+    ],
+    [
+      "co:sbt_reject(studentSignature)",
+      "co:sbt_reject(studentSignature,issuerSignature)"
+    ],
+    [
+      "co:expire()",
+      "co:expire(issuerSignature)"
+    ],
+    [
+      "co:deny(providedSignature)",
+      "co:deny(providedSignature,issuerSignature)"
+    ]
+  ],
+  "CredentialObject": [
+    [
+      ":sbt_accept(studentSignature)",
+      ":sbt_accept(studentSignature,issuerSignature)"
+    ],
+    [
+      ":sbt_reject(studentSignature)",
+      ":sbt_reject(studentSignature,issuerSignature)"
+    ],
+    [
+      ":expire()",
+      ":expire(issuerSignature)"
+    ],
+    [
+      ":deny(providedSignature)",
+      ":deny(providedSignature,issuerSignature)"
+    ]
+  ]
+}

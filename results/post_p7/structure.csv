@@ -1,0 +1,12 @@
+net,places,transitions,arcs
+SystemNet,8,8,16
+StudentAgent,10,14,28
+ProfessorAgent,6,5,10
+UniversityAgent,6,5,10
+EvidenceNet,6,5,10
+CompetencyNet,8,12,24
+WalletNet,8,11,22
+HEDULedgerNet,7,6,12
+HRAgent,7,6,12
+EvidenceObject,4,3,6
+CredentialObject,10,12,24

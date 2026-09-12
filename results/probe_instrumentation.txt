@@ -1,0 +1,3 @@
+Generated from tools/BuildProject.java SHA256 8c9c24363ab749bd3217f121c7e085ff68b98ea4e6d4488aa38485c4681feba9
+Changes: class renamed; existing in-memory issuer override applied to happy; correct-fixture denial-disabled assertion replaced with native competing-denial/accept binding checks and disabled valid-cancel check; exit 2 on complete success. All transition inscriptions, graphs, execution operations and full endpoint checks unchanged.
+Probe source SHA256 5730c6a288eb819d5f6167f8be1e100ff22252a617f977283da0e4db7967fd26

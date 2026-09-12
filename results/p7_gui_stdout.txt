@@ -1,0 +1,33 @@
+gui
+CompetencyNet.rnw
+CredentialObject.rnw
+EvidenceNet.rnw
+EvidenceObject.rnw
+HEDULedgerNet.rnw
+HRAgent.rnw
+ProfessorAgent.rnw
+StudentAgent.rnw
+SystemNet.rnw
+UniversityAgent.rnw
+WalletNet.rnw
+INFO: no additional plugin locations set.
+INFO: loading plugins...
+Renew > INFO: loaded plugin: Renew Util
+INFO: loaded plugin: Renew Simulator
+INFO: loaded plugin: Renew Formalism
+INFO: loaded plugin: Renew Misc
+INFO: loaded plugin: Renew PTChannel
+INFO: loaded plugin: Renew Remote
+INFO: loaded plugin: Renew Window Management
+INFO: loaded plugin: Renew JHotDraw
+INFO: loaded plugin: Renew Gui
+INFO: loaded plugin: Renew Formalism Gui
+INFO: loaded plugin: Renew Logging
+INFO: loaded plugin: Renew NetComponents
+INFO: loaded plugin: Renew Console
+INFO: loaded plugin: Renew FreeHep Export
+INFO: loaded plugin: Renew Navigator
+INFO: loaded plugin: Renew Splashscreen
+Opening gui...
+ERROR: Server Socket is occupied!
+InvocationTarget error while invoking PluginManagers main class

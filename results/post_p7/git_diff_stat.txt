@@ -1,0 +1,18 @@
+ .gitignore              |  19 +-
+ CHANNEL_MATRIX.md       | 159 ++++++++------
+ CompetencyNet.rnw       | 180 +++++++++++----
+ CredentialObject.rnw    | 146 ++++++++++---
+ EvidenceNet.rnw         |  30 +--
+ HEDULedgerNet.rnw       |  57 ++---
+ MODEL_VALIDATION.md     | 565 ++++++++++++++++--------------------------------
+ ProfessorAgent.rnw      |  54 ++---
+ README.md               |  14 +-
+ REGRESSION_REPORT.md    | 194 ++++++++---------
+ StudentAgent.rnw        | 180 ++++++++++++---
+ UniversityAgent.rnw     |  50 ++---
+ Validate.ps1            |   2 +-
+ WalletNet.rnw           | 145 +++++++++++--
+ model.tsv               | 203 +++++++++++------
+ model_manifest.json     | 254 ++++++++++++++++++----
+ tools/BuildProject.java | 238 ++++++++++++++------
+ 17 files changed, 1548 insertions(+), 942 deletions(-)

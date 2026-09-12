@@ -1,0 +1,2 @@
+explored_terminal_executions,expected_success,expected_failure,defective_global_deadlocks
+79,39,40,0
